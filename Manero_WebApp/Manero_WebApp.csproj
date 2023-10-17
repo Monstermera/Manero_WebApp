@@ -25,7 +25,6 @@
     <Folder Include="Models\Schemas\" />
     <Folder Include="ViewModels\ContactViewModels\" />
     <Folder Include="ViewModels\AccountViewModels\" />
-    <Folder Include="ViewModels\HomeViewModels\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Partials\FullScreenComponents\Navbars\" />
@@ -34,7 +33,6 @@
     <Folder Include="Views\Partials\FullScreenComponents\Footer\" />
     <Folder Include="Views\Partials\FullScreenComponents\NewsLetter\" />
     <Folder Include="Views\Partials\FullScreenComponents\Showcase\" />
-    <Folder Include="Views\Partials\FullScreenComponents\SaleComponent\" />
     <Folder Include="Views\Partials\SmallComponents\ProductCards\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\scss\components\" />
