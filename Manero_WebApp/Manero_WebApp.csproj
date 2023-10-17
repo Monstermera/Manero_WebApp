@@ -39,7 +39,6 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\scss\components\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="wwwroot\scss\global\" />
   </ItemGroup>
 
   <ItemGroup>
