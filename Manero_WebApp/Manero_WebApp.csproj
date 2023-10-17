@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Contexts\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Helpers\Repositories\MainRepo\" />
     <Folder Include="Helpers\Services\" />
     <Folder Include="Models\Entities\" />
@@ -29,7 +28,6 @@
     <Folder Include="ViewModels\HomeViewModels\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Account\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\Partials\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\scss\core\" />
