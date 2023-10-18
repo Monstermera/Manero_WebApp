@@ -1,0 +1,19 @@
+﻿.Showcase {
+    .container {
+        position: relative;
+        width: 375px;
+        height: 300px;
+
+        img {
+            display: block;
+        }
+
+        h1 {
+            position: absolute; 
+            bottom: 27px; 
+            left: 20px; 
+            color: white; 
+            margin: 0; 
+        }
+    }
+}
