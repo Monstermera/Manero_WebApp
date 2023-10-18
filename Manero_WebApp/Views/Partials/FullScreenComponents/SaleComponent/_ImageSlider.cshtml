@@ -15,44 +15,10 @@
         new ImageSliderViewModel
         {
             Title1 = "Slide 3",
-            ImageUrl = "https://images.unsplash.com/photo-1622927569053-d7896a1e9c80?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2070"
+            ImageUrl = "https://images.unsplash.com/photo-1554411529-ee36dfde51b9?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
     };
 }
-<style>
-    .page-dots {
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .page-dot {
-        width: 10px;
-        height: 10px;
-        background-color: #999;
-        border-radius: 50%;
-        display: inline-block;
-        margin: 0 5px;
-        cursor: pointer;
-    }
-
-    .page-dot.active {
-        border-radius: 10px;
-        background-color: transparent;
-        border: 3px solid #111111;
-        width: 2.5rem;
-    }
-
-    .image-component-body {
-       max-width: 1100px;
-    }
-
-    .slider-image  {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
-</style>
-
 <section class="my-5">
     @foreach (var item in imageSliderItems)
     {
@@ -73,51 +39,4 @@
     <div class="page-dots"></div>
 </section>
 
-
-<script>
-﻿    const imageBody = document.querySelectorAll(".image-component-body");
-    const pageDots = document.querySelector(".page-dots");
-
-    let currentIndex = 0;
-
-    function showArticle(index) {
-        imageBody.forEach((imageBody, i) => {
-            if (i >= index && i < index + 1) {
-                imageBody.classList.remove("d-none");
-                imageBody.classList.add("d-block");
-            } else {
-                imageBody.classList.add("d-none");
-                imageBody.classList.remove("d-block");
-            }
-        });
-    }
-
-    function createPageDots() {
-        const numPages = Math.ceil(imageBody.length / 1);
-        for (let i = 0; i < numPages; i++) {
-            const dot = document.createElement("span");
-            dot.classList.add("page-dot");
-            dot.addEventListener("click", () => {
-                currentIndex = i * 1;
-                showArticle(currentIndex);
-                updatePageDots();
-            });
-            pageDots.appendChild(dot);
-        }
-    }
-
-    function updatePageDots() {
-        const dots = document.querySelectorAll(".page-dot");
-        dots.forEach((dot, i) => {
-            if (i * 1 === currentIndex) {
-                dot.classList.add("active");
-            } else {
-                dot.classList.remove("active");
-            }
-        });
-    }
-
-    createPageDots();
-    showArticle(currentIndex);
-    updatePageDots();
-</script>
+<script src="~/js/ImageSlider.js"></script>
