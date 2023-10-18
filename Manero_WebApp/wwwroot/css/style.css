@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 /* Custom Icon Pattern background */
 .customIcon {
   width: 175px;
@@ -128,7 +128,8 @@
 .customIconProfile img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* Social Media Login Icon */
@@ -520,4 +521,39 @@
   font-size: 20px;
   font-weight: bold;
   padding: 0 30px;
+}
+
+.form-input fieldset {
+  margin-top: 50px;
+  border: 1px solid #DBE3F5;
+  border-radius: 30px;
+  padding: 10px;
+  width: 335px;
+  height: 60px;
+  position: relative;
+}
+.form-input legend {
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  background-color: #FFFFFF;
+  width: auto;
+  z-index: 1;
+  padding: 0 5px;
+}
+.form-input input {
+  width: 85%;
+  padding: 7px;
+  border: 1px solid #DBE3F5;
+  border-color: #FFFFFF;
+  outline: none;
+}
+.form-input input:focus {
+  outline: none !important;
+  border: 1px solid #FFFFFF;
+}
+.form-input .icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
