@@ -238,3 +238,95 @@
   color: #8C93A7;
   margin: 0;
 }
+
+@keyframes popup {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+@keyframes close {
+  from {
+    scale: 1;
+    opacity: 1;
+  }
+  to {
+    scale: 0;
+    opacity: 0;
+  }
+}
+.decision-modal-backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+  position: fixed;
+  z-index: 10;
+  transition: 0.3s ease-in-out;
+}
+
+.decision-pop-up-modal-close {
+  animation: close linear 0.3s !important;
+}
+
+.decision-pop-up-modal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 15;
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+  animation: popup linear 0.3s;
+}
+.decision-pop-up-modal .border {
+  height: 335px;
+  width: 335px;
+  border-radius: 50%;
+  border: 4px solid white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  z-index: 12;
+}
+.decision-pop-up-modal .border .content {
+  height: 290px;
+  width: 290px;
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  padding: 40px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.decision-pop-up-modal .border .content .horizontal-line {
+  border: 1px solid black;
+  height: 30px;
+}
+.decision-pop-up-modal .border .content .button-theme {
+  width: 140px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+.decision-pop-up-modal .border .content .button-theme:hover {
+  background-color: black;
+  color: white;
+}
+.decision-pop-up-modal .border .content h1 {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 30px;
+}
