@@ -28,7 +28,6 @@
     <Folder Include="ViewModels\HomeViewModels\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Account\" />
-    <Folder Include="Views\Partials\FullScreenComponents\Navbars\" />
     <Folder Include="Views\Partials\FullScreenComponents\BestSellers\" />
     <Folder Include="Views\Partials\FullScreenComponents\FeaturedProducts\" />
     <Folder Include="Views\Partials\FullScreenComponents\Footer\" />
@@ -37,7 +36,6 @@
     <Folder Include="Views\Partials\FullScreenComponents\SaleComponent\" />
     <Folder Include="Views\Partials\SmallComponents\ProductCards\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\scss\components\" />
     <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\scss\global\" />
   </ItemGroup>

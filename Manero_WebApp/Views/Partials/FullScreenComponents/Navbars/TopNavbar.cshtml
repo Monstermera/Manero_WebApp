@@ -1,0 +1,133 @@
+﻿<!-- Full screen Navbar -->
+<div class="desktop-top-navbar">
+    <div class="container">
+        <a class="logo" href="">Manero</a>
+
+        <div class="info-box">
+            <div class="icon">
+                <i class="fa-light fa-location-dot"></i>
+            </div>
+            <div>
+                <p>27 Division St, New York, NY 10002, USA</p>
+            </div>
+        </div>
+        <div class="info-box">
+            <span class="vertical-line"></span>
+            <div class="icon">
+                <i class="fa-light fa-envelope"></i>
+            </div>
+
+            <div>
+                <p>manerosale@mail.com</p>
+                <p>manerosupport@mail.com</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span class="vertical-line"></span>
+            <div class="icon">
+                <i class="fa-light fa-phone-volume"></i>
+            </div>
+            <div>
+                <p>+17 123456789</p>
+                <p>+17 987654321</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <form class="search-form">
+                <input id="navbar-search" class="" onclick="">
+                <button class="navbar-search-btn" onclick="expand()" type="button">
+                    <i class="fa-light fa-magnifying-glass"></i>
+                </button>
+            </form>
+            <button type="button" class="shopping-cart position-relative">
+                <i class="fa-light fa-bag-shopping"></i>
+                <span class="badge-pill rounded-pill text-bg-danger ">
+                    $10
+                </span>
+            </button>
+
+        </div>
+
+        <div class="page-links">
+            <a href="">Home</a>
+            <a href="">Products</a>
+        </div>
+    </div>
+    <hr>
+</div>
+<!-- Mobile Navbar -->
+<div class="mobile-top-navbar">
+    <nav class="container">
+        <button class="bars-menu" onclick="openMobileMenu()">
+            <i class="fa-regular fa-bars-staggered"></i>
+        </button>
+
+        <h1>Manero</h1>
+
+        <div class="slideout-background" onclick="closeMobileMenu()" id="slideout-background"></div>
+
+        <div class="slideout-menu" id="navigation-slideout-menu">
+            <div class="upper-section">
+                <button type="button" onclick="openMobileMenu()" class="close-btn" data-bs-dismiss="offcanvas"
+                        aria-label="Close">
+                    <i class="fa-light fa-xmark"></i>
+                </button>
+                <div class="contact-info">
+                    <h1>Contact Us</h1>
+                    <div class="info-box">
+                        <div class="icon">
+                            <i class="fa-light fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p>27 Division St, New York, NY 10002, USA</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="info-box">
+                        <div class="icon">
+                            <i class="fa-light fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <p>manerosale@mail.com</p>
+                            <p>manerosupport@mail.com</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="info-box">
+                        <div class="icon">
+                            <i class="fa-light fa-phone-volume"></i>
+                        </div>
+                        <div>
+                            <p>+17 123456789</p>
+                            <p>+17 987654321</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+
+            <div class="track-order">
+                <h5>Track your order</h5>
+                <form action="">
+                    <legend>order number</legend>
+                    <input type="text">
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="shopping-cart-menu position-relative">
+                <i class="fa-light fa-bag-shopping"></i>
+                <span class="badge-pill rounded-pill text-bg-danger ">
+                    $10
+                </span>
+            </button>
+        </div>
+
+    </nav>
+    <hr>
+</div>
