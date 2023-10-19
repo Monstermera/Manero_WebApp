@@ -17,12 +17,15 @@
 
       legend {
       position: absolute;
-      top: -20px;
+      top: -18px;
       left: 30px;
       background-color: #FFFFFF;
       width: auto;
       z-index: 1;
       padding: 0 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: $color-grey;
       }
   
   
