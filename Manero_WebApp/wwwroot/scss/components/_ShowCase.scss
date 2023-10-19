@@ -1,4 +1,8 @@
-﻿.Showcase {
+﻿.Showcase-mobile {
+    @include xl {
+        display: none;
+    }
+
     .container {
         position: relative;
         width: 375px;
@@ -9,11 +13,41 @@
         }
 
         h1 {
-            position: absolute; 
-            bottom: 27px; 
-            left: 20px; 
-            color: white; 
-            margin: 0; 
+            position: absolute;
+            bottom: 27px;
+            left: 20px;
+            color: white;
+            margin: 0;
+        }
+    }
+}
+
+.Showcase-desktop {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+
+        img {
+            display: block;
+            width: 800px;
+            height: 600px;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: 27px;
+            left: 20px;
+            color: white;
+            margin: 0;
         }
     }
 }
