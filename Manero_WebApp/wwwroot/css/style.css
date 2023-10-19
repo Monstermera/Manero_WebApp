@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 /* Custom Icon Pattern background */
 .customIcon {
   width: 175px;
@@ -149,26 +149,25 @@
 }
 
 /* Footer Icons */
-.footerIcon {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  background-color: #FFFFFF;
+/*.footerIcon {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: $color-white;
 }
 
-.footerIcon i {
-  font-size: 25px;
-}
+    .footerIcon i {
+        font-size: 25px;
+    }
 
-.footerIcon:active {
-  border-radius: 50%;
-  background-color: #DBE3F5;
-}
-
+    .footerIcon:active {
+        border-radius: 50%;
+        background-color: $color-theme;
+    }*/
 /* cart Icon */
 .cartIcon {
   display: flex;
@@ -430,6 +429,114 @@
   margin: 0;
 }
 
+footer {
+  background-color: #111111;
+  padding-top: 70px;
+}
+footer .container .content {
+  display: flex;
+  flex-wrap: wrap;
+  color: #FFFFFF;
+}
+@media (min-width: 1400px) {
+  footer .container .content {
+    display: grid;
+    grid-template-columns: 4fr 2fr 2fr 1fr;
+  }
+}
+footer .container .content .footer-columns {
+  padding: 0 15px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  footer .container .content .footer-columns {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  footer .container .content .footer-columns {
+    padding: 0;
+    margin: 0;
+    width: 190px;
+    height: 250px;
+    padding: 0 30px;
+  }
+}
+footer .container .content .footer-columns .heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+}
+footer .container .content .footer-columns p {
+  width: 300px;
+  padding-top: 10px;
+}
+footer .container .content .footer-columns .subscribe-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 300px;
+}
+footer .container .content .footer-columns .subscribe-form .input-button-box {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+}
+footer .container .content .footer-columns .subscribe-form .input-button-box input {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  width: 300px;
+  padding: 0 20px;
+  margin: 10px 0;
+}
+@media (min-width: 1400px) {
+  footer .container .content .footer-columns .subscribe-form .input-button-box input {
+    width: 400px;
+  }
+}
+footer .container .content .footer-columns .subscribe-form .input-button-box button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: -50px;
+  margin-top: 0px;
+}
+footer .container .content .footer-columns .subscribe-form .input-button-box button i {
+  color: #F4303C;
+}
+footer .container .content .footer-columns ul {
+  list-style-type: none;
+  padding: 0;
+  line-height: 37px;
+}
+footer .container .content .footer-columns ul a {
+  color: #FFFFFF;
+}
+footer .container .content .footer-columns ul a:hover {
+  padding-left: 8px;
+  color: #F4303C;
+}
+footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+  color: white;
+}
+footer .copyright p i {
+  margin-right: 5px;
+}
+footer .copyright .social-media {
+  padding-left: 40px;
+}
+footer .copyright .social-media a {
+  color: white;
+  font-size: 18px;
+  margin-left: 15px;
+}
+
 @keyframes popup {
   from {
     scale: 0;
@@ -664,4 +771,40 @@
 }
 .bestsellers-desktop .container .products .product-card:last-child {
   margin-right: 0;
+.mobile {
+  display: flex;
+}
+@media (min-width: 1200px) {
+  .mobile {
+    display: none;
+  }
+}
+.mobile .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DBE3F5;
+  padding: 20px 0;
+}
+.mobile .bottom-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.mobile .bottom-nav ul li .footerIcon {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: #626262;
+}
+.mobile .bottom-nav ul li .footerIcon.active {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #DBE3F5;
+}
+.mobile .bottom-nav ul li .footerIcon i {
+  font-size: 25px;
 }
