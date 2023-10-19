@@ -32,7 +32,6 @@
     <Folder Include="Views\Partials\FullScreenComponents\FeaturedProducts\" />
     <Folder Include="Views\Partials\FullScreenComponents\Footer\" />
     <Folder Include="Views\Partials\FullScreenComponents\NewsLetter\" />
-    <Folder Include="Views\Partials\FullScreenComponents\Showcase\" />
     <Folder Include="Views\Partials\FullScreenComponents\SaleComponent\" />
     <Folder Include="Views\Partials\SmallComponents\ProductCards\" />
     <Folder Include="wwwroot\css\" />
