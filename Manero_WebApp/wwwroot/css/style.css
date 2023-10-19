@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-
+﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 /* Custom Icon Pattern background */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 .customIcon {
   width: 175px;
   height: 175px;
@@ -129,8 +129,7 @@
 .customIconProfile img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* Social Media Login Icon */
@@ -151,26 +150,25 @@
 }
 
 /* Footer Icons */
-.footerIcon {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  background-color: #FFFFFF;
+/*.footerIcon {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: $color-white;
 }
 
-.footerIcon i {
-  font-size: 25px;
-}
+    .footerIcon i {
+        font-size: 25px;
+    }
 
-.footerIcon:active {
-  border-radius: 50%;
-  background-color: #DBE3F5;
-}
-
+    .footerIcon:active {
+        border-radius: 50%;
+        background-color: $color-theme;
+    }*/
 /* cart Icon */
 .cartIcon {
   display: flex;
@@ -190,22 +188,6 @@
 .cartIcon:active {
   border-radius: 50%;
   background-color: #434343;
-}
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-
-.Showcase .container {
-  position: relative;
-  width: 375px;
-  height: 300px;
-}
-.Showcase .container img {
-  display: block;
-}
-.Showcase .container h1 {
-  position: absolute;
-  bottom: 27px;
-  left: 20px;
-  color: white;
 }
 
 @media (min-width: 1200px) {
@@ -573,4 +555,58 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.Showcase .container {
+  position: relative;
+  width: 375px;
+  height: 300px;
+}
+.Showcase .container img {
+  display: block;
+}
+.Showcase .container h1 {
+  position: absolute;
+  bottom: 27px;
+  left: 20px;
+  color: white;
+  margin: 0;
+}
+
+.mobile {
+  display: flex;
+}
+@media (min-width: 1200px) {
+  .mobile {
+    display: none;
+  }
+}
+.mobile .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DBE3F5;
+  padding: 20px 0;
+}
+.mobile .bottom-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.mobile .bottom-nav ul li .footerIcon {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: #626262;
+}
+.mobile .bottom-nav ul li .footerIcon.active {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #DBE3F5;
+}
+.mobile .bottom-nav ul li .footerIcon i {
+  font-size: 25px;
 }
