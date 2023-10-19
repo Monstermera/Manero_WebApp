@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 /* Custom Icon Pattern background */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 .customIcon {
   width: 175px;
   height: 175px;
@@ -771,6 +773,8 @@ footer .copyright .social-media a {
 }
 .bestsellers-desktop .container .products .product-card:last-child {
   margin-right: 0;
+}
+
 .mobile {
   display: flex;
 }
@@ -784,7 +788,8 @@ footer .copyright .social-media a {
   bottom: 0;
   width: 100%;
   border-top: 1px solid #DBE3F5;
-  padding: 20px 0;
+  padding: 30px 0;
+  background-color: white;
 }
 .mobile .bottom-nav ul {
   list-style: none;
