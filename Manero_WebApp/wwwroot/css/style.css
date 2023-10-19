@@ -666,15 +666,50 @@ footer .copyright .social-media a {
   right: 20px;
 }
 
-.Showcase .container {
+@media (min-width: 1200px) {
+  .Showcase-mobile {
+    display: none;
+  }
+}
+.Showcase-mobile .container {
   position: relative;
   width: 375px;
   height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.Showcase .container img {
+.Showcase-mobile .container img {
   display: block;
 }
-.Showcase .container h1 {
+.Showcase-mobile .container h1 {
+  position: absolute;
+  bottom: 27px;
+  left: 20px;
+  color: white;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .Showcase-desktop {
+    display: none;
+  }
+}
+.Showcase-desktop .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+.Showcase-desktop .container img {
+  display: block;
+  width: 800px;
+  height: 600px;
+}
+.Showcase-desktop .container h1 {
   position: absolute;
   bottom: 27px;
   left: 20px;
