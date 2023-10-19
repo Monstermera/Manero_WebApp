@@ -43,3 +43,19 @@ function closeDesicionModal() {
         backdrop.classList.add("d-none")
     }, 250);
 }
+
+// Toggle password asterisks
+function toggleVisibility() {
+    var toggle = document.getElementById("password-input-icon");
+    var passwordInput = document.getElementById("password");
+    if (toggle.className.includes("fa-eye-slash")) {
+        toggle.classList.remove("fa-eye-slash");
+        toggle.classList.add("fa-eye");
+        passwordInput.type = "text";
+    }
+    else {
+        toggle.classList.remove("fa-eye");
+        toggle.classList.add("fa-eye-slash");
+        passwordInput.type = "password";
+    }
+}

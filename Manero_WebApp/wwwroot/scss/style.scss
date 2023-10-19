@@ -1,3 +1,4 @@
+
 //Core
 @import "./core/_colors.scss";
 @import "./core/_fonts.scss";
@@ -9,7 +10,11 @@
 
 
 //Components
+@import "./components/_customIcons.scss";
 @import "./components/_topNavbar.scss";
 @import "./components/_footer.scss";
 @import "./components/_decisionModal.scss";
+@import "./components/_forms.scss";
+@import './components/_ShowCase.scss';
+
 
