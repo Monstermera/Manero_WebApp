@@ -1,3 +1,4 @@
+
 ﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 /* Custom Icon Pattern background */
 .customIcon {
@@ -188,6 +189,22 @@
 .cartIcon:active {
   border-radius: 50%;
   background-color: #434343;
+}
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+
+.Showcase .container {
+  position: relative;
+  width: 375px;
+  height: 300px;
+}
+.Showcase .container img {
+  display: block;
+}
+.Showcase .container h1 {
+  position: absolute;
+  bottom: 27px;
+  left: 20px;
+  color: white;
 }
 
 @media (min-width: 1200px) {
