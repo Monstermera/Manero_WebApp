@@ -247,7 +247,7 @@
   left: 0 !important;
 }
 .mobile-top-navbar .container .slideout-background {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
@@ -262,9 +262,9 @@
   opacity: 0.4;
 }
 .mobile-top-navbar .container .slideout-menu {
-  position: absolute;
+  position: fixed;
   left: -270px;
-  background-color: black;
+  background-color: #111111;
   color: #FFFFFF;
   padding: 20px 0;
   min-height: 100vh;
@@ -318,6 +318,51 @@
 }
 .mobile-top-navbar .container .slideout-menu .upper-section .contact-info hr {
   margin: 16px 0;
+}
+.mobile-top-navbar .container .slideout-menu .track-order {
+  padding: 20px;
+  color: #B3B9C7;
+}
+.mobile-top-navbar .container .slideout-menu .track-order h5 {
+  font-size: 14px;
+  color: #B3B9C7;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset {
+  width: 100%;
+  padding: 4px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset legend {
+  color: #B3B9C7;
+  background: #111111;
+  left: 20px;
+  top: -12px;
+  font-size: 12px;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input {
+  margin-left: 11px;
+  width: 65%;
+  border: none;
+  background: transparent;
+  color: white;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-webkit-autofill, .mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-webkit-autofill:hover, .mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-webkit-autofill:focus, .mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-webkit-autofill:active, .mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-internal-autofill-selected, .mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset input:-internal-autofill-previewed {
+  -webkit-text-fill-color: #999;
+  background-color: #111111 !important;
+  -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset .arrow-submit-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #B3B9C7;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+.mobile-top-navbar .container .slideout-menu .track-order .form-input fieldset .arrow-submit-btn:hover {
+  scale: 1.1;
 }
 .mobile-top-navbar .container .shopping-cart-menu {
   border: none;
