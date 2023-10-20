@@ -1,0 +1,30 @@
+﻿@using Manero_WebApp.ViewModels.HomeViewModels;
+@{
+    var item = new SaleComponentViewModel()
+            {
+                Title1 = "Take 50% off now!",
+                ButtonTitle = "Shop Now",
+                ButtonUrl = "#"
+            };
+}
+@if (item != null)
+{
+    <div class="container-fluid bg-secondary my-3">
+        <div class="container">
+            <div class="py-4">
+                @if (item.Title1 != null)
+                {
+                    <h2 class="fw-bold fs-3 text-white">@item.Title1</h2>
+                }
+                @if (item.Title2 != null)
+                {
+                    <h3 class="fw-regular fs-5 text-white">@item.Title2</h3>
+                }
+                @if (item.ButtonTitle != null)
+                {
+                    <button href="@item.ButtonUrl">@item.ButtonTitle</button>
+                }
+            </div>
+        </div>
+    </div>
+}

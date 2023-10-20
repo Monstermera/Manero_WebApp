@@ -26,7 +26,6 @@
     <Folder Include="Views\Partials\FullScreenComponents\BestSellers\" />
     <Folder Include="Views\Partials\FullScreenComponents\FeaturedProducts\" />
     <Folder Include="Views\Partials\FullScreenComponents\NewsLetter\" />
-    <Folder Include="Views\Partials\FullScreenComponents\SaleComponent\" />
     <Folder Include="Views\Partials\SmallComponents\ProductCards\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\Images\" />
