@@ -1,7 +1,35 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+html,
+body {
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  color: #111111;
+}
+
+a {
+  text-decoration: none;
+  color: #111111;
+}
+a:hover {
+  color: #F4303C;
+}
+
+.text-grey {
+  color: #626262;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 30px;
+  background-color: #111111;
+  margin: 1rem auto;
+}
+
 /* Custom Icon Pattern background */
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 .customIcon {
   width: 175px;
   height: 175px;
