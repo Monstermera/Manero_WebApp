@@ -958,8 +958,8 @@ footer .copyright .social-media a {
   -ms-overflow-style: none;
 }
 .bestsellers-desktop .container .products .product-card {
-  width: 300px;
-  height: 375px;
+  width: 280px;
+  height: 357px;
   margin-right: 30px;
   flex: 0 0 auto;
   border: 1px solid #ddd;
@@ -983,18 +983,199 @@ footer .copyright .social-media a {
   cursor: grabbing;
 }
 
-.products-container {
+.SaleComponent-mobile {
+  background-color: #DBE3F5;
+}
+@media (min-width: 1200px) {
+  .SaleComponent-mobile {
+    display: none;
+  }
+}
+.SaleComponent-mobile .container {
+  width: 100%;
+}
+.SaleComponent-mobile .Title {
+  font-family: "Mulish", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.SaleComponent-mobile .btn-large {
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  background: #ffffff;
+  border: none;
+  color: #111111;
+}
+
+@media (max-width: 1200px) {
+  .SaleComponent-desktop {
+    display: none;
+  }
+}
+.SaleComponent-desktop .container-fluid {
+  background-color: #DBE3F5;
+}
+.SaleComponent-desktop .container {
+  width: 63%;
+}
+.SaleComponent-desktop .Title {
+  font-family: "Mulish", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.SaleComponent-desktop .btn-large {
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  background: #ffffff;
+  border: none;
+  color: #111111;
+  font-weight: 700;
+}
+
+/*.products-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+
+    @include md {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+*/
+.featured-mobile {
+  margin-bottom: 50px;
+}
+@media (min-width: 1200px) {
+  .featured-mobile {
+    display: none;
+  }
+}
+.featured-mobile h2 {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  font-family: "Mulish", sans-serif;
+  color: #111111;
+}
+.featured-mobile a {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  text-align: right;
+  color: #111111;
+}
+.featured-mobile .container {
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.featured-mobile .container .category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.featured-mobile .container .products {
   display: flex;
   overflow-x: auto;
-  gap: 1rem;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-@media (min-width: 768px) {
-  .products-container {
-    justify-content: center;
-    flex-wrap: wrap;
+.featured-mobile .container .products .product-card {
+  flex: 0 0 auto;
+  margin-right: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.featured-mobile .container .products .product-card:last-child {
+  margin-right: 0;
+}
+.featured-mobile .container .products::-webkit-scrollbar {
+  display: none;
+}
+.featured-mobile .container .products.active {
+  cursor: grabbing;
+  user-select: none;
+}
+.featured-mobile .container .products:hover {
+  cursor: grab;
+}
+.featured-mobile .container .products:active {
+  cursor: grabbing;
+}
+
+.featured-desktop {
+  margin-bottom: 50px;
+}
+@media (max-width: 1200px) {
+  .featured-desktop {
+    display: none;
   }
+}
+.featured-desktop h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: left;
+  font-family: "Mulish", sans-serif;
+  color: #111111;
+}
+.featured-desktop a {
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  text-align: right;
+  color: #111111;
+}
+.featured-desktop .container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.featured-desktop .container .category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.featured-desktop .container .products {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.featured-desktop .container .products .product-card {
+  width: 207px;
+  height: 255px;
+  margin-right: 30px;
+  flex: 0 0 auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.featured-desktop .container .products .product-card:last-child {
+  margin-right: 0;
+}
+.featured-desktop .container .products::-webkit-scrollbar {
+  display: none;
+}
+.featured-desktop .container .products.active {
+  cursor: grabbing;
+  user-select: none;
+}
+.featured-desktop .container .products:hover {
+  cursor: grab;
+}
+.featured-desktop .container .products:active {
+  cursor: grabbing;
 }
 
 .mobile {
