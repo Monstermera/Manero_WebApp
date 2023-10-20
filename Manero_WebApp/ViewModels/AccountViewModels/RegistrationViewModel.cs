@@ -5,16 +5,11 @@ namespace Manero_WebApp.ViewModels.AccountViewModels;
 
 public class RegistrationViewModel
 {
-    [Display(Name = "First Name*")]
-    [Required(ErrorMessage = "Please fill in your first name")]
-    public string FirstName { get; set; } = null!;
 
-    [Display(Name = "Last Name*")]
-    [Required(ErrorMessage = "Please fill in your last name")]
-    public string LastName { get; set; } = null!;
+    [Display(Name = "Name*")]
+    [Required(ErrorMessage = "Please fill in your name")]
+    public string FullName { get; set; } = null!;
 
-    [Display(Name = "Mobile (Optional)")]
-    public string? PhoneNumber { get; set; } = null!;
 
     [Display(Name = "E-mail*")]
     [Required(ErrorMessage = "Please fill in your email adress")]
@@ -40,10 +35,8 @@ public class RegistrationViewModel
         return new UserEntity
         {
             UserName = model.Email,
-            FirstName = model.FirstName,
-            LastName = model.LastName,
+            FullName = model.FullName,
             Email = model.Email,
-            PhoneNumber = model.PhoneNumber,
         };
     }
 

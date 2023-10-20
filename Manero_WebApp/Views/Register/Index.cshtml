@@ -1,16 +1,17 @@
 ﻿@{
     string passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
 }
+@model RegistrationViewModel
 
 <section class="d-flex justify-content-center mt-5">
-    <form class="validate-form" method="POST" novalidate>
+    <form class="validate-form" method="post" novalidate>
         <div class="vertical-line"></div>
         <h2 class="fw-bold text-center">Sign Up</h2>
         <div class="form-input">
             <fieldset>
                 <legend>Name</legend>
                 <label class="d-none">Name</label>
-                <input type="text" required custommaxlength="50" pattern="^[^\d]*$">
+                <input asp-for="FullName" type="text" required custommaxlength="50" pattern="^[^\d]*$">
                 @*<label asp-for="Name"></label> *@
                 @*<span asp-validation-for="Name" class="error"></span> *@
                 <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
@@ -20,7 +21,7 @@
             <fieldset>
                 <legend>Email</legend>
                 <label class="d-none">Email</label>
-                <input type="Email" required pattern="[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                <input asp-for="Email" type="Email" required pattern="[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                 <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
             </fieldset>
         </div>
@@ -28,7 +29,7 @@
             <fieldset>
                 <legend>Password</legend>
                 <label class="d-none">Password</label>
-                <input type="password" id="password" pattern="@passwordRegex" required>
+                <input asp-for="Password" type="password" id="password" pattern="@passwordRegex" required>
                 <i id="password-input-icon" class="icon fa-light fa-eye-slash" onclick="toggleVisibility()"></i>
                 <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
             </fieldset>
@@ -37,7 +38,7 @@
             <fieldset>
                 <legend>Confirm Password</legend>
                 <label class="d-none">Confirm Password</label>
-                <input required match="password" type="password" id="confirmPassword">
+                <input asp-for="ConfirmPassword" required match="password" type="password" id="confirmPassword">
                 <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
             </fieldset>
         </div>
