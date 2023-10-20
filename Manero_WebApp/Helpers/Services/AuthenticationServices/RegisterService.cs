@@ -1,5 +1,6 @@
 ﻿
 using Manero_WebApp.Models.Entities;
+using Manero_WebApp.Models.Schemas;
 using Manero_WebApp.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
 
