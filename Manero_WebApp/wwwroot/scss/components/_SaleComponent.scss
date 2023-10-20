@@ -1,0 +1,64 @@
+﻿.SaleComponent-mobile {
+
+
+    @include xl {
+        display: none;
+    }
+
+    background-color: $color-theme;
+
+    .container {
+        width: 100%;
+    }
+
+    .Title {
+        font-family: $font-mulish;
+        font-size: 22px;
+        font-weight: $font-weight-bold;
+        color: #ffffff;
+    }
+
+    .btn-large {
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        background: #ffffff;
+        border: none;
+        color: $color-dark;
+    }
+}
+
+
+.SaleComponent-desktop {
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
+
+    .container-fluid {
+        background-color: $color-theme;
+    }
+
+    .container {
+        width: 63%;
+    }
+
+
+
+    .Title {
+        font-family: $font-mulish;
+        font-size: 28px;
+        font-weight: $font-weight-bold;
+        color: #ffffff;
+    }
+
+    .btn-large {
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        background: #ffffff;
+        border: none;
+        color: $color-dark;
+        font-weight: $font-weight-bold;
+    }
+}
