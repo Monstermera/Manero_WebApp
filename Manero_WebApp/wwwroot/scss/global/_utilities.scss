@@ -1,0 +1,20 @@
+@import '../core/colors.scss';
+@import '../core/fonts.scss';
+@import '../core/mixins.scss';
+
+html,
+body {
+    font-size: 16px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    color: $color-dark;
+
+    &:hover {
+        color: $color-red;
+    }
+}

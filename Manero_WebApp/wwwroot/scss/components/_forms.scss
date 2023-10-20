@@ -1,0 +1,50 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  fieldset {
+      margin-top: 30px;
+      border: 1px solid #DBE3F5;
+      border-radius: 30px;
+      padding: 10px;
+      width: 335px;
+      height: 60px;
+      position: relative;
+      }
+  
+
+      legend {
+      position: absolute;
+      top: -18px;
+      left: 30px;
+      background-color: #FFFFFF;
+      width: auto;
+      z-index: 1;
+      padding: 0 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: $color-grey;
+      }
+  
+  
+      input {
+      width: 85%;
+      padding: 7px;
+      border: 1px solid #DBE3F5;
+      border-color: #FFFFFF;
+      outline: none;
+      }
+
+      input:focus {
+      outline: none !important;
+      border: 1px solid #FFFFFF;
+  }
+
+      .icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      }
+}

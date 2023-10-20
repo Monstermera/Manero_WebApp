@@ -1,0 +1,275 @@
+.mobile-top-navbar {
+    @include xl {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px 10px 10px;
+
+        .bars-menu {
+            border: none;
+            background-color: transparent;
+            font-size: 25px;
+        }
+
+        .mobile-menu-open {
+            left: 0 !important;
+        }
+
+        .slideout-background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -4;
+            background-color: black;
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+        }
+
+        .slideout-open {
+            z-index: 4;
+            opacity: 0.4;
+        }
+
+        .slideout-menu {
+            position: absolute;
+            left: -270px;
+            background-color: black;
+            color: #FFFFFF;
+            padding: 20px 0;
+            min-height: 100vh;
+            width: 270px;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s ease-in-out;
+
+            .upper-section {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .close-btn {
+                    text-align: center;
+                    color: white;
+                    font-size: 25px;
+                    width: 50px;
+                    align-self: end;
+                    background-color: transparent;
+                    border: none;
+                }
+
+                .contact-info {
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        font-size: 22px;
+                        margin-bottom: 20px;
+                        padding: 0 20px;
+                    }
+
+                    .info-box {
+                        display: flex;
+                        gap: 10px;
+                        padding: 0 20px;
+
+                        .icon {
+                            min-width: 30px;
+                            height: 30px;
+                            border: 1px solid RGBA(219,227,245,0.3);
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        p {
+                            color: #B3B9C7;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    hr {
+                        margin: 16px 0;
+                    }
+                }
+            }
+        }
+
+        .shopping-cart-menu {
+            border: none;
+            font-size: 25px;
+            background-color: transparent;
+            transition: 0.2s ease-in-out;
+            position: relative;
+
+            .badge-pill {
+                position: absolute;
+                background-color: red;
+                padding: 3px 5px;
+                left: -10px;
+                bottom: 0px;
+                font-size: 10px;
+            }
+        }
+    }
+
+    hr {
+        color: #8C93A7;
+        margin: 0;
+    }
+}
+
+.desktop-top-navbar {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+    margin-top: 15px;
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 2fr 200px;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 20px;
+
+        .logo {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+        .info-box {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+
+            .vertical-line {
+                border: 1px solid #DBE3F5;
+            }
+
+            .icon {
+                min-width: 30px;
+                height: 30px;
+                border: 1px solid rgba(0, 0, 0, 0.842);
+                border-radius: 50%;
+                align-self: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            p {
+                color: black;
+                margin-bottom: 0;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+        .icons {
+            display: flex;
+            justify-content: end;
+
+            .shopping-cart {
+                border: none;
+                font-size: 25px;
+                background-color: transparent;
+                transition: 0.2s ease-in-out;
+                position: relative;
+                margin-top: -6px;
+
+                .badge-pill {
+                    position: absolute;
+                    background-color: red;
+                    padding: 3px 5px;
+                    left: -10px;
+                    bottom: 0px;
+                    font-size: 10px;
+                }
+            }
+
+            button:hover {
+                scale: 1.2;
+            }
+
+            .search-form {
+                display: flex;
+                margin-right: 10px;
+
+                #navbar-search {
+                    border: 1px solid #A5A5A5;
+                    padding: 0px 10px;
+                    margin-bottom: 2px;
+                    margin-left: -20px;
+                    transition: 0.5s ease-in-out;
+                    border-radius: 10px;
+                    width: 0px;
+                    opacity: 0;
+                    font-size: 16px;
+                    font-weight: 100;
+                    height: 35px;
+                    align-self: center;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 3px 10px rgb(126, 126, 126);
+                    }
+                }
+
+                .search-expanded {
+                    width: 200px !important;
+                    margin-left: 0px !important;
+                    opacity: 1 !important;
+                }
+
+                .navbar-search-btn {
+                    border: none;
+                    background: none;
+
+                    i {
+                        text-decoration: none;
+                        color: black;
+                        transition: 0.2s ease-in-out;
+                        font-size: 20px;
+
+                        &:hover {
+                            scale: 1.2;
+                            color: #FA3150 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .page-links {
+            grid-column: 2/5;
+            grid-row: 2;
+            display: flex;
+            gap: 20px;
+
+            a {
+                text-decoration: none;
+                color: black;
+                transition: 0.2s ease-in-out;
+
+                &:hover {
+                    scale: 1.2;
+                }
+            }
+        }
+    }
+
+    hr {
+        color: #8C93A7;
+        margin: 0;
+    }
+}
