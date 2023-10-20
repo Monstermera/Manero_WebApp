@@ -58,6 +58,20 @@ a:hover {
   margin-top: 40px;
 }
 
+.btn-theme {
+  border: none;
+  background-color: #191919;
+  color: #FFFFFF;
+  border-radius: 25px;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  display: inline-block;
+  width: 335px;
+  text-align: center;
+  line-height: 3.125rem;
+  vertical-align: middle;
+}
+
 /* Custom Icon Pattern background */
 .customIcon {
   width: 175px;
