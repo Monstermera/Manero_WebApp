@@ -47,6 +47,26 @@
                     margin-right: 0;
                 }
             }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &.active {
+                cursor: grabbing;
+                user-select: none;
+            }
+
+            &:hover {
+                cursor: grab;
+            }
+
+            &:active {
+                cursor: grabbing;
+            }
         }
     }
 }
@@ -58,7 +78,7 @@
     }
 
     h2 {
-        font-size: 28px; 
+        font-size: 28px;
         font-weight: $font-weight-bold;
         text-align: left;
         font-family: $font-mulish;
@@ -75,9 +95,9 @@
     }
 
     .container {
-        width: 80%; 
-        max-width: 1200px; 
-        margin: 0 auto; 
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 0 30px;
 
         .category {
@@ -91,9 +111,9 @@
             overflow-x: auto;
 
             .product-card {
-                width: 300px; 
+                width: 300px;
                 height: 375px;
-                margin-right: 30px; 
+                margin-right: 30px;
                 flex: 0 0 auto;
                 border: 1px solid #ddd;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -102,6 +122,26 @@
                 &:last-child {
                     margin-right: 0;
                 }
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &.active {
+                cursor: grabbing;
+                user-select: none;
+            }
+
+            &:hover {
+                cursor: grab;
+            }
+
+            &:active {
+                cursor: grabbing;
             }
         }
     }
