@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 .btn-large {
@@ -159,8 +159,7 @@
 .customIconProfile img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* Social Media Login Icon */
@@ -797,6 +796,8 @@ footer .copyright .social-media a {
 .bestsellers-mobile .container .products {
   display: flex;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .bestsellers-mobile .container .products .product-card {
   flex: 0 0 auto;
@@ -807,6 +808,19 @@ footer .copyright .social-media a {
 }
 .bestsellers-mobile .container .products .product-card:last-child {
   margin-right: 0;
+}
+.bestsellers-mobile .container .products::-webkit-scrollbar {
+  display: none;
+}
+.bestsellers-mobile .container .products.active {
+  cursor: grabbing;
+  user-select: none;
+}
+.bestsellers-mobile .container .products:hover {
+  cursor: grab;
+}
+.bestsellers-mobile .container .products:active {
+  cursor: grabbing;
 }
 
 @media (max-width: 1200px) {
@@ -843,6 +857,8 @@ footer .copyright .social-media a {
 .bestsellers-desktop .container .products {
   display: flex;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .bestsellers-desktop .container .products .product-card {
   width: 300px;
@@ -855,6 +871,19 @@ footer .copyright .social-media a {
 }
 .bestsellers-desktop .container .products .product-card:last-child {
   margin-right: 0;
+}
+.bestsellers-desktop .container .products::-webkit-scrollbar {
+  display: none;
+}
+.bestsellers-desktop .container .products.active {
+  cursor: grabbing;
+  user-select: none;
+}
+.bestsellers-desktop .container .products:hover {
+  cursor: grab;
+}
+.bestsellers-desktop .container .products:active {
+  cursor: grabbing;
 }
 
 .mobile {
