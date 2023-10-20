@@ -1,5 +1,6 @@
 ﻿using Manero_WebApp.Helpers.Services.AuthenticationServices;
 using Manero_WebApp.Helpers.Services.UserServices;
+using Manero_WebApp.Models.Schemas;
 using Manero_WebApp.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,9 +36,15 @@ public class RegisterController : Controller
 
             if (await _registerService.RegisterAsync(model))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Success");
             }
         }
         return View(model);
+    }
+
+    [HttpGet]
+    public IActionResult Success()
+    {
+        return View();
     }
 }

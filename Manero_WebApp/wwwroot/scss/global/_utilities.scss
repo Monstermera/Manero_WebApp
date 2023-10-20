@@ -18,3 +18,14 @@ a {
         color: $color-red;
     }
 }
+
+
+
+.text-grey { color: $color-grey }
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background-color: $color-dark;
+    margin: 1rem auto;
+}

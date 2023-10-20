@@ -32,3 +32,17 @@ $button-font-size: 0.875rem;
     transform: translate(-50%, -50%);
     margin-top: 40px;
 }
+
+.btn-theme {
+    border: none;
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border-radius: $button-border-radius;
+    height: $button-height;
+    font-size: $button-font-size;
+    display: inline-block;
+    width: 335px;
+    text-align: center;
+    line-height: $button-height;
+    vertical-align: middle;
+}
