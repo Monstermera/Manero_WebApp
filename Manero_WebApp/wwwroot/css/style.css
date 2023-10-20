@@ -712,28 +712,60 @@ footer .copyright .social-media a {
   right: 20px;
 }
 
-@media (min-width: 1200px) {
-  .Showcase-mobile {
-    display: none;
-  }
-}
-.Showcase-mobile .container {
+.Showcase-mobile .container, .Showcase-desktop .container {
   position: relative;
-  width: 375px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.Showcase-mobile .container img {
+.Showcase-mobile .container img, .Showcase-desktop .container img {
   display: block;
+  max-width: 100%;
 }
-.Showcase-mobile .container h1 {
+.Showcase-mobile .container h1, .Showcase-desktop .container h1 {
   position: absolute;
   bottom: 27px;
   left: 20px;
   color: white;
   margin: 0;
+}
+.Showcase-mobile .container .dots, .Showcase-desktop .container .dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.Showcase-mobile .container .dots .dot, .Showcase-desktop .container .dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: grey;
+  cursor: pointer;
+}
+.Showcase-mobile .container .dots .dot.active, .Showcase-desktop .container .dots .dot.active {
+  background-color: black;
+}
+.Showcase-mobile .slider-container, .Showcase-desktop .slider-container {
+  overflow: hidden;
+}
+.Showcase-mobile .slider-container .slider, .Showcase-desktop .slider-container .slider {
+  display: flex;
+  transition: transform 0.3s;
+  transform: translateX(0%);
+}
+.Showcase-mobile .slider-container .slider .slide, .Showcase-desktop .slider-container .slider .slide {
+  flex: 0 0 100%;
+}
+
+@media (min-width: 1200px) {
+  .Showcase-mobile {
+    display: none;
+  }
+}
+.Showcase-mobile .slider-container {
+  width: 375px;
+  height: 300px;
+  margin: 0 auto;
+}
+.Showcase-mobile .slider-container .slider {
+  width: 1125px;
 }
 
 @media (max-width: 1200px) {
@@ -743,24 +775,16 @@ footer .copyright .social-media a {
 }
 .Showcase-desktop .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  width: 800px;
-  height: 600px;
   margin: 0 auto;
 }
-.Showcase-desktop .container img {
-  display: block;
+.Showcase-desktop .slider-container {
   width: 800px;
   height: 600px;
 }
-.Showcase-desktop .container h1 {
-  position: absolute;
-  bottom: 27px;
-  left: 20px;
-  color: white;
-  margin: 0;
+.Showcase-desktop .slider-container .slider {
+  width: 2400px;
 }
 
 @media (min-width: 1200px) {
