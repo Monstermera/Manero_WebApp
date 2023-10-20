@@ -910,6 +910,20 @@ footer .copyright .social-media a {
   cursor: grabbing;
 }
 
+.products-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .products-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 .mobile {
   display: flex;
 }
