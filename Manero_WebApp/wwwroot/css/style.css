@@ -1,6 +1,572 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+.testing {
+  display: flex;
+}
+.testing .container {
+  display: flex;
+  gap: 50px;
+}
+.testing .container .card {
+  display: flex;
+  width: 200px;
+  border: none;
+}
+.testing .container .card a {
+  text-decoration: none;
+}
+.testing .container .card a .box {
+  background-color: aqua;
+  height: 250px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.testing .container .card a .box .icons {
+  margin-right: 10px;
+  display: none;
+}
+.testing .container .card a .box .icons i {
+  font-size: 15px;
+  color: gray;
+  display: block;
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+}
+.testing .container .card a .box:hover .icons {
+  display: block;
+  text-decoration: none;
+}
+.testing .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing .container .card .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing .container .card .product-name {
+  font-size: 14px;
+}
+.testing .container .card .product-price {
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .testing .container .card a .box .icons {
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  .testing .container .card a .box:hover .icons {
+    display: block;
+  }
+}
+
+.testing2 .container .card {
+  display: flex;
+  border: none;
+}
+.testing2 .container .card a {
+  text-decoration: none;
+}
+.testing2 .container .card a .box {
+  background-color: aqua;
+  height: 250px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.testing2 .container .card a .box .salebox {
+  width: 33px;
+  height: 16px;
+  background-color: #69864D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testing2 .container .card a .box .salebox .text {
+  font-size: 8px;
+  color: white;
+  padding-top: 8px;
+}
+.testing2 .container .card a .box .icons {
+  display: none;
+}
+.testing2 .container .card a .box .icons i {
+  display: block;
+  font-size: 15px;
+  color: gray;
+  margin-right: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+}
+.testing2 .container .card a .box .icons i:hover {
+  color: black;
+}
+.testing2 .container .card a .box .salebox {
+  left: 0;
+  right: auto;
+}
+.testing2 .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing2 .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing2 .container .card .rating .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing2 .container .card .product-name {
+  font-size: 14px;
+}
+.testing2 .container .card .product-prices {
+  display: flex;
+  gap: 10px;
+}
+.testing2 .container .card .product-prices .product-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.testing2 .container .card .product-prices .product-discount-price {
+  font-size: 14px;
+  color: red;
+}
+@media (max-width: 768px) {
+  .testing2 .container .card a .box .icons {
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  .testing2 .container .card a .box:hover .icons {
+    display: block;
+  }
+}
+
+.testing3 {
+  display: flex;
+}
+.testing3 .container {
+  display: flex;
+  gap: 50px;
+}
+.testing3 .container .card {
+  display: flex;
+  border: none;
+}
+.testing3 .container .card a {
+  text-decoration: none;
+}
+.testing3 .container .card a .box {
+  background-color: aqua;
+  height: 170px;
+  width: 138px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.testing3 .container .card a .box .icons {
+  margin-right: 10px;
+  text-decoration: none;
+  display: none;
+}
+.testing3 .container .card a .box .icons i {
+  font-size: 15px;
+  color: gray;
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  text-decoration: none;
+  display: block;
+}
+@media (max-width: 768px) {
+  .testing3 .container .card a .box .icons {
+    display: block;
+  }
+}
+.testing3 .container .card a .box:hover .icons {
+  display: block;
+}
+.testing3 .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing3 .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing3 .container .card .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing3 .container .card .product-name {
+  font-size: 14px;
+}
+.testing3 .container .card .product-price {
+  font-size: 14px;
+}
+
+.testing4 .container .card {
+  display: flex;
+  border: none;
+}
+.testing4 .container .card a {
+  text-decoration: none;
+}
+.testing4 .container .card a .box {
+  background-color: aqua;
+  height: 170px;
+  width: 138px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.testing4 .container .card a .box .salebox {
+  width: 33px;
+  height: 16px;
+  background-color: #69864D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testing4 .container .card a .box .salebox .text {
+  font-size: 8px;
+  color: white;
+  padding-top: 8px;
+}
+.testing4 .container .card a .box .icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.testing4 .container .card a .box .icons i {
+  font-size: 15px;
+  color: gray;
+  margin-right: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  display: none;
+}
+@media (max-width: 768px) {
+  .testing4 .container .card a .box .icons i {
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  .testing4 .container .card a .box:hover .icons i {
+    display: block;
+  }
+}
+.testing4 .container .card a .box .salebox {
+  left: 0;
+  right: auto;
+}
+.testing4 .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing4 .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing4 .container .card .rating .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing4 .container .card .product-name {
+  font-size: 14px;
+}
+.testing4 .container .card .product-prices {
+  display: flex;
+  gap: 10px;
+}
+.testing4 .container .card .product-prices .product-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.testing4 .container .card .product-prices .product-discount-price {
+  font-size: 14px;
+  color: red;
+}
+
+.testing5 .container .card {
+  display: flex;
+  border: none;
+}
+.testing5 .container .card a {
+  text-decoration: none;
+}
+.testing5 .container .card a .box {
+  background-color: aqua;
+  height: 170px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.testing5 .container .card a .box .icons {
+  margin-right: 10px;
+  text-decoration: none;
+}
+.testing5 .container .card a .box .icons i {
+  font-size: 15px;
+  color: gray;
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  display: block;
+}
+@media (min-width: 769px) {
+  .testing5 .container .card a .box .icons i {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .testing5 .container .card a .box:hover .icons i {
+    display: block;
+  }
+}
+.testing5 .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing5 .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing5 .container .card .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing5 .container .card .product-name {
+  font-size: 14px;
+}
+.testing5 .container .card .product-price {
+  font-size: 14px;
+}
+
+.testing6 .container .card {
+  display: flex;
+  border: none;
+}
+.testing6 .container .card a {
+  text-decoration: none;
+}
+.testing6 .container .card a .box {
+  background-color: aqua;
+  height: 170px;
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.testing6 .container .card a .box .salebox {
+  width: 33px;
+  height: 16px;
+  background-color: #69864D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testing6 .container .card a .box .salebox .text {
+  font-size: 8px;
+  color: white;
+  padding-top: 8px;
+}
+.testing6 .container .card a .box .icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.testing6 .container .card a .box .icons i {
+  font-size: 15px;
+  color: gray;
+  margin-right: 10px;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  display: none;
+}
+@media (max-width: 768px) {
+  .testing6 .container .card a .box .icons i {
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  .testing6 .container .card a .box:hover .icons i {
+    display: block;
+  }
+}
+.testing6 .container .card a .box .salebox {
+  left: 0;
+  right: auto;
+}
+.testing6 .container .card .rating {
+  display: flex;
+  margin-top: 15px;
+  text-align: center;
+}
+.testing6 .container .card .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing6 .container .card .rating .number-of-reviews {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.testing6 .container .card .product-name {
+  font-size: 14px;
+}
+.testing6 .container .card .product-prices {
+  display: flex;
+  gap: 10px;
+}
+.testing6 .container .card .product-prices .product-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.testing6 .container .card .product-prices .product-discount-price {
+  font-size: 14px;
+  color: red;
+}
+
+.testing7 .container {
+  display: flex;
+}
+.testing7 .container .card {
+  border: none;
+}
+.testing7 .container .card a {
+  text-decoration: none;
+}
+.testing7 .container .card a .box {
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+}
+.testing7 .container .sideinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
+}
+.testing7 .container .sideinfo .toptext {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 100px;
+}
+.testing7 .container .sideinfo .toptext .product-name {
+  font-size: 14px;
+}
+.testing7 .container .sideinfo .toptext .heart {
+  display: flex;
+  font-size: 14px;
+  justify-content: end;
+  padding-top: 1px;
+}
+.testing7 .container .sideinfo .product-price {
+  font-size: 14px;
+}
+.testing7 .container .sideinfo .rating {
+  display: flex;
+  align-items: baseline;
+}
+.testing7 .container .sideinfo .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing7 .container .sideinfo .rating .number-of-reviews {
+  font-size: 12px;
+}
+
+.testing8 {
+  margin-top: 50px;
+}
+.testing8 .container {
+  display: flex;
+}
+.testing8 .container .card {
+  border: none;
+}
+.testing8 .container .card a {
+  text-decoration: none;
+}
+.testing8 .container .card a .box {
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+}
+.testing8 .container .card a .box .salebox {
+  width: 33px;
+  height: 16px;
+  background-color: #69864D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testing8 .container .card a .box .salebox .text {
+  font-size: 8px;
+  color: white;
+  padding-top: 8px;
+}
+.testing8 .container .sideinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
+}
+.testing8 .container .sideinfo .toptext {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+.testing8 .container .sideinfo .toptext .product-name {
+  font-size: 14px;
+}
+.testing8 .container .sideinfo .toptext .heart {
+  display: flex;
+  font-size: 14px;
+  justify-content: end;
+  padding-top: 1px;
+}
+.testing8 .container .sideinfo .product-prices {
+  display: flex;
+  gap: 10px;
+}
+.testing8 .container .sideinfo .product-prices .product-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.testing8 .container .sideinfo .product-prices .product-discount-price {
+  font-size: 14px;
+  color: red;
+}
+.testing8 .container .sideinfo .rating {
+  display: flex;
+  align-items: baseline;
+}
+.testing8 .container .sideinfo .rating i {
+  font-size: 12px;
+  color: yellow;
+}
+.testing8 .container .sideinfo .rating .number-of-reviews {
+  font-size: 12px;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 html,
 body {
