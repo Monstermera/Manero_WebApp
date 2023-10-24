@@ -1,46 +1,38 @@
 ﻿using Manero_WebApp.Models.Entities;
-using Manero_WebApp.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
-namespace Manero_WebApp.Helpers.Services.AuthenticationServices;
-
-public class RolesService 
+namespace Manero_WebApp.Helpers.Services.AuthenticationServices
 {
-    private readonly UserManager<UserEntity> _userManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
-
-    public RolesService(UserManager<UserEntity> userManager, RoleManager<IdentityRole> roleManager)
+    public class RolesService
     {
-        _userManager = userManager;
-        _roleManager = roleManager;
-    }
+        private readonly UserManager<UserEntity> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-    public async Task<UserEntity> AddRoleAsync(UserEntity userModel)
-    {
-        //UserEntity user = viewModel;
-        string roleName = "customer";
-
-        if (!await _roleManager.Roles.AnyAsync())
+        public RolesService(UserManager<UserEntity> userManager, RoleManager<IdentityRole> roleManager)
         {
-            await _roleManager.CreateAsync(new IdentityRole("admin"));
-            await _roleManager.CreateAsync(new IdentityRole("customer"));
-
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
-        if (!await _userManager.Users.AnyAsync())
+
+        public async Task AddRoleAsync(UserEntity userModel)
         {
-            roleName = "admin";
+            var roleName = "customer";
 
+            if (!await _roleManager.Roles.AnyAsync())
+            {
+                await _roleManager.CreateAsync(new IdentityRole("admin"));
+                await _roleManager.CreateAsync(new IdentityRole("customer"));
+            }
+
+            if (await _userManager.Users.CountAsync() == 1)
+            {
+                roleName = "admin";
+            }
+
+            await _userManager.AddToRoleAsync(userModel, roleName);
         }
-        else roleName = "customer";
-
-        IdentityResult roleresult = await _userManager.AddToRoleAsync(userModel, roleName);
-        //await _userManager.AddToRoleAsync(user, roleName);
-        return userModel;
-        
     }
-
-
-
 }

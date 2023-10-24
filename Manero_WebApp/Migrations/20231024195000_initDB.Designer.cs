@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manero_WebApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231024102002_init")]
-    partial class init
+    [Migration("20231024195000_initDB")]
+    partial class initDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
