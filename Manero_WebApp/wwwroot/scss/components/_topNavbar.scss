@@ -1,165 +1,201 @@
 header {
-    padding: 20px 0;
+    background-color: $color-theme;
 
     .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "toggle logo";
+        padding: 20px 0;
 
-        @include lg {
-            grid-template-columns: 4fr 4fr;
-            grid-template-areas: "logo pagelinks";
-        }
+        .top-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-        @include xl {
-            grid-template-columns: 4fr 4fr 1fr;
-            grid-template-areas: "logo pagelinks menuicons";
-        }
+            .logo {
+                height: 30px;
+                width: 90px;
 
-        .logo {
-            grid-area: logo;
-        }
-
-        .page-links {
-            grid-area: pagelinks;
-            transition: all 0.25s;
-            font-size: 20px;
-            overflow: hidden;
-            display: none;
-
-            @include lg {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                width: 100%;
-            }
-
-            @include xl {
-                margin-right: 20px;
-            }
-
-            .page-link {
-                text-decoration: none;
-                margin: 20px;
-                font-size: 18px;
-
-                &:hover {
-                    color: $color-red;
+                @include md {
+                    height: auto;
+                    width: auto;
                 }
 
-                @include xl {
-                    color: $color-grey;
-                    margin-left: 15px;
-                    font-size: 18px;
-                }
-            }
-        }
-
-        .menu-icons {
-            display: none;
-            opacity: 90%;
-            grid-area: menuicons;
-
-            @include xl {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-            }
-
-            .menu-icon {
-                margin: 15px;
-                font-size: 18px;
-
-                &:hover {
-                    color: $color-red;
-                }
-
-                @include xl {
-                    margin-left: 15px;
+                img {
+                    padding: 0;
+                    margin: 0;
                 }
             }
 
-            .overlay {
-                height: 100%;
-                width: 100%;
+            .page-links {
+                transition: all 0.25s;
+                font-size: 20px;
+                overflow: hidden;
                 display: none;
-                position: fixed;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                background-color: $color-dark;
 
-                .closebtn {
-                    position: absolute;
-                    top: 60px;
-                    right: 55px;
-                    font-size: 30px;
-                    cursor: pointer;
-                    color: $color-red;
+                @include lg {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
                 }
 
-                .overlay-content {
-                    position: relative;
-                    top: 45%;
-                    width: 70%;
-                    text-align: center;
-                    margin: auto;
+                @include xl {
+                    margin-right: 20px;
+                }
 
-                    form {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                .page-link {
+                    text-decoration: none;
+                    margin: 20px;
+                    font-size: 18px;
 
-                        input {
-                            padding: 15px;
-                            font-size: 17px;
-                            border: none;
-                            float: left;
-                            width: 50%;
-                            background: white;
-                            border-radius: 15px 0 0 15px;
+                    &:hover {
+                        color: $color-red;
+                    }
 
-                            @include xl {
-                                width: 40%;
-                            }
-                        }
-
-                        .searchSubmit {
-                            background-color: $color-red;
-                            color: $color-white;
-                            float: left;
-                            width: 10%;
-                            padding: 14.7px 8px;
-                            font-size: 18px;
-                            border: none;
-                            border-radius: 0 15px 15px 0;
-
-                            @include xl {
-                                width: 6%;
-                            }
-                        }
+                    @include xl {
+                        color: $color-grey;
+                        margin-left: 15px;
+                        font-size: 18px;
                     }
                 }
             }
 
-            .openBtn {
-                color: $color-dark;
-                background-color: transparent;
-                border: none;
-                padding: 20px;
-                font-size: 18px;
+            .menu-icons {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                opacity: 90%;
 
-                &:hover {
-                    color: $color-red;
+                .menu-icon {
+                    margin: 15px;
+                    font-size: 18px;
+
+                    &:hover {
+                        color: $color-red;
+                    }
+
+                    @include xl {
+                        margin-left: 15px;
+                    }
+                }
+
+                .overlay {
+                    height: 100%;
+                    width: 100%;
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: $color-dark;
+
+                    .closebtn {
+                        position: absolute;
+                        top: 60px;
+                        right: 55px;
+                        font-size: 30px;
+                        cursor: pointer;
+                        color: $color-red;
+                    }
+
+                    .overlay-content {
+                        position: relative;
+                        top: 45%;
+                        width: 70%;
+                        text-align: center;
+                        margin: auto;
+
+                        form {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            input {
+                                padding: 15px;
+                                font-size: 17px;
+                                border: none;
+                                float: left;
+                                width: 50%;
+                                background: white;
+                                border-radius: 15px 0 0 15px;
+
+                                @include xl {
+                                    width: 40%;
+                                }
+                            }
+
+                            .searchSubmit {
+                                background-color: $color-red;
+                                color: $color-white;
+                                float: left;
+                                width: 10%;
+                                padding: 14.7px 8px;
+                                font-size: 18px;
+                                border: none;
+                                border-radius: 0 15px 15px 0;
+
+                                @include xl {
+                                    width: 6%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .openBtn {
+                    color: $color-dark;
                     background-color: transparent;
+                    border: none;
+                    padding: 20px;
+                    font-size: 18px;
+                    display: none;
+
+                    @include lg {
+                        display: flex;
+                    }
+
+                    &:hover {
+                        color: $color-red;
+                        background-color: transparent;
+                    }
                 }
             }
         }
 
+        .shopping-bag {
+            display: flex !important;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            margin: 0 10px;
+            left: 110px;
+
+            @include lg {
+                left: 0;
+            }
+
+            .badge {
+                background-color: red;
+                position: absolute;
+                font-size: 11px;
+                padding: 4px 3px;
+                font-weight: $font-weight-bold;
+                top: 6px;
+                right: 12px;
+            }
+
+            i {
+                font-size: 20px;
+
+                &:hover {
+                    color: $color-red;
+                }
+            }
+        }
+
+
         .offcanvas-start {
             background-color: #111111;
+            padding: 0;
+            margin: 0;
 
             .offcanvas-body {
                 .toggle-link {
@@ -231,12 +267,6 @@ header {
                                 }
                             }
                         }
-                    }
-
-                    .line {
-                        background-color: $color-red;
-                        height: 2px;
-                        margin-bottom: 30px;
                     }
                 }
 
@@ -349,253 +379,15 @@ header {
     }
 }
 
-.shopping-bag {
-    position: relative;
-    margin: 0 10px;
 
-
-    .badge {
-        background-color: red;
-        position: absolute;
-        font-size: 11px;
-        padding: 4px 3px;
-        font-weight: $font-weight-bold;
-        top: 6px;
-        right: 12px;
-    }
-
-    i {
-        font-size: 20px;
-
-        &:hover {
-            color: $color-red;
-        }
-    }
+.d-lg-none {
+    margin: -35px 0;
 }
 
+.menu-icons .menu-icon:not(.shopping-bag) {
+    display: none;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.mobile-top-navbar {
-    @include xl {
-        display: none;
-    }
-
-    .container {
+    @include lg {
         display: flex;
-        justify-content: space-between;
-        padding: 0 10px 10px 10px;
-
-        .bars-menu {
-            border: none;
-            background-color: transparent;
-            font-size: 25px;
-        }
-
-        .mobile-menu-open {
-            left: 0 !important;
-        }
-
-        .slideout-background {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -4;
-            background-color: black;
-            opacity: 0;
-            transition: 0.3s ease-in-out;
-        }
-
-        .slideout-open {
-            z-index: 4;
-            opacity: 0.4;
-        }
-
-        .slideout-menu {
-            position: fixed;
-            left: -270px;
-            background-color: #111111;
-            color: #FFFFFF;
-            padding: 20px 0;
-            min-height: 100vh;
-            width: 270px;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.3s ease-in-out;
-
-            .upper-section {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                .close-btn {
-                    text-align: center;
-                    color: white;
-                    font-size: 25px;
-                    width: 50px;
-                    align-self: end;
-                    background-color: transparent;
-                    border: none;
-                }
-
-                .contact-info {
-                    display: flex;
-                    flex-direction: column;
-
-                    h1 {
-                        font-size: 22px;
-                        margin-bottom: 20px;
-                        padding: 0 20px;
-                    }
-
-                    .info-box {
-                        display: flex;
-                        gap: 10px;
-                        padding: 0 20px;
-
-                        .icon {
-                            min-width: 30px;
-                            height: 30px;
-                            border: 1px solid RGBA(219,227,245,0.3);
-                            border-radius: 50%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
-
-                        p {
-                            color: #B3B9C7;
-                            margin-bottom: 0;
-                        }
-                    }
-
-                    hr {
-                        margin: 16px 0;
-                    }
-                }
-            }
-
-            .track-order {
-                padding: 20px;
-                color: #B3B9C7;
-
-                h5 {
-                    font-size: 14px;
-                    color: #B3B9C7;
-                }
-
-                .form-input {
-                    fieldset {
-                        width: 100%;
-                        padding: 4px;
-                        height: 50px;
-                        display: flex;
-                        justify-content: space-between;
-
-                        legend {
-                            color: #B3B9C7;
-                            background: #111111;
-                            left: 20px;
-                            top: -12px;
-                            font-size: 12px;
-                        }
-
-                        input {
-                            margin-left: 11px;
-                            width: 65%;
-                            border: none;
-                            background: transparent;
-                            color: white;
-
-                            &:-webkit-autofill,
-                            &:-webkit-autofill:hover,
-                            &:-webkit-autofill:focus,
-                            &:-webkit-autofill:active,
-                            &:-internal-autofill-selected,
-                            &:-internal-autofill-previewed {
-                                -webkit-text-fill-color: #999;
-                                background-color: #111111 !important;
-                                -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
-                            }
-                        }
-
-                        .arrow-submit-btn {
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            background-color: #B3B9C7;
-                            border: none;
-                            transition: 0.2s ease-in-out;
-
-                            &:hover {
-                                scale: 1.1;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .shopping-cart-menu {
-            border: none;
-            font-size: 25px;
-            background-color: transparent;
-            transition: 0.2s ease-in-out;
-            position: relative;
-
-            .badge-pill {
-                position: absolute;
-                background-color: red;
-                padding: 3px 5px;
-                left: -10px;
-                bottom: 0px;
-                font-size: 10px;
-            }
-        }
-    }
-
-    hr {
-        color: #8C93A7;
-        margin: 0;
     }
 }
-
-*/
