@@ -1,4 +1,4 @@
-﻿$active-dot-color: black;
+﻿/*$active-dot-color: black;
 
 .Showcase-mobile, .Showcase-desktop {
     .container {
@@ -86,6 +86,71 @@
 
         .slider {
             width: 2400px;
+        }
+    }
+}
+*/
+
+
+
+.showcase {
+    background-color: $color-theme;
+
+    .container {
+        width: 1220px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .content {
+            color: $color-dark;
+            flex-direction: column;
+            // color: $color-white;
+
+            h2 {
+                font-size: 45px;
+                width: 70%;
+                font-weight: $font-weight-bold;
+
+                @include md {
+                    width: 100%;
+                }
+            }
+
+            h5 {
+                font-size: 32px;
+                margin: 20px 0;
+                font-weight: $font-weight-bold;
+            }
+        }
+
+        .mySlides {
+            display: none;
+            padding-top: 20px;
+
+            img {
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding-bottom: 20px;
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: grey;
+            cursor: pointer;
+
+            &.active {
+                background-color: $color-dark;
+            }
         }
     }
 }

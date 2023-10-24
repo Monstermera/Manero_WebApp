@@ -1,4 +1,76 @@
-﻿<div class="Showcase-mobile">
+﻿<section class="showcase">
+    <div class="container">
+        <div class="content">
+            <h2>Welcome To Manero!</h2>
+            <h5>50% off</h5>
+            <button>SHOP NOW</button>
+        </div>
+
+        <div class="mySlides">
+            <img src="~/Images/Static/gold-chair.png">
+        </div>
+
+        <div class="mySlides">
+            <img src="~/Images/Static/chair(1).png">
+        </div>
+
+        <div class="mySlides">
+            <img src="~/Images/Static/gold-chair.png">
+        </div>
+    </div>
+
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</section>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <div class="Showcase-mobile">
     <div class="container">
         <div class="slider-container">
             <div class="slider">
@@ -67,4 +139,4 @@
             });
         });
     });
-</script>
+</script> *@
