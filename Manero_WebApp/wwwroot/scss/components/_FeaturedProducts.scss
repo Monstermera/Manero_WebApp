@@ -1,8 +1,24 @@
-﻿.bestsellers-mobile {
+﻿/*.products-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+
+    @include md {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+*/
+
+.featured-mobile {
 
     @include xl {
         display: none;
     }
+
+    margin-bottom: 50px;
 
     h2 {
         font-size: 20px;
@@ -71,11 +87,13 @@
     }
 }
 
-.bestsellers-desktop {
+.featured-desktop {
 
     @media (max-width: 1200px) {
         display: none;
     }
+
+    margin-bottom: 50px;
 
     h2 {
         font-size: 28px;
@@ -111,8 +129,8 @@
             overflow-x: auto;
 
             .product-card {
-                width: 280px;
-                height: 357px;
+                width: 207px;
+                height: 255px;
                 margin-right: 30px;
                 flex: 0 0 auto;
                 border: 1px solid #ddd;

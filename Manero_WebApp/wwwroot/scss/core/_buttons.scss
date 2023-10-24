@@ -1,0 +1,48 @@
+$button-bg-color: #191919;
+$button-text-color: #FFFFFF;
+$button-border-radius: 25px;
+$button-height: 3.125rem;
+$button-font-size: 0.875rem;
+
+.btn-large {
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border-radius: $button-border-radius;
+    width: 100%;
+    height: $button-height;
+    font-size: $button-font-size;
+    display: inline-block;
+}
+
+.btn-small {
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border-radius: $button-border-radius;
+    width: 80%;
+    height: $button-height;
+    font-size: $button-font-size;
+    display: inline-block;
+}
+
+.btn-sign-in {
+    width: 335px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+}
+
+.btn-theme {
+    border: none;
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border-radius: $button-border-radius;
+    height: $button-height;
+    font-size: $button-font-size;
+    display: inline-block;
+    width: 335px;
+    text-align: center;
+    line-height: $button-height;
+    vertical-align: middle;
+}
