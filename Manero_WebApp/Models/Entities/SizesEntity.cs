@@ -1,7 +1,6 @@
-﻿using Manero_WebApp.Models.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Manero_WebApp.Models;
+namespace Manero_WebApp.Models.Entities;
 
 public class SizesEntity
 {
