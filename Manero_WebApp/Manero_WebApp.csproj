@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Helpers\Services\UserServices\NewFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ViewModels\AccountViewModels\" />
     <Folder Include="ViewModels\ContactViewModels\" />
     <Folder Include="Views\Account\" />
