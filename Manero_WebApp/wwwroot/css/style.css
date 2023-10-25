@@ -270,7 +270,8 @@ a:hover {
 }
 
 header {
-  background-color: #DBE3F5;
+  /*    background-color: $color-theme;
+  */
 }
 header .container {
   padding: 20px 0;
@@ -413,7 +414,7 @@ header .container .top-menu .menu-icons .openBtn {
   font-size: 18px;
   display: none;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   header .container .top-menu .menu-icons .openBtn {
     display: flex;
   }
@@ -603,7 +604,7 @@ header .mobile .bottom-nav ul li .footerIcon i {
 .menu-icons .menu-icon:not(.shopping-bag) {
   display: none;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .menu-icons .menu-icon:not(.shopping-bag) {
     display: flex;
   }
@@ -864,6 +865,7 @@ footer .copyright .social-media a {
 .showcase .container .content {
   color: #111111;
   flex-direction: column;
+  color: #FFFFFF;
 }
 .showcase .container .content h2 {
   font-size: 45px;

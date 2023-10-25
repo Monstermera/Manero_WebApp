@@ -1,6 +1,6 @@
 header {
-    background-color: $color-theme;
-
+/*    background-color: $color-theme;
+*/
     .container {
         padding: 20px 0;
 
@@ -148,7 +148,7 @@ header {
                     font-size: 18px;
                     display: none;
 
-                    @include lg {
+                    @include xl {
                         display: flex;
                     }
 
@@ -387,7 +387,7 @@ header {
 .menu-icons .menu-icon:not(.shopping-bag) {
     display: none;
 
-    @include lg {
+    @include xl {
         display: flex;
     }
 }
