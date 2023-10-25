@@ -274,7 +274,12 @@ header {
   */
 }
 header .container {
-  padding: 20px 0;
+  padding: 20px 0 40px 0;
+}
+@media (min-width: 992px) {
+  header .container {
+    padding: 20px 0;
+  }
 }
 header .container .top-menu {
   display: flex;
@@ -513,41 +518,41 @@ header .container .offcanvas-start .offcanvas-body .toggle-link .collapse ul li 
   line-height: 5px;
   color: #B3B9C7;
 }
-header .container .offcanvas-start .offcanvas-body .track-order {
+header .container .offcanvas-start .track-order {
   padding: 20px;
   color: #B3B9C7;
 }
-header .container .offcanvas-start .offcanvas-body .track-order h5 {
+header .container .offcanvas-start .track-order h5 {
   font-size: 14px;
   color: #B3B9C7;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset {
+header .container .offcanvas-start .track-order .form-input fieldset {
   width: 100%;
   padding: 4px;
   height: 50px;
   display: flex;
   justify-content: space-between;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset legend {
+header .container .offcanvas-start .track-order .form-input fieldset legend {
   color: #B3B9C7;
   background: #111111;
   left: 20px;
   top: -12px;
   font-size: 12px;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input {
+header .container .offcanvas-start .track-order .form-input fieldset input {
   margin-left: 11px;
   width: 65%;
   border: none;
   background: transparent;
   color: white;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-webkit-autofill, header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-webkit-autofill:hover, header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-webkit-autofill:focus, header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-webkit-autofill:active, header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-internal-autofill-selected, header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset input:-internal-autofill-previewed {
+header .container .offcanvas-start .track-order .form-input fieldset input:-webkit-autofill, header .container .offcanvas-start .track-order .form-input fieldset input:-webkit-autofill:hover, header .container .offcanvas-start .track-order .form-input fieldset input:-webkit-autofill:focus, header .container .offcanvas-start .track-order .form-input fieldset input:-webkit-autofill:active, header .container .offcanvas-start .track-order .form-input fieldset input:-internal-autofill-selected, header .container .offcanvas-start .track-order .form-input fieldset input:-internal-autofill-previewed {
   -webkit-text-fill-color: #999;
   background-color: #111111 !important;
   -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset .arrow-submit-btn {
+header .container .offcanvas-start .track-order .form-input fieldset .arrow-submit-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -555,7 +560,7 @@ header .container .offcanvas-start .offcanvas-body .track-order .form-input fiel
   border: none;
   transition: 0.2s ease-in-out;
 }
-header .container .offcanvas-start .offcanvas-body .track-order .form-input fieldset .arrow-submit-btn:hover {
+header .container .offcanvas-start .track-order .form-input fieldset .arrow-submit-btn:hover {
   scale: 1.1;
 }
 header .mobile {
@@ -866,8 +871,16 @@ footer .copyright .social-media a {
   color: #111111;
   flex-direction: column;
   color: #FFFFFF;
+  display: flex;
+  padding: 70px 0 0 0;
+}
+@media (min-width: 768px) {
+  .showcase .container .content {
+    padding: 0;
+  }
 }
 .showcase .container .content h2 {
+  line-height: 50px;
   font-size: 45px;
   width: 70%;
   font-weight: 700;
@@ -878,9 +891,15 @@ footer .copyright .social-media a {
   }
 }
 .showcase .container .content h5 {
-  font-size: 32px;
-  margin: 20px 0;
+  line-height: 30px;
+  font-size: 40px;
   font-weight: 700;
+  padding-bottom: 20px;
+}
+.showcase .container .content .line {
+  height: 40px;
+  border-left: 1px solid white;
+  margin-bottom: 20px;
 }
 .showcase .container .mySlides {
   display: none;
@@ -889,22 +908,34 @@ footer .copyright .social-media a {
 .showcase .container .mySlides img {
   height: 550px;
   width: 500px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .showcase .container .mySlides img {
+    display: flex;
+  }
 }
 .showcase .dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding-bottom: 20px;
-}
-.showcase .dots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: grey;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-bottom: 10px;
   cursor: pointer;
 }
+.showcase .dots .dot {
+  width: 7px;
+  height: 7px;
+  background-color: #111111 !important;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: none;
+}
 .showcase .dots .dot.active {
-  background-color: #111111;
+  width: 30px;
+  height: 12px;
+  background-color: transparent !important;
+  border: 3px solid #111111;
+  border-radius: 40px;
 }
 
 .btn-small {
@@ -915,6 +946,14 @@ footer .copyright .social-media a {
   border: none;
   color: #111111;
   font-weight: 700;
+  display: none;
+  margin-top: 30px;
+}
+@media (min-width: 768px) {
+  .btn-small {
+    display: block;
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 1200px) {

@@ -1,8 +1,12 @@
 header {
-/*    background-color: $color-theme;
+    /*    background-color: $color-theme;
 */
     .container {
-        padding: 20px 0;
+        padding: 20px 0 40px 0;
+
+        @include lg {
+            padding: 20px 0;
+        }
 
         .top-menu {
             display: flex;
@@ -269,62 +273,62 @@ header {
                         }
                     }
                 }
+            }
 
-                .track-order {
-                    padding: 20px;
+            .track-order {
+                padding: 20px;
+                color: #B3B9C7;
+
+                h5 {
+                    font-size: 14px;
                     color: #B3B9C7;
+                }
 
-                    h5 {
-                        font-size: 14px;
-                        color: #B3B9C7;
-                    }
+                .form-input {
+                    fieldset {
+                        width: 100%;
+                        padding: 4px;
+                        height: 50px;
+                        display: flex;
+                        justify-content: space-between;
 
-                    .form-input {
-                        fieldset {
-                            width: 100%;
-                            padding: 4px;
-                            height: 50px;
-                            display: flex;
-                            justify-content: space-between;
+                        legend {
+                            color: #B3B9C7;
+                            background: #111111;
+                            left: 20px;
+                            top: -12px;
+                            font-size: 12px;
+                        }
 
-                            legend {
-                                color: #B3B9C7;
-                                background: #111111;
-                                left: 20px;
-                                top: -12px;
-                                font-size: 12px;
+                        input {
+                            margin-left: 11px;
+                            width: 65%;
+                            border: none;
+                            background: transparent;
+                            color: white;
+
+                            &:-webkit-autofill,
+                            &:-webkit-autofill:hover,
+                            &:-webkit-autofill:focus,
+                            &:-webkit-autofill:active,
+                            &:-internal-autofill-selected,
+                            &:-internal-autofill-previewed {
+                                -webkit-text-fill-color: #999;
+                                background-color: #111111 !important;
+                                -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
                             }
+                        }
 
-                            input {
-                                margin-left: 11px;
-                                width: 65%;
-                                border: none;
-                                background: transparent;
-                                color: white;
+                        .arrow-submit-btn {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background-color: #B3B9C7;
+                            border: none;
+                            transition: 0.2s ease-in-out;
 
-                                &:-webkit-autofill,
-                                &:-webkit-autofill:hover,
-                                &:-webkit-autofill:focus,
-                                &:-webkit-autofill:active,
-                                &:-internal-autofill-selected,
-                                &:-internal-autofill-previewed {
-                                    -webkit-text-fill-color: #999;
-                                    background-color: #111111 !important;
-                                    -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
-                                }
-                            }
-
-                            .arrow-submit-btn {
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 50%;
-                                background-color: #B3B9C7;
-                                border: none;
-                                transition: 0.2s ease-in-out;
-
-                                &:hover {
-                                    scale: 1.1;
-                                }
+                            &:hover {
+                                scale: 1.1;
                             }
                         }
                     }
