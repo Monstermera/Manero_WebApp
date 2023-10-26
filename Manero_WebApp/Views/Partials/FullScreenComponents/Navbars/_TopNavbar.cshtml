@@ -1,138 +1,135 @@
-﻿<!-- Full screen Navbar -->
-<div class="desktop-top-navbar">
+﻿<header>
     <div class="container">
-        <a class="logo" href="">Manero</a>
-
-        <div class="info-box">
-            <div class="icon">
-                <i class="fa-light fa-location-dot"></i>
+        <div class="top-menu">
+            <img class="logo" src="~/Images/Static/logo.svg" />
+            <div class="page-links">
+                <a class="page-link" asp-controller="home" asp-action="index">Home</a>
+                <a class="page-link" asp-controller="home" asp-action="index">Products</a>
+                <a class="page-link" asp-controller="home" asp-action="index">Contact</a>
             </div>
-            <div>
-                <p>27 Division St, New York, NY 10002, USA</p>
+            <div class="menu-icons">
+                <div id="myOverlay" class="overlay">
+                    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">
+                        <i class="fa-sharp fa-solid fa-x"></i>
+                    </span>
+                    <div class="overlay-content">
+                        <form asp-controller="products" asp-action="Search">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button class="searchSubmit" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <button class="openBtn" onclick="openSearch()"><i class="fa-light fa-magnifying-glass"></i></button>
+                <a class="menu-icon" asp-controller="login" asp-action="index"><i class="fa-light fa-circle-user"></i></a>
+                <a asp-controller="wishList" asp-action="index" class="menu-icon"><i class="fa-regular fa-heart"></i></a>
+
+                <a asp-controller="shoppingBag" asp-action="index" class="shopping-bag">
+                    <span class="badge rounded-pill">$0</span>
+                    <i class="fa-light fa-shopping-bag"></i>
+                </a>
             </div>
         </div>
-        <div class="info-box">
-            <span class="vertical-line"></span>
-            <div class="icon">
-                <i class="fa-light fa-envelope"></i>
-            </div>
 
-            <div>
-                <p>manerosale@mail.com</p>
-                <p>manerosupport@mail.com</p>
-            </div>
-        </div>
+        <div class="d-lg-none">
+            <button class="btn btn-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-regular fa-bars"></i></button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="toggle-link">
+                        <a href="index.html" class="btn btn-toggle align-items-center rounded collapsed"
+                           data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Home
+                        </a>
+                    </div>
 
-        <div class="info-box">
-            <span class="vertical-line"></span>
-            <div class="icon">
-                <i class="fa-light fa-phone-volume"></i>
-            </div>
-            <div>
-                <p>+17 123456789</p>
-                <p>+17 987654321</p>
-            </div>
-        </div>
-
-        <div class="icons">
-            <form class="search-form">
-                <input id="navbar-search" class="" onclick="">
-                <button class="navbar-search-btn" onclick="expand()" type="button">
-                    <i class="fa-light fa-magnifying-glass"></i>
-                </button>
-            </form>
-            <button type="button" class="shopping-cart position-relative">
-                <i class="fa-light fa-bag-shopping"></i>
-                <span class="badge-pill rounded-pill text-bg-danger ">
-                    $10
-                </span>
-            </button>
-
-        </div>
-
-        <div class="page-links">
-            <a href="">Home</a>
-            <a href="">Products</a>
-        </div>
-    </div>
-    <hr>
-</div>
-<!-- Mobile Navbar -->
-<div class="mobile-top-navbar">
-    <nav class="container">
-        <button class="bars-menu" onclick="openMobileMenu()">
-            <i class="fa-regular fa-bars-staggered"></i>
-        </button>
-
-        <h1>Manero</h1>
-
-        <div class="slideout-background" onclick="closeMobileMenu()" id="slideout-background"></div>
-
-        <div class="slideout-menu" id="navigation-slideout-menu">
-            <div class="upper-section">
-                <button type="button" onclick="openMobileMenu()" class="close-btn" data-bs-dismiss="offcanvas"
-                        aria-label="Close">
-                    <i class="fa-light fa-xmark"></i>
-                </button>
-                <div class="contact-info">
-                    <h1>Contact Us</h1>
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="fa-light fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <p>27 Division St, New York, NY 10002, USA</p>
+                    <div class="toggle-link">
+                        <a href="products.html" class="btn btn-toggle" data-bs-toggle="collapse"
+                           data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Products
+                        </a>
+                        <div class="collapse" id="dashboard-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a asp-controller="products" asp-action="all" class="link">All</a></li>
+                                <li><a asp-controller="products" asp-action="women" class="link">Women</a></li>
+                                <li><a asp-controller="products" asp-action="men" class="link">Men</a></li>
+                                <li><a asp-controller="products" asp-action="kids" class="link">Kids</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <hr>
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="fa-light fa-envelope"></i>
-                        </div>
 
-                        <div>
-                            <p>manerosale@mail.com</p>
-                            <p>manerosupport@mail.com</p>
+                    <div class="toggle-link">
+                        <a href="/products.html" class="btn btn-toggle align-items-center rounded collapsed"
+                           data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Contact Us
+                        </a>
+                        <div class="collapse" id="dashboard-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <div class="info-box">
+                                        <i class="fa-light fa-phone-volume"></i>
+                                        <div class="content">
+                                            <p>27 Division St, New York,</p>
+                                            <p>NY 10002, USA</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="info-box">
+                                        <i class="fa-light fa-phone-volume"></i>
+                                        <div class="content">
+                                            <p>manerosale@mail.com</p>
+                                            <p>manerosupport@mail.com</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="info-box">
+                                        <i class="fa-light fa-phone-volume"></i>
+                                        <div class="content last">
+                                            <p>+17 123456789</p>
+                                            <p>+17 987654321</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <hr>
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="fa-light fa-phone-volume"></i>
+                </div>
+                <div class="track-order">
+                    <h5>Track your order</h5>
+                    <form method="post">
+                        <div class="form-input">
+                            <fieldset>
+                                <legend>Order Number</legend>
+                                <input type="text" id="ordernumber" name="ordernumber" required>
+                                <button class="arrow-submit-btn" type="submit">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </button>
+                            </fieldset>
                         </div>
-                        <div>
-                            <p>+17 123456789</p>
-                            <p>+17 987654321</p>
-                        </div>
-                    </div>
-                    <hr>
+                    </form>
                 </div>
             </div>
-
-
-            <div class="track-order">
-                <h5>Track your order</h5>
-                <form method="post">
-                    <div class="form-input">
-                        <fieldset>
-                            <legend>Order Number</legend>
-                            <input type="text" id="ordernumber" name="ordernumber" required>
-                            <button class="arrow-submit-btn" type="submit"><i class="fa-regular fa-arrow-right"></i></button>
-                        </fieldset>
-                    </div>
-                </form>
-            </div>
         </div>
+    </div>
+    <section class="mobile">
+        <nav class="bottom-nav">
+            <ul>
+                <li><a asp-controller="home" asp-action="index" class="footerIcon"><i class="fa-light fa-house"></i></a></li>
+                <li><a asp-controller="search" asp-action="index" class="footerIcon"><i class="fa-light fa-magnifying-glass"></i></a></li>
+                <li><a asp-controller="shoppingBag" asp-action="index" class="footerIcon"><i class="fa-light fa-shopping-bag"></i></a></li>
+                <li><a asp-controller ="wishList" asp-action="index" class="footerIcon"><i class="fa-light fa-heart"></i></a></li>
+                <li><a asp-controller="login" asp-action="index" class="footerIcon"><i class="fa-light fa-circle-user"></i></a></li>
+            </ul>
+        </nav>
+    </section>
+</header>
 
-        <div>
-            <button type="button" class="shopping-cart-menu position-relative">
-                <i class="fa-light fa-bag-shopping"></i>
-                <span class="badge-pill rounded-pill text-bg-danger ">
-                    $10
-                </span>
-            </button>
-        </div>
 
-    </nav>
-    <hr>
-</div>
+
