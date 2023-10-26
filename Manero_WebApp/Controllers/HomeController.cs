@@ -26,12 +26,15 @@ namespace Manero_WebApp.Controllers
 
         private void SetVisitedCookie()
         {
-            var visitedCookie = new CookieOptions
+            if (!Request.Cookies.ContainsKey("Visited"))
             {
-                Expires = DateTime.Now.AddMinutes(10)
-            };
+                var visitedCookie = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(2) 
+                };
 
-            Response.Cookies.Append("Visited", "true", visitedCookie);
+                Response.Cookies.Append("Visited", "true", visitedCookie);
+            }
         }
 
     }  
