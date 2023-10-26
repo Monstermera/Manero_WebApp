@@ -1,5 +1,101 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+html,
+body {
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  color: #111111;
+}
+
+a {
+  text-decoration: none;
+  color: #111111;
+}
+a:hover {
+  color: #F4303C;
+}
+
+.shopping-bag {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin: 0 10px;
+}
+.shopping-bag .badge {
+  background-color: red;
+  position: absolute;
+  font-size: 11px;
+  padding: 4px 3px;
+  font-weight: 700;
+  top: 6px;
+  right: 12px;
+}
+.shopping-bag i {
+  font-size: 20px;
+  color: #111111;
+}
+.shopping-bag i:hover {
+  color: #F4303C;
+}
+
+.text-grey {
+  color: #626262;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 30px;
+  background-color: #111111;
+  margin: 1rem auto;
+}
+
+.btn-large {
+  background-color: #191919;
+  color: #FFFFFF;
+  border-radius: 25px;
+  width: 100%;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.btn-small {
+  background-color: #191919;
+  color: #FFFFFF;
+  border-radius: 25px;
+  width: 80%;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.btn-sign-in {
+  width: 335px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 40px;
+}
+
+.btn-theme {
+  border: none;
+  background-color: #191919;
+  color: #FFFFFF;
+  border-radius: 25px;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  display: inline-block;
+  width: 335px;
+  text-align: center;
+  line-height: 3.125rem;
+  vertical-align: middle;
+}
+
 .testing {
   display: flex;
 }
@@ -565,77 +661,6 @@
 }
 .testing8 .container .sideinfo .rating .number-of-reviews {
   font-size: 12px;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-html,
-body {
-  font-size: 16px;
-  font-family: "Mulish", sans-serif;
-  font-weight: 400;
-  color: #111111;
-}
-
-a {
-  text-decoration: none;
-  color: #111111;
-}
-a:hover {
-  color: #F4303C;
-}
-
-.text-grey {
-  color: #626262;
-}
-
-.vertical-line {
-  width: 1px;
-  height: 30px;
-  background-color: #111111;
-  margin: 1rem auto;
-}
-
-.btn-large {
-  background-color: #191919;
-  color: #FFFFFF;
-  border-radius: 25px;
-  width: 100%;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-}
-
-.btn-small {
-  background-color: #191919;
-  color: #FFFFFF;
-  border-radius: 25px;
-  width: 80%;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-}
-
-.btn-sign-in {
-  width: 335px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 40px;
-}
-
-.btn-theme {
-  border: none;
-  background-color: #191919;
-  color: #FFFFFF;
-  border-radius: 25px;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-  width: 335px;
-  text-align: center;
-  line-height: 3.125rem;
-  vertical-align: middle;
 }
 
 /* Custom Icon Pattern background */
@@ -1824,12 +1849,6 @@ footer .copyright .social-media a {
   left: 50%;
   transform: translateX(-50%);
 }
-.login-section .black-line {
-  width: 1px;
-  height: 30px;
-  background-color: black;
-  margin: 0 auto;
-}
 .login-section .big-text {
   margin-top: 25px;
   margin-bottom: 30px;
@@ -1943,3 +1962,191 @@ footer .copyright .social-media a {
   color: #626262;
 }
 
+.shoppingBag {
+  padding: 50px;
+}
+@media (min-width: 992px) {
+  .shoppingBag .container {
+    width: 1110px;
+  }
+}
+.shoppingBag .container .top-section {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #DBE3F5;
+  margin-bottom: 30px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .shoppingBag .container .top-section {
+    justify-content: center;
+  }
+}
+.shoppingBag .container .top-section i {
+  font-size: 18px;
+}
+.shoppingBag .container .top-section .shopping-bag {
+  margin-bottom: 12px;
+}
+@media (min-width: 992px) {
+  .shoppingBag .container .top-section .shopping-bag {
+    display: none !important;
+  }
+}
+.shoppingBag .container .content .item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+  padding-bottom: 30px;
+}
+.shoppingBag .container .content .item .tag {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #69864D;
+  width: 33px;
+  height: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-family: 700;
+}
+.shoppingBag .container .content .item img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+.shoppingBag .container .content .item .body {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2.5;
+  height: 100px;
+}
+.shoppingBag .container .content .item .body .item-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 10px;
+  font-size: 14;
+  margin-top: 5px;
+  width: 100%;
+}
+.shoppingBag .container .content .item .body .item-details .item-name:hover {
+  color: #F4303C;
+}
+.shoppingBag .container .content .item .body .item-details .prices {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: 3px;
+}
+.shoppingBag .container .content .item .body .item-details .prices .old-price {
+  font-size: 16px;
+  color: #626262;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+.shoppingBag .container .content .item .body .item-details .prices .new-price {
+  font-size: 16px;
+  color: #F4303C;
+}
+.shoppingBag .container .content .item .body .item-details .size,
+.shoppingBag .container .content .item .body .item-details .color {
+  display: flex;
+  line-height: 9px;
+}
+.shoppingBag .container .content .item .body .item-details .size p,
+.shoppingBag .container .content .item .body .item-details .color p {
+  margin-right: 8px;
+}
+.shoppingBag .container .content .item .qty {
+  margin-left: 5.5rem;
+  margin-top: -10px;
+}
+@media (min-width: 768px) {
+  .shoppingBag .container .content .item .qty {
+    margin-left: 28rem;
+  }
+}
+@media (min-width: 992px) {
+  .shoppingBag .container .content .item .qty {
+    margin-left: 42rem;
+  }
+}
+@media (min-width: 1200px) {
+  .shoppingBag .container .content .item .qty {
+    margin-left: 52rem;
+  }
+}
+.shoppingBag .bottom-section .form-input {
+  margin-top: auto;
+  display: flex;
+}
+.shoppingBag .bottom-section .form-input fieldset {
+  border: 1px solid #DBE3F5;
+  border-radius: 10px;
+  padding: 0 10px;
+  width: 100%;
+  height: 43px;
+  position: relative;
+}
+.shoppingBag .bottom-section .form-input legend {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  background-color: #FFFFFF;
+  width: auto;
+  z-index: 1;
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #626262;
+}
+.shoppingBag .bottom-section .form-input input {
+  width: 85%;
+  padding: 7px;
+  border: 1px solid #DBE3F5;
+  border-color: #FFFFFF;
+  outline: none;
+}
+.shoppingBag .bottom-section .form-input input:focus {
+  outline: none !important;
+  border: 1px solid #FFFFFF;
+}
+.shoppingBag .bottom-section .form-input .btn-apply {
+  background: #EF962D;
+  border: none;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-left: 30px;
+  height: 40px;
+  width: 80px;
+}
+.shoppingBag .bottom-section .checkout {
+  padding-top: 20px;
+  margin-bottom: 200px;
+}
+.shoppingBag .bottom-section .checkout .checkout-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.shoppingBag .bottom-section .checkout .checkout-content .subtotal {
+  font-weight: 600;
+}
+.shoppingBag .bottom-section .checkout .checkout-content .discount, .shoppingBag .bottom-section .checkout .checkout-content h6 {
+  color: #626262;
+}
+.shoppingBag .bottom-section .checkout .checkout-content .delivery {
+  color: #00824B;
+}
+.shoppingBag .bottom-section .checkout .checkout-content .total {
+  padding-top: 10px;
+}
+
+.line-top {
+  background-color: #DBE3F5;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0 30px 0;
+}

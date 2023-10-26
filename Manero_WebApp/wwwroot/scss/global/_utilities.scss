@@ -20,6 +20,34 @@ a {
 }
 
 
+.shopping-bag {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    margin: 0 10px;
+
+    .badge {
+        background-color: red;
+        position: absolute;
+        font-size: 11px;
+        padding: 4px 3px;
+        font-weight: $font-weight-bold;
+        top: 6px;
+        right: 12px;
+    }
+
+    i {
+        font-size: 20px;
+        color: $color-dark;
+
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
+
 
 .text-grey { color: $color-grey }
 
