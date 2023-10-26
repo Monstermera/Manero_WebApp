@@ -1,10 +1,6 @@
-﻿[
+[
   {
     "outputFile": "wwwroot/css/style.css",
     "inputFile": "wwwroot/scss/style.scss"
-  },
-  {
-    "outputFile": "wwwroot/scss/components/_topNavbar.css",
-    "inputFile": "wwwroot/scss/components/_topNavbar.scss"
   }
 ]
