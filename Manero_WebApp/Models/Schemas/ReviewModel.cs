@@ -2,9 +2,10 @@
 
 public class ReviewModel
 {
-    public string FullName { get; set; } = null!;
+    public Guid Id { get; set; }
+    public UserModel User { get; set; } = null!;
+    public Guid ProductId { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
-    public string ProfileImageUrl { get; set; } = null!;
-    public int StarRating { get; set; }
+    public int Rating { get; set; }
     public string ReviewDescription { get; set; } = null!;
 }
