@@ -24,10 +24,16 @@ namespace Manero_WebApp.Helpers.Services.AuthenticationServices
             var result = await _userManager.CreateAsync(user, registrationViewModel.Password);
             if (result.Succeeded)
             {
-                await _rolesService.AddRoleAsync(user);
-                return true;
+                var rolesAdded = await _rolesService.AddRoleAsync(user);
+                if (rolesAdded.Succeeded)
+                {
+                    return true;
+                }
+                else { 
+                    await _userManager.DeleteAsync(user);
+                    return false; 
+                }
             }
-
             return false;
         }
     }

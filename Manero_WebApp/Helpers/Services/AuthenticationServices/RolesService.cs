@@ -1,5 +1,6 @@
 ﻿using Manero_WebApp.Models.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace Manero_WebApp.Helpers.Services.AuthenticationServices
         }
 
 
-        public async Task AddRoleAsync(UserEntity userModel)
+        public async Task<IdentityResult> AddRoleAsync(UserEntity userModel)
         {
             var roleName = "customer";
 
@@ -32,7 +33,7 @@ namespace Manero_WebApp.Helpers.Services.AuthenticationServices
                 roleName = "admin";
             }
 
-            await _userManager.AddToRoleAsync(userModel, roleName);
+            return await _userManager.AddToRoleAsync(userModel, roleName);
         }
     }
 }
