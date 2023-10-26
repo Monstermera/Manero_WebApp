@@ -1,3 +1,5 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 html,
 body {
@@ -51,7 +53,7 @@ a:hover {
 }
 
 .btn-large {
-  background-color: #191919;
+  background-color: #111111;
   color: #FFFFFF;
   border-radius: 25px;
   width: 100%;
@@ -61,7 +63,7 @@ a:hover {
 }
 
 .btn-small {
-  background-color: #191919;
+  background-color: #111111;
   color: #FFFFFF;
   border-radius: 25px;
   width: 80%;
@@ -81,7 +83,7 @@ a:hover {
 
 .btn-theme {
   border: none;
-  background-color: #191919;
+  background-color: #111111;
   color: #FFFFFF;
   border-radius: 25px;
   height: 3.125rem;
@@ -658,77 +660,6 @@ a:hover {
 }
 .testing8 .container .sideinfo .rating .number-of-reviews {
   font-size: 12px;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
-html,
-body {
-  font-size: 16px;
-  font-family: "Mulish", sans-serif;
-  font-weight: 400;
-  color: #111111;
-}
-
-a {
-  text-decoration: none;
-  color: #111111;
-}
-a:hover {
-  color: #F4303C;
-}
-
-.text-grey {
-  color: #626262;
-}
-
-.vertical-line {
-  width: 1px;
-  height: 30px;
-  background-color: #111111;
-  margin: 1rem auto;
-}
-
-.btn-large {
-  background-color: #111111;
-  color: #FFFFFF;
-  border-radius: 25px;
-  width: 100%;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-}
-
-.btn-small {
-  background-color: #111111;
-  color: #FFFFFF;
-  border-radius: 25px;
-  width: 80%;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-}
-
-.btn-sign-in {
-  width: 335px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 40px;
-}
-
-.btn-theme {
-  border: none;
-  background-color: #111111;
-  color: #FFFFFF;
-  border-radius: 25px;
-  height: 3.125rem;
-  font-size: 0.875rem;
-  display: inline-block;
-  width: 335px;
-  text-align: center;
-  line-height: 3.125rem;
-  vertical-align: middle;
 }
 
 /* Custom Icon Pattern background */
@@ -2261,6 +2192,7 @@ footer .copyright .social-media a {
   width: 100%;
   height: 1px;
   margin: 20px 0 30px 0;
+}
 
 @keyframes loadingAnimation {
   0% {
