@@ -5,6 +5,7 @@ using Manero_WebApp.Helpers.Services.AuthenticationServices;
 using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
+using Manero_WebApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,6 +37,7 @@ builder.Services.AddScoped<DeleteOneProductService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
+builder.Services.AddScoped<ProductServices>();
 builder.Services.AddScoped<RolesService>();
 
 //Identity

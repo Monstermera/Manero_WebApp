@@ -1,0 +1,21 @@
+﻿@model Manero_WebApp.ViewModels.HomeViewModels.ProductDetailsViewModel
+
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
+<p>Price: @Model.FormattedPrice</p>
+<p>In Stock: @Model.InStock</p>
+<!-- Add more fields as necessary -->
+<!-- Example of displaying reviews -->
+@if (Model.Reviews != null && Model.Reviews.Any())
+{
+    <h3>Reviews</h3>
+    <ul>
+        @foreach (var review in Model.Reviews)
+        {
+            <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
+        }
+    </ul>
+}
+
+
+

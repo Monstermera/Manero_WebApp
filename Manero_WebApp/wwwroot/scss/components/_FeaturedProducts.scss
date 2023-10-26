@@ -52,6 +52,11 @@
             display: flex;
             overflow-x: auto;
 
+            .product-link {
+                text-decoration: none;
+                color: inherit;
+            }
+
             .product-card {
                 flex: 0 0 auto;
                 margin-right: 15px;
@@ -127,6 +132,11 @@
         .products {
             display: flex;
             overflow-x: auto;
+
+            .product-link {
+                text-decoration: none;
+                color: inherit;
+            }
 
             .product-card {
                 width: 207px;

@@ -33,7 +33,6 @@
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Partials\FullScreenComponents\BestSellers\" />
     <Folder Include="Views\Partials\FullScreenComponents\NewsLetter\" />
-    <Folder Include="Views\Partials\SmallComponents\ProductCards\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 

@@ -1,0 +1,28 @@
+﻿@model Manero_WebApp.ViewModels.HomeViewModels.ProductCardViewModel
+
+<a asp-controller="Home" asp-action="ProductDetails" asp-route-articleNumber="@Model.ArticleNumber" class="product-link">
+    <img src="@Model.ImageUrl" alt="@Model.Name" class="product-image">
+    <div class="product-icons">
+        <i class="fa-light fa-heart"></i>
+        <i class="fa-light fa-bag-shopping"></i>
+    </div>
+    <div class="product-rating">
+        @for (var i = 0; i < Model.StarRating; i++)
+        {
+            <i class="fa-solid fa-star"></i>
+        }
+
+        @for (var i = 0; i < (5 - Model.StarRating); i++)
+        {
+            <i class="fa-regular fa-star"></i>
+        }
+        (@Model.NumberOfReviews)
+    </div>
+
+    <div class="product-name">@Model.Name</div>
+    <div class="product-price">$@Model.Price</div>
+    @if (Model.IsOnSale)
+    {
+        <div class="product-discount">Sale Price: $@Model.DiscountPrice</div>
+    }
+</a>
