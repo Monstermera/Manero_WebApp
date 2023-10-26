@@ -1,0 +1,64 @@
+﻿.testing7 {
+
+    .container {
+        display: flex;
+
+        .card {
+            border: none;
+
+            a {
+                text-decoration: none;
+
+                .box {
+                    background-color: aqua;
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+        }
+
+        .sideinfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 10px;
+
+
+            .toptext {
+                display: flex;
+                justify-content: space-between;
+                text-align: center;
+                gap: 100px;
+
+                .product-name {
+                    font-size: 14px;
+                }
+
+                .heart {
+                    display: flex;
+                    font-size: 14px;
+                    justify-content: end;
+                    padding-top: 1px;
+                }
+            }
+
+            .product-price {
+                font-size: 14px;
+            }
+
+            .rating {
+                display: flex;
+                align-items: baseline;
+
+                i {
+                    font-size: 12px;
+                    color: yellow;
+                }
+
+                .number-of-reviews {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

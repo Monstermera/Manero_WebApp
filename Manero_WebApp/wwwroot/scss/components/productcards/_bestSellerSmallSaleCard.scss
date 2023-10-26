@@ -1,0 +1,89 @@
+﻿.testing8 {
+    margin-top: 50px;
+
+    .container {
+        display: flex;
+
+        .card {
+            border: none;
+
+            a {
+                text-decoration: none;
+
+                .box {
+                    background-color: aqua;
+                    height: 100px;
+                    width: 100px;
+
+                    .salebox {
+                        width: 33px;
+                        height: 16px;
+                        background-color: #69864D;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .text {
+                            font-size: 8px;
+                            color: white;
+                            padding-top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sideinfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 10px;
+
+            .toptext {
+                display: flex;
+                justify-content: space-between;
+                gap: 100px;
+
+                .product-name {
+                    font-size: 14px;
+                }
+
+                .heart {
+                    display: flex;
+                    font-size: 14px;
+                    justify-content: end;
+                    padding-top: 1px;
+                }
+            }
+
+            .product-prices {
+                display: flex;
+                gap: 10px;
+
+                .product-price {
+                    font-size: 14px;
+                    text-decoration: line-through;
+                }
+
+                .product-discount-price {
+                    font-size: 14px;
+                    color: red;
+                }
+            }
+
+            .rating {
+                display: flex;
+                align-items: baseline;
+
+                i {
+                    font-size: 12px;
+                    color: yellow;
+                }
+
+                .number-of-reviews {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
