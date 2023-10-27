@@ -7,5 +7,5 @@ public class TagsEntity
     [Key]
     public int Id { get; set; }
     public string TagName { get; set; } = null!;
-    public List<ProductEntity> Tags { get; set; } = new();
+    public List<ProductEntity> Products { get; set; } = new();
 }

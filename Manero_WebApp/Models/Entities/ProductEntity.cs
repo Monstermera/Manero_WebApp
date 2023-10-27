@@ -18,7 +18,7 @@ public class ProductEntity
     public List<CategoriesEntity> Categories { get; set; } = new();
     public List<TagsEntity> Tags { get; set; } = new();
     public List<SizesEntity> Sizes { get; set; } = new();
-    public List<ColorsEntity> Colours { get; set; } = new();
+    public List<ColorsEntity> Colors { get; set; } = new();
     [Required]
     public int AmountInStock { get; set; }
 }

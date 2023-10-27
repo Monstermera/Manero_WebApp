@@ -7,5 +7,5 @@ public class SizesEntity
     [Key]
     public int Id { get; set; }
     public string SizeName { get; set; } = null!;
-    public List<ProductEntity> ProductSizes { get; set; } = new();
+    public List<ProductEntity> Products { get; set; } = new();
 }
