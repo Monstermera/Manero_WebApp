@@ -7,5 +7,5 @@ public class ColorsEntity
     [Key]
     public int Id { get; set; }
     public string ColorName { get; set; } = null!;
-    public ICollection<ProductColorsEntity> ProductColors { get; set; } = new List<ProductColorsEntity>();
+    public List<ProductEntity> Products { get; set; } = new();
 }

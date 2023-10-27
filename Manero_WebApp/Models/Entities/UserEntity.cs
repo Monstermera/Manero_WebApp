@@ -9,8 +9,8 @@ public class UserEntity : IdentityUser
     [StringLength(50)]
     public string FullName { get; set; } = null!;
     public string? ImageUrl { get; set; }
-    public ICollection<UserAdressEntity> Address { get; set; } = new List<UserAdressEntity>();
-    public ICollection<ReviewsEntity> Reviews { get; set; } = new List<ReviewsEntity>();
+    public List<AdressEntity> Address { get; set; } = new();
+    public List<ReviewsEntity> Reviews { get; set; } = new();
 
     public static implicit operator UserModel(UserEntity model)
     {
