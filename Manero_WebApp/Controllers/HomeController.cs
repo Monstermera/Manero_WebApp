@@ -18,25 +18,25 @@ namespace Manero_WebApp.Controllers
             _productServices = productServices;
         }
 
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             if (IsFirstVisit())
             {
                 SetVisitedCookie();
                 return View("WelcomeOnboarding");
-
             }
-            var bestSellersViewModel = await BestSellers();
-            var featuredProductsViewModel = await FeaturedProducts();
 
-            var homeViewModel = new HomePageViewModel
+            var topProducts = (await _productServices.GetProductsByTagNameAsync("top")).ToList();
+
+            var homePageViewModel = new HomePageViewModel
             {
-                BestSellers = bestSellersViewModel,
-                FeaturedProducts = featuredProductsViewModel
+                BestSellers = new BestSellerViewModel { Products = topProducts },
+                FeaturedProducts = new FeaturedProductViewModel { Products = topProducts }
             };
 
-            return View(homeViewModel);
+            return View(homePageViewModel);
         }
+
 
 
         private bool IsFirstVisit()
@@ -86,39 +86,6 @@ namespace Manero_WebApp.Controllers
             };
 
             return View(viewModel);
-        }
-
-        /// <summary>
-        /// HÄMTAR TILL BEST SELLERS. Genererar tom lista om inget finns.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<BestSellerViewModel> BestSellers()
-        {
-            var bestSellerProducts = await _productServices.GetProductsByTagsAsync(new List<string> { "Best Seller" });
-
-            if (bestSellerProducts == null)
-            {
-                bestSellerProducts = new List<ProductModel>();
-            }
-
-            var viewModel = new BestSellerViewModel { Products = bestSellerProducts.ToList() };
-            return viewModel;
-        }
-        /// <summary>
-        /// HÄMTAR TILL FEATURED PRODUCTS. Genererar tom lista om inget finns.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<FeaturedProductViewModel> FeaturedProducts()
-        {
-            var featuredProducts = await _productServices.GetProductsByTagsAsync(new List<string> { "Featured Product" });
-
-            if (featuredProducts == null)
-            {
-                featuredProducts = new List<ProductModel>();
-            }
-
-            var viewModel = new FeaturedProductViewModel { Products = featuredProducts.ToList() };
-            return viewModel;
         }
     }
 }

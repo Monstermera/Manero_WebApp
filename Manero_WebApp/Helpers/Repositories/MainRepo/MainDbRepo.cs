@@ -1,4 +1,5 @@
 ﻿using Manero_WebApp.Contexts;
+using Manero_WebApp.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -80,4 +81,20 @@ public class MainDbRepo<TEntity> where TEntity : class
         catch { };
         return false;
     }
+
+    public async Task<IEnumerable<ProductEntity>> GetProductsByTagNameAsync(string tagName)
+    {
+        try
+        {
+            return await _db.Set<ProductEntity>()
+                            .Where(p => p.Tags.Any(t => t.Tag.TagName == tagName))
+                            .ToListAsync();
+        }
+        catch (Exception)
+        {
+            return null!;
+        }
+    }
+
+
 }
