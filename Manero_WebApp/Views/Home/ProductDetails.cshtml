@@ -1,21 +1,70 @@
 ﻿@model Manero_WebApp.ViewModels.HomeViewModels.ProductDetailsViewModel
 
-<h2>@Model.Name</h2>
-<p>@Model.Description</p>
-<p>Price: @Model.FormattedPrice</p>
-<p>In Stock: @Model.InStock</p>
-<!-- Add more fields as necessary -->
-<!-- Example of displaying reviews -->
-@if (Model.Reviews != null && Model.Reviews.Any())
-{
-    <h3>Reviews</h3>
-    <ul>
-        @foreach (var review in Model.Reviews)
-        {
-            <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
-        }
-    </ul>
-}
+<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
+
+@* <div class="container">
+    <h2>@Model.Name</h2>
+    <p>@Model.Description</p>
+    <p>Price: @Model.FormattedPrice</p>
+    <p>In Stock: @Model.InStock</p>
+
+    <!-- Add more fields as necessary -->
+    @if (Model.Reviews != null && Model.Reviews.Any())
+    {
+        <h3>Reviews</h3>
+        <ul>
+            @foreach (var review in Model.Reviews)
+            {
+                <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
+            }
+        </ul>
+    }
+</div> *@
+
+<div class="container">
+    <div class="product-details-mobile">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://placehold.co/200x255" alt="@Model.Name" class="product-image">
+            </div>
+            <h2 class="product-title">@Model.Name</h2>
+            <div class="product-rating">
+                @for (var i = 0; i < Model.AverageRating; i++)
+                {
+                    <i class="fa-solid fa-star"></i>
+                }
+                @for (var i = 0; i < (5 - Model.AverageRating); i++)
+                {
+                    <i class="fa-regular fa-star"></i>
+                }
+                @* (@Model.NumberOfReviews) *@
+            </div>
+            <div class="product-price">$@Model.Price</div>
+            <div class="product-size">
+                <!-- Size buttons go here -->
+            </div>
+            <div class="product-color">
+                <!-- Color buttons go here -->
+            </div>
+            <div class="product-description">@Model.Description</div>
+            <button class="add-to-cart">+ Add to cart</button>
+            <div class="product-reviews">
+                @* <h3>Reviews (@Model.NumberOfReviews)</h3> *@
+                @if (Model.Reviews != null && Model.Reviews.Any())
+                {
+                    <ul>
+                        @foreach (var review in Model.Reviews)
+                        {
+                            <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
+
+<partial name="/Views/Partials/FullScreenComponents/Footer/_Footer.cshtml" />

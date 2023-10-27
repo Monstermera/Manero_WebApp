@@ -20,24 +20,35 @@ namespace Manero_WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var productModels = await _productServices.GetAllProductsAsync();
+
+            var productCardViewModels = productModels.Select(pm => new ProductCardViewModel
+            {
+                ArticleNumber = pm.ArticleNumber,
+                Name = pm.Name,
+                Price = pm.Price,
+                NumberOfReviews = pm.Reviews.Count,
+                StarRating = pm.Reviews.Any() ? (int)Math.Round(pm.Reviews.Average(r => r.Rating)) : 0,
+
+            }).ToList();
+
+            var homeViewModel = new HomePageViewModel
+            {
+                BestSellers = new ProductListViewModel
+                {
+                    Products = productCardViewModels
+                }
+            };
+
+            // Your existing logic for first visit and setting cookies
             if (IsFirstVisit())
             {
                 SetVisitedCookie();
                 return View("WelcomeOnboarding");
             }
 
-            var topProducts = (await _productServices.GetProductsByTagNameAsync("top")).ToList();
-
-            var homePageViewModel = new HomePageViewModel
-            {
-                BestSellers = new BestSellerViewModel { Products = topProducts },
-                FeaturedProducts = new FeaturedProductViewModel { Products = topProducts }
-            };
-
-            return View(homePageViewModel);
+            return View(homeViewModel);
         }
-
-
 
         private bool IsFirstVisit()
         {
@@ -65,7 +76,7 @@ namespace Manero_WebApp.Controllers
         /// <returns></returns>
         public async Task<IActionResult> ProductDetails(Guid articleNumber)
         {
-            var product = await _productServices.GetProductAsync(articleNumber);
+            var product = await _productServices.GetProductWithReviewsAsync(articleNumber);
             if (product == null)
             {
                 return NotFound();
@@ -77,15 +88,24 @@ namespace Manero_WebApp.Controllers
                 Name = product.Name,
                 Price = product.Price,
                 Description = product.Description,
-                ImageUrls = product.ImageUrl,
-                Categories = product.Category,
-                Tags = product.Tags,
-                Sizes = product.Sizes,
-                Colours = product.Colours,
-                InStock = product.InStock
+                ImageUrls = product.ImageUrl.Select(c => c.ImageUrl).ToList(),
+                Categories = product.Categories.Select(c => c.CategoryName).ToList(),
+                Tags = product.Tags.Select(c => c.TagName).ToList(),
+                Sizes = product.Sizes.Select(c => c.SizeName).ToList(),
+                Colours = product.Colors.Select(c => c.ColorName).ToList(),
+                InStock = product.AmountInStock,
+                Reviews = product.Reviews.Select(r => new ReviewViewModel
+                {
+                    Username = r.User?.FullName ?? "Unknown User",
+                    Content = r.Review,
+                    Rating = r.Rating,
+                    DatePosted = r.DateCreated
+                }).ToList()
             };
 
             return View(viewModel);
         }
+
+
     }
 }

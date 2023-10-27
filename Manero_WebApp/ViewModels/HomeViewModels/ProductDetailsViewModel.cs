@@ -7,7 +7,8 @@
         public decimal Price { get; set; }
         public string Description { get; set; } = string.Empty;
         public List<string>? ImageUrls { get; set; }
-        public List<ReviewViewModel>? Reviews { get; set; }
+        public List<ReviewViewModel>? Reviews { get; set; } // List of reviews
+        public decimal AverageRating { get; set; } // Average rating
         public List<string> Categories { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
         public List<string> Sizes { get; set; } = new List<string>();
