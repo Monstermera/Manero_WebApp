@@ -41,7 +41,7 @@ public class ProductEntity
         {
             foreach (var categories in entity.Categories)
             {
-                model.Category.Add(categories.CategoryName);
+                model.Categories.Add(categories.CategoryName);
             }
         }
 

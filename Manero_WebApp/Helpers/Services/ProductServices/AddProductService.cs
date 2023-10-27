@@ -1,7 +1,9 @@
-﻿using Manero_WebApp.Contexts;
+﻿using Azure;
+using Manero_WebApp.Contexts;
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Models.Entities;
 using Manero_WebApp.Models.Schemas;
+using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Helpers.Services.ProductServices;
 
@@ -31,4 +33,5 @@ public class AddProductService
         }
         return null!;
     }
+
 }

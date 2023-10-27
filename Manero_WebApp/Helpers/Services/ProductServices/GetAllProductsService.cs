@@ -36,7 +36,7 @@ namespace Manero_WebApp.Helpers.Services.ProductServices
                 Price = entity.Price,
                 Description = entity.Description,
                 AmountInStock = entity.AmountInStock,
-                Category = entity.Categories.Select(c => c.CategoryName).ToList(),
+                Categories = entity.Categories.Select(c => c.CategoryName).ToList(),
                 Sizes = entity.Sizes.Select(s => s.SizeName).ToList(),
                 Colors = entity.Colors.Select(c => c.ColorName).ToList(),
                 Tags = entity.Tags.Select(t => t.TagName).ToList(),

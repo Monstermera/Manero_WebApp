@@ -41,7 +41,7 @@ public class GetOneProductService
             Price = productEntity.Price,
             Description = productEntity.Description,
             AmountInStock = productEntity.AmountInStock,
-            Category = productEntity.Categories.Select(c => c.CategoryName).ToList(),
+            Categories = productEntity.Categories.Select(c => c.CategoryName).ToList(),
             Sizes = productEntity.Sizes.Select(s => s.SizeName).ToList(),
             Colors = productEntity.Colors.Select(c => c.ColorName).ToList(),
             Tags = productEntity.Tags.Select(t => t.TagName).ToList(),
