@@ -8,13 +8,21 @@ namespace Manero_WebApp.Controllers
 	public class ProductController : Controller
 	{
         #region constructors & private fields
+        private readonly GetAllProductsService _allProductService;
 
-
-        #endregion
-
-        public async Task<IActionResult> Index()
+		public ProductController(GetAllProductsService allProductService)
 		{
-            return View();
+			_allProductService = allProductService;
+		}
+
+
+		#endregion
+
+		public async Task<IActionResult> Index()
+		{
+			var result = await _allProductService.GetAllAsync();
+
+			return View(result);
         }
 	}
 }
