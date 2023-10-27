@@ -13,14 +13,12 @@ public class ProductEntity
     [Column(TypeName = "money")]
     public decimal Price { get; set; }
     public string Description { get; set; } = null!;
-    public ICollection<ProductImageUrlEntity> ImageUrl { get; set; } = new List<ProductImageUrlEntity>();
-
-    public ICollection<ReviewsEntity> Reviews { get; set; } = new List<ReviewsEntity>();
-
-    public ICollection<ProductCategoryEntity> Categories { get; set; } = new List<ProductCategoryEntity>();
-    public ICollection<ProductTagsEntity> Tags { get; set; } = new List<ProductTagsEntity>();
-    public ICollection<ProductSizesEntity> Sizes { get; set; } = new List<ProductSizesEntity>();
-    public ICollection<ProductColorsEntity> Colours { get; set; } = new List<ProductColorsEntity>();
+    public List<ProductImageUrlEntity> ImageUrl { get; set; } = new();
+    public List<ReviewsEntity> Reviews { get; set; } = new();
+    public List<CategoriesEntity> Categories { get; set; } = new();
+    public List<TagsEntity> Tags { get; set; } = new();
+    public List<SizesEntity> Sizes { get; set; } = new();
+    public List<ColorsEntity> Colors { get; set; } = new();
     [Required]
     public int AmountInStock { get; set; }
 }
