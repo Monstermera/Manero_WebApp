@@ -4,6 +4,7 @@
 using Manero_WebApp.Contexts;
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Helpers.Services.AuthenticationServices;
+using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -24,7 +25,14 @@ builder.Services.AddDbContext<DataContext>(x =>
 
 //Repos
 builder.Services.AddScoped<UserDbRepo>();
+builder.Services.AddScoped<ProductDbRepo>();
 
+
+//Products
+builder.Services.AddScoped<AddProductService>();
+builder.Services.AddScoped<GetOneProductService>();
+builder.Services.AddScoped<GetAllProductsService>();
+builder.Services.AddScoped<DeleteOneProductService>();
 
 //Services
 builder.Services.AddScoped<LoginService>();
