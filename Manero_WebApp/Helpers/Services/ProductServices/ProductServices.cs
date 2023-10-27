@@ -28,18 +28,18 @@ namespace Manero_WebApp.Services
             return await _productRepo.GetAllAsync(predicate);
         }
 
-        public async Task<ProductEntity> GetProductWithReviewsAsync(Guid articleNumber)
-        {
-            return await _productRepo.GetAsync(
-                p => p.ArticleNumber == articleNumber,
-                pr => pr.Reviews,
-                pr => pr.ImageUrl,
-                pr => pr.Categories,
-                pr => pr.Tags,
-                pr => pr.Sizes,
-                pr => pr.Colors
-            );
-        }
+        //public async Task<ProductEntity> GetProductWithReviewsAsync(Guid articleNumber)
+        //{
+        //    return await _productRepo.GetAsync(
+        //        p => p.ArticleNumber == articleNumber,
+        //        pr => pr.Reviews,
+        //        pr => pr.ImageUrl,
+        //        pr => pr.Categories,
+        //        pr => pr.Tags,
+        //        pr => pr.Sizes,
+        //        pr => pr.Colors
+        //    );
+        //}
 
 
 

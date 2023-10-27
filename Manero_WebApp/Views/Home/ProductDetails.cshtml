@@ -1,25 +1,7 @@
-﻿@model Manero_WebApp.ViewModels.HomeViewModels.ProductDetailsViewModel
+﻿@using System.Globalization;
+@model Manero_WebApp.Models.Schemas.ProductModel
 
 <partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
-
-@* <div class="container">
-    <h2>@Model.Name</h2>
-    <p>@Model.Description</p>
-    <p>Price: @Model.FormattedPrice</p>
-    <p>In Stock: @Model.InStock</p>
-
-    <!-- Add more fields as necessary -->
-    @if (Model.Reviews != null && Model.Reviews.Any())
-    {
-        <h3>Reviews</h3>
-        <ul>
-            @foreach (var review in Model.Reviews)
-            {
-                <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
-            }
-        </ul>
-    }
-</div> *@
 
 <div class="container">
     <div class="product-details-mobile">
@@ -29,17 +11,25 @@
             </div>
             <h2 class="product-title">@Model.Name</h2>
             <div class="product-rating">
-                @for (var i = 0; i < Model.AverageRating; i++)
+                @{
+                    var averageRating = Model.Reviews.Any() ? Model.Reviews.Average(r => r.Rating) : 0;
+                    var numberOfReviews = Model.Reviews.Count;
+                }
+                @for (var i = 0; i < (int)Math.Round(averageRating); i++)
                 {
                     <i class="fa-solid fa-star"></i>
                 }
-                @for (var i = 0; i < (5 - Model.AverageRating); i++)
+                @for (var i = 0; i < 5 - (int)Math.Round(averageRating); i++)
                 {
                     <i class="fa-regular fa-star"></i>
                 }
-                @* (@Model.NumberOfReviews) *@
+                (@numberOfReviews)
             </div>
-            <div class="product-price">$@Model.Price</div>
+            <div class="product-price">$@Model.Price.ToString("N2", CultureInfo.CreateSpecificCulture("en-US"))</div>
+            @if (Model.Tags.Contains("sale"))
+            {
+                <div class="product-discount">Sale Price: $@((Model.Price * 0.5m).ToString("N2", CultureInfo.CreateSpecificCulture("en-US")))</div>
+            }
             <div class="product-size">
                 <!-- Size buttons go here -->
             </div>
@@ -49,22 +39,22 @@
             <div class="product-description">@Model.Description</div>
             <button class="add-to-cart">+ Add to cart</button>
             <div class="product-reviews">
-                @* <h3>Reviews (@Model.NumberOfReviews)</h3> *@
                 @if (Model.Reviews != null && Model.Reviews.Any())
                 {
                     <ul>
                         @foreach (var review in Model.Reviews)
                         {
-                            <li>@review.Username: @review.Content (Rating: @review.Rating)</li>
+                            <li>@review.User.FullName: @review.ReviewDescription (Rating: @review.Rating)</li>
                         }
                     </ul>
+                }
+                else
+                {
+                    <p>No reviews yet.</p>
                 }
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 <partial name="/Views/Partials/FullScreenComponents/Footer/_Footer.cshtml" />

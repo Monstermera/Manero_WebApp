@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Manero_WebApp.Services;
 using Manero_WebApp.ViewModels.HomeViewModels;
 using Manero_WebApp.Models.Schemas;
+using Manero_WebApp.Helpers.Services.ProductServices;
 
 namespace Manero_WebApp.Controllers
 {
@@ -11,44 +12,33 @@ namespace Manero_WebApp.Controllers
 
     public class HomeController : Controller
     {
-        private readonly ProductServices _productServices;
+        private readonly GetAllProductsService _getAllProductsService;
+        private readonly GetOneProductService _getOneProductService;
 
-        public HomeController(ProductServices productServices)
+        public HomeController(GetAllProductsService getAllProductsService, GetOneProductService getOneProductService)
         {
-            _productServices = productServices;
+            _getAllProductsService = getAllProductsService;
+            _getOneProductService = getOneProductService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var productModels = await _productServices.GetAllProductsAsync();
-
-            var productCardViewModels = productModels.Select(pm => new ProductCardViewModel
-            {
-                ArticleNumber = pm.ArticleNumber,
-                Name = pm.Name,
-                Price = pm.Price,
-                NumberOfReviews = pm.Reviews.Count,
-                StarRating = pm.Reviews.Any() ? (int)Math.Round(pm.Reviews.Average(r => r.Rating)) : 0,
-
-            }).ToList();
-
-            var homeViewModel = new HomePageViewModel
-            {
-                BestSellers = new ProductListViewModel
-                {
-                    Products = productCardViewModels
-                }
-            };
-
-            // Your existing logic for first visit and setting cookies
             if (IsFirstVisit())
             {
                 SetVisitedCookie();
                 return View("WelcomeOnboarding");
-            }
 
-            return View(homeViewModel);
+            }
+            var products = await _getAllProductsService.GetAllAsync();
+
+            var viewModel = new HomePageViewModel
+            {
+                AllProducts = products
+            };
+
+            return View(viewModel);
         }
+
 
         private bool IsFirstVisit()
         {
@@ -69,43 +59,16 @@ namespace Manero_WebApp.Controllers
             }
         }
 
-        /// <summary>
-        /// Hämtar en produkt. Finns den inte så = 404.
-        /// </summary>
-        /// <param name="articleNumber"></param>
-        /// <returns></returns>
+        [HttpGet("product/{articleNumber}")]
         public async Task<IActionResult> ProductDetails(Guid articleNumber)
         {
-            var product = await _productServices.GetProductWithReviewsAsync(articleNumber);
+            var product = await _getOneProductService.GetOneProductAsync(articleNumber);
             if (product == null)
             {
                 return NotFound();
             }
 
-            var viewModel = new ProductDetailsViewModel
-            {
-                ArticleNumber = product.ArticleNumber,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description,
-                ImageUrls = product.ImageUrl.Select(c => c.ImageUrl).ToList(),
-                Categories = product.Categories.Select(c => c.CategoryName).ToList(),
-                Tags = product.Tags.Select(c => c.TagName).ToList(),
-                Sizes = product.Sizes.Select(c => c.SizeName).ToList(),
-                Colours = product.Colors.Select(c => c.ColorName).ToList(),
-                InStock = product.AmountInStock,
-                Reviews = product.Reviews.Select(r => new ReviewViewModel
-                {
-                    Username = r.User?.FullName ?? "Unknown User",
-                    Content = r.Review,
-                    Rating = r.Rating,
-                    DatePosted = r.DateCreated
-                }).ToList()
-            };
-
-            return View(viewModel);
+            return View(product);
         }
-
-
     }
 }
