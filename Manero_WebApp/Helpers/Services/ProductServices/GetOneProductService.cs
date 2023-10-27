@@ -22,7 +22,7 @@ public class GetOneProductService
     {
 		var productEntity = await _context.Products
 			.Include(x => x.ImageUrl)
-			.Include(x => x.Reviews)
+			.Include(x => x.Reviews).ThenInclude(x => x.User)
 			.Include(x => x.Categories)
 			.Include(x => x.Tags)
 			.Include(x => x.Sizes)

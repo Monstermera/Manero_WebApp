@@ -74,7 +74,7 @@ public class ProductEntity
         }
 
         // ImageUrl
-        if (entity.ImageUrl != null)
+        if (entity.ImageUrl.Count > 0)
         {
             foreach (var imageUrl in entity.ImageUrl)
             {

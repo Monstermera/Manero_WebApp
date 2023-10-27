@@ -26,33 +26,21 @@ namespace Manero_WebApp.Helpers.Services.ProductServices
                 .Include(p => p.Colors)
                 .Include(p => p.Tags)
                 .Include(p => p.ImageUrl)
-                .Include(p => p.Reviews)
+                .Include(p => p.Reviews).ThenInclude(x => x.User)
                 .ToListAsync();
 
-            var productModel = productEntity.Select(entity => new ProductModel
+            if(productEntity != null)
             {
-                ArticleNumber = entity.ArticleNumber,
-                Name = entity.Name,
-                Price = entity.Price,
-                Description = entity.Description,
-                AmountInStock = entity.AmountInStock,
-                Categories = entity.Categories.Select(c => c.CategoryName).ToList(),
-                Sizes = entity.Sizes.Select(s => s.SizeName).ToList(),
-                Colors = entity.Colors.Select(c => c.ColorName).ToList(),
-                Tags = entity.Tags.Select(t => t.TagName).ToList(),
-                ImageUrl = entity.ImageUrl.Select(i => i.ImageUrl).ToList(),
-                Reviews = entity.Reviews.Select(r => new ReviewModel
-                {
-                    Id = r.Id,
-                    User = r.User,
-                    ProductId = r.ProductId,
-                    DateCreated = r.DateCreated,
-                    Rating = r.Rating,
-                    ReviewDescription = r.Review
-                }).ToList()
-            }).ToList();
+                List<ProductModel> products = new();
 
-            return productModel;
+                foreach (var product in productEntity)
+                {
+                    ProductModel productModel1 = product;
+                    products.Add(productModel1);
+                }
+				return products;
+			};
+            return null!;
         }
     }
 }
