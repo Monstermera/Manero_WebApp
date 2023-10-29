@@ -1,10 +1,11 @@
 ﻿.product-details-mobile {
+    display: flex;
+    justify-content: center;
+
     .product-card {
-        width: 300px;
+        width: 375px;
         background-color: #ffffff;
         padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
         .product-image {
             width: 100%;
@@ -13,67 +14,224 @@
         }
 
         .product-title {
-            margin: 15px 0;
-            font-size: 24px;
-            color: #333;
+            font-family: "Mulish";
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 24px;
+            font-style: normal;
+            text-align: left;
+            color: $color-dark;
         }
 
         .product-rating {
-            font-size: 18px;
+            font-size: 12px;
             color: #ffcc00;
+
+            .nr {
+                color: $color-dark;
+            }
         }
 
         .product-price {
-            margin: 15px 0;
+            font-family: "Mulish";
             font-size: 20px;
-            color: #e74c3c;
+            font-weight: normal;
+            line-height: 30px;
+            font-style: normal;
+            text-align: left;
+            color: $color-dark;
         }
 
         .product-size,
         .product-color {
             display: flex;
             gap: 10px;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
 
-            button {
-                padding: 8px 12px;
-                border: none;
-                border-radius: 4px;
-                background-color: #e0e0e0;
+            .button-custom {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 45px; // Adjusted width
+                height: 45px; // Adjusted height
+                background-color: $color-white;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
+                font-size: 12px;
+                padding: 0 5px; // Added padding
+                border-color: #dbe3f5;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 50%;
+                box-sizing: border-box;
 
                 &:hover {
-                    background-color: #d0d0d0;
+                    background-color: $color-theme;
                 }
             }
         }
 
-        .product-description {
-            margin: 20px 0;
-            color: #777;
-            font-size: 14px;
+        .product-color {
+            display: flex;
+            width: 375px;
+            align-items: center;
+            gap: 10px;
+
+            .text {
+                flex: 0 0 auto;
+                margin-right: auto;
+            }
+
+            .buttons-container {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                gap: 10px;
+
+                .button-custom {
+                    border-color: #dbe3f5;
+                    border-width: 4px;
+                    border-style: solid;
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .button-custom:nth-child(1) {
+                    background: #ff6262;
+                }
+
+                .button-custom:nth-child(2) {
+                    background: #63c7ff;
+                }
+
+                .button-custom:nth-child(3) {
+                    background: #f8e7cd;
+                }
+
+                .button-custom:nth-child(4) {
+                    background: #323858;
+                }
+
+                .button-custom:nth-child(5) {
+                    background: #111111;
+                }
+            }
         }
 
-        .add-to-cart {
-            padding: 10px 15px;
-            background-color: #3498db;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
 
-            &:hover {
-                background-color: #2980b9;
+
+        .product-description {
+            margin: 20px 0;
+            font-family: "Mulish";
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 27px;
+            font-style: normal;
+            text-align: left;
+            color: #626262;
+
+            p {
+                font-family: "Mulish";
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 19px;
+                font-style: normal;
+                text-align: left;
+                color: $color-dark;
             }
         }
 
         .product-reviews {
-            margin-top: 30px;
+            margin-top: 40px;
 
             h3 {
-                font-size: 18px;
-                color: #333;
+                font-family: "Mulish";
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 24px;
+                font-style: normal;
+                text-align: left;
+                color: $color-dark;
+                margin-bottom: 20px;
+            }
+
+            .review-list {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .review-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e0e0e0; // Adds a light border between reviews
+
+                .reviewer-image {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-right: 10px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .review-content {
+                    flex: 1;
+
+                    .reviewer-name-date {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 10px;
+
+                        .reviewer-name {
+                            font-family: "Mulish";
+                            font-size: 16px;
+                            font-weight: normal;
+                            line-height: 19px;
+                            font-style: normal;
+                            text-align: left;
+                            color: #111111;
+                        }
+                    }
+
+                    .review-date {
+                        font-family: "Mulish";
+                        font-size: 10px;
+                        font-weight: normal;
+                        line-height: 15px;
+                        font-style: normal;
+                        text-align: left;
+                        color: #626262;
+                    }
+
+                    .review-text {
+                        margin-bottom: 10px;
+                        font-family: "Mulish";
+                        font-size: 14px;
+                        font-weight: normal;
+                        line-height: 21px;
+                        font-style: normal;
+                        text-align: left;
+                        color: #626262;
+                    }
+
+                    .review-rating {
+                        i {
+                            margin-right: 5px;
+                            color: #ffbe00;
+                            font-size: 12px;
+                        }
+                    }
+                }
             }
         }
     }
