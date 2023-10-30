@@ -12,5 +12,5 @@ public class ProductModel
     public List<string> Tags { get; set; } = new List<string>();    
     public List<string> Sizes { get; set; } = new List<string>();
     public List<string> Colours { get; set; } = new List<string>();
-    public int InStock { get; set; }
+    public int AmountInStock { get; set; }
 }
