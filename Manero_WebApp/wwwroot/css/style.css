@@ -1206,6 +1206,13 @@ header .mobile .bottom-nav ul li .footerIcon i {
   }
 }
 
+.page-links .page-link.active {
+  color: #F4303C !important;
+}
+.page-links .page-link.active:hover {
+  color: #F4303C;
+}
+
 footer {
   background-color: #111111;
   padding-top: 70px;
