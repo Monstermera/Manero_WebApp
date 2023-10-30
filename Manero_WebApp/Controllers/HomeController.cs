@@ -29,14 +29,23 @@ namespace Manero_WebApp.Controllers
                 return View("WelcomeOnboarding");
 
             }
+
+
             var products = await _getAllProductsService.GetAllAsync();
+
+
+            // I guess these tags needs to be adjusted later
+            var bestSellers = products.Where(p => p.Tags.Contains("top"));
+            var featuredProducts = products.Where(p => p.Tags.Contains("new"));
 
             var viewModel = new HomePageViewModel
             {
-                AllProducts = products
+                BestSellers = bestSellers,
+                FeaturedProducts = featuredProducts
             };
 
             return View(viewModel);
+
         }
 
 

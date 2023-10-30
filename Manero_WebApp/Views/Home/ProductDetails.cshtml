@@ -62,7 +62,11 @@
                 @Model.Description</div>
             <button class="btn-theme">+ Add to cart</button>
             <div class="product-reviews">
-                <h3>Reviews (@numberOfReviews)</h3>
+                
+                <div class="d-flex justify-content-between">
+                    <h3>Reviews (@numberOfReviews)</h3>
+                    <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
+                </div>
                 @if (Model.Reviews != null && Model.Reviews.Any())
                 {
                     <ul class="review-list">
@@ -161,7 +165,10 @@
             </div>
             <button class="btn-theme">+ Add to cart</button>
             <div class="product-reviews">
-                <h3>Reviews (@numberOfReviews)</h3>
+                <div class="d-flex justify-content-between">
+                    <h3>Reviews (@numberOfReviews)</h3>
+                    <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
+                </div>
                 @if (Model.Reviews != null && Model.Reviews.Any())
                 {
                     <ul class="review-list">

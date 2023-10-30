@@ -4,10 +4,11 @@ namespace Manero_WebApp.ViewModels.HomeViewModels
 {
     public class HomePageViewModel
     {
-        public IEnumerable<ProductModel> AllProducts { get; set; }
+        //public IEnumerable<ProductModel> AllProducts { get; set; }
 
+        public IEnumerable<ProductModel> BestSellers { get; set; }
+        public IEnumerable<ProductModel> FeaturedProducts { get; set; }
 
-        //public ProductListViewModel BestSellers { get; set; }
     }
 
 }

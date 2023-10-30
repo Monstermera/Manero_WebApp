@@ -1,4 +1,6 @@
-﻿
+﻿@using Manero_WebApp.ViewModels.HomeViewModels;
+@model Manero_WebApp.ViewModels.HomeViewModels.FeaturedProductViewModel;
+
 <section class="featured-mobile">
     <div class="container">
         <div class="category">
@@ -6,12 +8,12 @@
             <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
         </div>
         <div class="products">
-            @* @foreach (var product in Model.Products)
+            @foreach (var product in Model.Products)
             {
-                <a asp-controller="Home" asp-action="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="product-link">
-                    <img class="product-card" src="@product.ImageUrl.FirstOrDefault()" alt="@product.Name">
-                </a>
-            } *@
+                <div class="product-card">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                </div>
+            }
         </div>
     </div>
 </section>
@@ -23,12 +25,12 @@
             <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
         </div>
         <div class="products">
-            @* @foreach (var product in Model.Products)
+            @foreach (var product in Model.Products)
             {
-                <a asp-controller="Home" asp-action="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="product-link">
-                    <img class="product-card" src="@product.ImageUrl.FirstOrDefault()" alt="@product.Name">
-                </a>
-            } *@
+                <div class="product-card">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                </div>
+            }
         </div>
     </div>
 </section>
