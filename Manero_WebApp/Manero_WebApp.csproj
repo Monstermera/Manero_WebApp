@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Helpers\Services\UserServices\NewFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ViewModels\AccountViewModels\" />
     <Folder Include="ViewModels\ContactViewModels\" />
     <Folder Include="Views\Account\" />
@@ -43,6 +47,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="Moq" Version="4.20.69" />
   </ItemGroup>
 
 </Project>

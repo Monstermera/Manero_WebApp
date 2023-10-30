@@ -1,29 +1,40 @@
-﻿
-using Manero_WebApp.Models.Entities;
-using Manero_WebApp.Models.Schemas;
+﻿using Manero_WebApp.Models.Entities;
 using Manero_WebApp.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
-namespace Manero_WebApp.Helpers.Services.AuthenticationServices;
-
-public class RegisterService
+namespace Manero_WebApp.Helpers.Services.AuthenticationServices
 {
-    private readonly UserManager<UserEntity> _userManager;
-
-    public RegisterService(UserManager<UserEntity> userManager)
+    public class RegisterService
     {
-        _userManager = userManager;
-    }
+        private readonly UserManager<UserEntity> _userManager;
+        private readonly RolesService _rolesService;
 
-    public async Task<bool> RegisterAsync(RegistrationViewModel registrationViewModel)
-    {
-        UserEntity user = registrationViewModel;
-
-        var result = await _userManager.CreateAsync(user, registrationViewModel.Password);
-        if (result.Succeeded)
+        public RegisterService(UserManager<UserEntity> userManager, RolesService rolesService)
         {
-            return true;
+            _userManager = userManager;
+            _rolesService = rolesService;
         }
-        return false;
+
+        public async Task<bool> RegisterAsync(RegistrationViewModel registrationViewModel)
+        {
+            UserEntity user = registrationViewModel;
+
+            var result = await _userManager.CreateAsync(user, registrationViewModel.Password);
+            if (result.Succeeded)
+            {
+                var rolesAdded = await _rolesService.AddRoleAsync(user);
+                if (rolesAdded.Succeeded)
+                {
+                    return true;
+                }
+                else { 
+                    await _userManager.DeleteAsync(user);
+                    return false; 
+                }
+            }
+            return false;
+        }
     }
 }
