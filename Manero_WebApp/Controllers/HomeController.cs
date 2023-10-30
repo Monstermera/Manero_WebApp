@@ -6,6 +6,7 @@ namespace Manero_WebApp.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Home";
             return View();
         }
     }
