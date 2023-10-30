@@ -62,3 +62,42 @@ function toggleVisibility() {
         confirmPasswordInput.type = "password";
     }
 }
+
+// filters and sort-by dropdowns
+
+// Get the elements for both the filters and sort-by dropdowns
+const filtersButton = document.getElementById("filters-button");
+const filtersDropdown = document.getElementById("filters-dropdown");
+const sortButton = document.getElementById("sort-by-button");
+const sortDropdown = document.getElementById("sort-by-dropdown");
+
+// Function to toggle the display of a dropdown
+function toggleDropdown(dropdown) {
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+
+// Toggle the filters dropdown when the filters button is clicked
+filtersButton.addEventListener("click", function(event) {
+    event.stopPropagation(); // Prevent the click event from closing the other dropdown
+    toggleDropdown(filtersDropdown);
+    // Close the sort-by dropdown
+    sortDropdown.style.display = "none";
+});
+
+// Toggle the sort-by dropdown when the sort-by button is clicked
+sortButton.addEventListener("click", function(event) {
+    event.stopPropagation(); // Prevent the click event from closing the other dropdown
+    toggleDropdown(sortDropdown);
+    // Close the filters dropdown
+    filtersDropdown.style.display = "none";
+});
+
+// Close both dropdowns when clicking outside of them
+document.addEventListener("click", function(event) {
+    filtersDropdown.style.display = "none";
+    sortDropdown.style.display = "none";
+});
