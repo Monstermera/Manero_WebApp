@@ -31,7 +31,7 @@ namespace Manero_WebApp.Controllers
             {
                 var visitedCookie = new CookieOptions
                 {
-                    Expires = DateTime.Now.AddDays(2) 
+                    Expires = DateTime.Now.AddYears(1)
                 };
 
                 Response.Cookies.Append("Visited", "true", visitedCookie);
