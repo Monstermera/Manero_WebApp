@@ -1433,18 +1433,55 @@ footer .copyright .social-media a {
   font-weight: 600;
   color: #626262;
 }
-.form-input input, .form-input textarea {
+.form-input input {
   width: 85%;
   padding: 7px;
   border: 1px solid #DBE3F5;
   border-color: #FFFFFF;
   outline: none;
 }
-.form-input input:focus, .form-input textarea:focus {
+.form-input input:focus {
   outline: none !important;
   border: 1px solid #FFFFFF;
 }
 .form-input .icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.form-textarea fieldset {
+  margin-top: 30px;
+  border: 1px solid #DBE3F5;
+  border-radius: 30px;
+  width: 335px;
+  position: relative;
+}
+.form-textarea legend {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  background-color: #FFFFFF;
+  width: auto;
+  z-index: 1;
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #626262;
+}
+.form-textarea textarea {
+  width: 85%;
+  padding: 15px;
+  border: 1px solid #DBE3F5;
+  border-color: #FFFFFF;
+  outline: none;
+  border-radius: 30px;
+}
+.form-textarea textarea:focus {
+  outline: none !important;
+  border: 1px solid #FFFFFF;
+}
+.form-textarea .icon {
   position: absolute;
   top: 20px;
   right: 20px;

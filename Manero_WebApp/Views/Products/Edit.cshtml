@@ -1,6 +1,6 @@
 ﻿<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
 @model ProductModel
-<section class="d-flex justify-content-center mt-5">
+<section class="d-flex justify-content-center my-5">
     <form class="validate-form" method="post" novalidate>
         <h2 class="fw-bold text-center">Edit Product</h2>
         <div class="form-input mb-3">
@@ -15,17 +15,17 @@
             <fieldset>
                 <legend>Price</legend>
                 <label class="d-none">Price</label>
-                <input asp-for="Price" type="text" pattern="^\d{1,3}(?:,\d{3})*(\,\d{1,2})?$" required>
+                <input asp-for="Price" type="text" pattern="^\d{1,3}(?:,\d{1,4})*(\,\d{1,2})?$" required>
                 <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
             </fieldset>
         </div>
-        <div class="form-input mb-3">
+        <div class="form-textarea mb-3">
             <fieldset>
-                <legend>Description</legend>
                 <label class="d-none">Description</label>
-                <textarea asp-for="Description" rows="1" required></textarea>
-                <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
+                <legend>Description</legend>
+                <textarea asp-for="Description" rows="3" required></textarea>
             </fieldset>
+                <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
         </div>
         <div class="form-input mb-3">
             <fieldset>
@@ -75,6 +75,6 @@
             <input asp-for="ImageUrl">
             <span asp-validation-for="ImageUrl"></span>
         </div>*@
-        <button class="mt-4 btn-theme">Save</button>
+        <button class="my-4 btn-theme">Save</button>
     </form>
 </section>

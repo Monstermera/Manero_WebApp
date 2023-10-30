@@ -1,6 +1,7 @@
 ﻿using Manero_WebApp.Contexts;
 using Manero_WebApp.Helpers.Services.ProductServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Controllers;
 

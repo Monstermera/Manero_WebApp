@@ -77,4 +77,35 @@ public class ProductService
             return null!;
         }
     }
+
+    //public async Task<IEnumerable<SelectListItem>> GetSelectedPropertiesForProduct(
+    //    DbSet<ProductSizesEntity> productSizeDbSet,
+    //    DbSet<SizesEntity> sizeDbSet,
+    //    Guid productId)
+    //{
+    //    try
+    //    {
+    //        var selectedSizeIds = await productSizeDbSet
+    //            .Where(ps => ps.ProductId == productId)
+    //            .Select(ps => ps.SizeId)
+    //            .ToListAsync();
+
+    //        var items = new List<SelectListItem>();
+    //        foreach (var size in await sizeDbSet.ToListAsync())
+    //        {
+    //            items.Add(new SelectListItem
+    //            {
+    //                Value = size.Id.ToString() ?? "DefaultId",
+    //                Text = size.SizeName ?? "DefaultSizeName",
+    //                Selected = selectedSizeIds.Contains(size.Id),
+    //            });
+    //        }
+
+    //        return items;
+    //    }
+    //    catch
+    //    {
+    //        return null!;
+    //    }
+    //}
 }
