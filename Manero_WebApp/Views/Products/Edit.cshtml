@@ -6,8 +6,12 @@
 <section class="d-flex justify-content-center my-5">
     <form class="validate-form" asp-action="Edit" method="post" novalidate>
         <h2 class="fw-bold text-center">Edit Product</h2>
+        @if(Model != null){
+            <p>@Model.ArticleNumber</p>
+        }
         
-        <input asp-for="ArticleNumber" hidden />
+        
+        <input asp-for="ArticleNumber" />
 
         <div class="form-input mb-3">
             <fieldset>
