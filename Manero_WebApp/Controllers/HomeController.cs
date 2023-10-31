@@ -33,7 +33,8 @@ namespace Manero_WebApp.Controllers
 
         private HomePageViewModel CreateHomePageViewModel(IEnumerable<ProductModel> products)
         {
-            var bestSellers = products.Where(p => p.Tags.Contains("top"));
+            // JUSTERA || med vilka tags som ska visas
+            var bestSellers = products.Where(p => p.Tags.Contains("top") || p.Tags.Contains("new") || p.Tags.Contains("sale"));
             var featuredProducts = products.Where(p => p.Tags.Contains("new"));
 
             return new HomePageViewModel
