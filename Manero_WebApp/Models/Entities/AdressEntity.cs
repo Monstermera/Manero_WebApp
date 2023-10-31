@@ -20,5 +20,5 @@ public class AdressEntity
     [StringLength(100)]
     public string City { get; set; } = string.Empty;
 
-    public ICollection<UserAdressEntity> Users { get; set; } = new List<UserAdressEntity>();
+    public List<UserEntity> Users { get; set; } = new();
 }

@@ -7,5 +7,5 @@ public class CategoriesEntity
     [Key]
     public int Id { get; set; }
     public string CategoryName { get; set; } = null!;
-    public ICollection<ProductCategoryEntity> ProductCategories { get; set; } = new List<ProductCategoryEntity>();
+    public List<ProductEntity> Products { get; set; } = new();
 }
