@@ -29,6 +29,7 @@ builder.Services.AddScoped<GetAllProductsService>();
 builder.Services.AddScoped<DeleteOneProductService>();
 
 //Services
+builder.Services.AddScoped<UpdateProductService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
