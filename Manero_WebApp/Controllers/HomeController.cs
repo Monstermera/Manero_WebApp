@@ -19,6 +19,13 @@ namespace Manero_WebApp.Controllers
         }
 
 
+
+        public IActionResult Categories()
+        {
+            return View();
+        }
+    }
+
         private bool IsFirstVisit()
         {
             var visitedCookie = Request.Cookies["Visited"];
