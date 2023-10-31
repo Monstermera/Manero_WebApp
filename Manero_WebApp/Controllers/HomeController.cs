@@ -1,21 +1,18 @@
 ﻿using Azure.Core;
 using Azure;
 using Microsoft.AspNetCore.Mvc;
-using Manero_WebApp.Services;
 using Manero_WebApp.ViewModels.HomeViewModels;
 using Manero_WebApp.Models.Schemas;
 using Manero_WebApp.Helpers.Services.ProductServices;
 
 namespace Manero_WebApp.Controllers
 {
-
-
     public class HomeController : Controller
     {
-        private readonly GetAllProductsService _getAllProductsService;
-        private readonly GetOneProductService _getOneProductService;
+        private readonly IGetAllProductsService _getAllProductsService;
+        private readonly IGetOneProductService _getOneProductService;
 
-        public HomeController(GetAllProductsService getAllProductsService, GetOneProductService getOneProductService)
+        public HomeController(IGetAllProductsService getAllProductsService, IGetOneProductService getOneProductService)
         {
             _getAllProductsService = getAllProductsService;
             _getOneProductService = getOneProductService;
@@ -27,29 +24,27 @@ namespace Manero_WebApp.Controllers
             {
                 SetVisitedCookie();
                 return View("WelcomeOnboarding");
-
             }
 
-
             var products = await _getAllProductsService.GetAllAsync();
+            var viewModel = CreateHomePageViewModel(products);
+            return View(viewModel);
+        }
 
-
-            // I guess these tags needs to be adjusted later
+        private HomePageViewModel CreateHomePageViewModel(IEnumerable<ProductModel> products)
+        {
             var bestSellers = products.Where(p => p.Tags.Contains("top"));
             var featuredProducts = products.Where(p => p.Tags.Contains("new"));
 
-            var viewModel = new HomePageViewModel
+            return new HomePageViewModel
             {
                 BestSellers = bestSellers,
                 FeaturedProducts = featuredProducts
             };
-
-            return View(viewModel);
-
         }
 
 
-        private bool IsFirstVisit()
+        public bool IsFirstVisit()
         {
             var visitedCookie = Request.Cookies["Visited"];
             return string.IsNullOrEmpty(visitedCookie);

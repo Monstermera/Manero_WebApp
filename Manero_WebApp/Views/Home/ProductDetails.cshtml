@@ -40,21 +40,18 @@
                 }
             <div class="mt-3">Size</div>
             <div class="product-size">
-                <div class="button-custom">XS</div>
-                <div class="button-custom">S</div>
-                <div class="button-custom">M</div>
-                <div class="button-custom">L</div>
-                <div class="button-custom">XL</div>
-                <div class="button-custom">XXL</div>
+                @foreach (var size in Model.Sizes)
+                {
+                    <div class="button-custom">@size</div>
+                }
             </div>
             <div class="product-color">
                 <div class="text">Color</div>
                 <div class="buttons-container">
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
+                    @foreach (var color in Model.Colors)
+                    {
+                        <div class="button-custom" style="background-color: @color;"></div>
+                    }
                 </div>
             </div>
             <div class="product-description">
@@ -142,21 +139,18 @@
             }
             <div class="mt-3">Size</div>
             <div class="product-size">
-                <div class="button-custom">XS</div>
-                <div class="button-custom">S</div>
-                <div class="button-custom">M</div>
-                <div class="button-custom">L</div>
-                <div class="button-custom">XL</div>
-                <div class="button-custom">XXL</div>
+                @foreach (var size in Model.Sizes)
+                {
+                    <div class="button-custom">@size</div>
+                }
             </div>
             <div class="product-color">
                 <div class="text">Color</div>
                 <div class="buttons-container">
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
-                    <div class="button-custom"></div>
+                    @foreach (var color in Model.Colors)
+                    {
+                        <div class="button-custom" style="background-color: @color;"></div>
+                    }
                 </div>
             </div>
             <div class="product-description">
