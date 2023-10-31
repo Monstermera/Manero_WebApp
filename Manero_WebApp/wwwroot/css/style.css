@@ -883,6 +883,10 @@ header .container .top-menu {
   justify-content: center;
   align-items: center;
 }
+header .container .top-menu .pageTitle {
+  white-space: nowrap;
+  font-size: 18px;
+}
 header .container .top-menu .logo {
   height: 30px;
   width: 90px;
@@ -2352,6 +2356,16 @@ footer .copyright .social-media a {
   background-color: transparent !important;
   border: 3px solid #111111;
   border-radius: 40px;
+}
+
+.profilePage {
+  border-top: 1px solid #DBE3F5;
+}
+@media (min-width: 768px) {
+  .profilePage {
+    padding: 0 50px;
+    margin-bottom: 40px;
+  }
 }
 
 .personalInfo {

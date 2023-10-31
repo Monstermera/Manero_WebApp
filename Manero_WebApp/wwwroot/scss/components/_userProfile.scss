@@ -3,7 +3,14 @@
 @import '../core/_fonts.scss';
 
 
+.profilePage {
+    border-top: 1px solid $color-theme;
 
+    @include md {
+        padding: 0 50px;
+        margin-bottom: 40px;
+    }
+}
 .personalInfo {
     margin: 35px 0 25px 0;
     display: flex;

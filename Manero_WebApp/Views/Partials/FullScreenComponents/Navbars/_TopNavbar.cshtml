@@ -1,8 +1,18 @@
 ﻿
+
+
 <header>
     <div class="container">
         <div class="top-menu">
-            <img class="logo" src="~/Images/Static/logo.svg" />
+            @if (!string.IsNullOrEmpty(ViewData["pageTitle"] as string))
+            {
+                <span class="pageTitle" >@ViewData["pageTitle"]</span>
+
+            }
+            else
+            {
+                <img class="logo" src="~/Images/Static/logo.svg">
+            }
             <div class="page-links">
                 <a class="page-link" asp-controller="home" asp-action="index">Home</a>
                 <a class="page-link" asp-controller="home" asp-action="index">Products</a>
