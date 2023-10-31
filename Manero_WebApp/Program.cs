@@ -50,6 +50,15 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.AccessDeniedPath = "/denied";
 });
 
+builder.Services.AddAuthentication().AddGoogle(x =>
+{
+    x.ClientId = "812808685205-is14h61h37h0s63l7nm6a08446n932hf.apps.googleusercontent.com";
+    x.ClientSecret = "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";
+    x.CallbackPath = "/signin-google";
+});
+
+
+
 
 
 var app = builder.Build();
