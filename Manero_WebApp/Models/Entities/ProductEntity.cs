@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Manero_WebApp.Models.Schemas;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Manero_WebApp.Models.Entities;
@@ -21,4 +22,25 @@ public class ProductEntity
     public List<ColorsEntity> Colors { get; set; } = new();
     [Required]
     public int AmountInStock { get; set; }
+
+
+    #region implicit operators 
+    public static implicit operator ProductModel(ProductEntity entity)
+    {
+
+        return new ProductModel
+        {
+            ArticleNumber = entity.ArticleNumber,
+            Name = entity.Name,
+            Price = entity.Price,
+            Description = entity.Description,
+            AmountInStock = entity.AmountInStock
+        };
+
+    }
+    #endregion
+
 }
+
+
+
