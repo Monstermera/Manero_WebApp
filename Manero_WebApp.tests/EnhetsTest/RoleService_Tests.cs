@@ -46,24 +46,4 @@ public class RolesServiceTests
             Assert.True(await roleManager.RoleExistsAsync("customer"));
         }
     }
-
-    public async Task AddRoleToDb_FirstUser_returns_admin_string()
-    {
-        // Arrange
-        var user = new UserEntity()
-        {
-            FullName = "TestName",
-            Email = "Test@domain.com",
-            UserName = "Test@domain.com",
-        };
-        var roleService = new RoleService(_roleManager.Object, _userManager.Object);
-        _roleManager.Setup(x => x.FindByNameAsync("Admin")).ReturnsAsync(new IdentityRole { Name = "Admin" });
-        _userManager.Setup(x => x.AddToRoleAsync(user, "Admin")).Returns(Task.FromResult(IdentityResult.Success));
-
-        // Act
-        var result = await roleService.AddRoleToDb(user, true);
-
-        // Assert
-        Assert.Equal("Admin", result);
-    }
 }

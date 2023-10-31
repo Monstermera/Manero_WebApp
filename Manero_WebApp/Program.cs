@@ -46,6 +46,15 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.AccessDeniedPath = "/denied";
 });
 
+builder.Services.AddAuthentication().AddGoogle(x =>
+{
+    x.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    x.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    x.CallbackPath = "/signin-google";
+});
+
+
+
 
 
 var app = builder.Build();
