@@ -30,6 +30,7 @@ builder.Services.AddScoped<UserDbRepo>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
+builder.Services.AddScoped<RolesService>();
 
 //Identity
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>

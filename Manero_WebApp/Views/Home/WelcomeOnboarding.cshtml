@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<style>
+    body {
+        padding-top: 150px;
+    }
+</style>
+
+
+
+<div class="welcome">
+    <div class="container">
+        <div class="loading-element animation"></div>
+        <div class="loading-element logo">
+            <div class="img-logo">
+                <img src="~/Images/Static/welcome-logo.svg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="onboarding">
+    <div class="container">
+        <div class="circle">
+            <div class="circle-background">
+                <div id="carouselOnboarding" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-content">
+                                <div class="line"></div>
+                                <h2>Welcome To Manero!</h2>
+                                <p>Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.</p>
+                                <a class="btn-theme get-started" data-bs-target="#carouselOnboarding" data-bs-slide="next">Get Started</a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-content">
+                                <div class="line"></div>
+                                <h2>Easy Track Order</h2>
+                                <p>Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.</p>
+                                <a class="btn-theme get-started" data-bs-target="#carouselOnboarding" data-bs-slide="next">Get Started</a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-content">
+                                <div class="line"></div>
+                                <h2>Door To Door Delivery!</h2>
+                                <p>Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.</p>
+                                <a asp-controller="home" asp-action="index" type="button" class="btn-theme get-started">Get Started</a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselOnboarding" data-bs-slide-to="0" class="active" aria-current="true" aria-label="0"></button>
+                            <button type="button" data-bs-target="#carouselOnboarding" data-bs-slide-to="1" aria-label="1"></button>
+                            <button type="button" data-bs-target="#carouselOnboarding" data-bs-slide-to="2" aria-label="2"></button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/js/onboarding.js"></script>
