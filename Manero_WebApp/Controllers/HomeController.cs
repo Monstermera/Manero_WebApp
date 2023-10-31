@@ -24,7 +24,6 @@ namespace Manero_WebApp.Controllers
         {
             return View();
         }
-    }
 
         private bool IsFirstVisit()
         {
