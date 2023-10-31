@@ -29,7 +29,7 @@ public class ProductsController : Controller
 
 
     [HttpGet]
-    public async Task<IActionResult> Edit(Guid Id)
+    public async Task<IActionResult> AddOrEdit(Guid Id)
     {
         ProductModel product = await _productService.GetAsync(Id);      
 
@@ -42,7 +42,7 @@ public class ProductsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(ProductModel updatedProduct)
+    public async Task<IActionResult> AddOrEdit(ProductModel updatedProduct)
     {
         ProductModel result = null!;
         if (updatedProduct.ArticleNumber == Guid.Empty)
