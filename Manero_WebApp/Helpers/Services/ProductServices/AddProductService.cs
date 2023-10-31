@@ -28,6 +28,7 @@ public class AddProductService
             Name = model.Name,
             Price = model.Price,
             Description = model.Description,
+            AmountInStock = model.AmountInStock,
         };
 
         var _entity = await _productDbRepo.GetAsync(x => x.ArticleNumber == model.ArticleNumber);

@@ -27,18 +27,18 @@ public class ProductService
 
     #endregion
 
-    public async Task<ProductModel> AddAsync(ProductEntity entity)
-    {
-        var _entity = await _productDbRepo.GetAsync(x => x.ArticleNumber == entity.ArticleNumber);
-        if (_entity == null)
-        {
-            _entity = await _productDbRepo.AddAsync(entity);
-            if (_entity != null)
-                return _entity;
-        }
+    //public async Task<ProductModel> AddAsync(ProductEntity entity)
+    //{
+    //    var _entity = await _productDbRepo.GetAsync(x => x.ArticleNumber == entity.ArticleNumber);
+    //    if (_entity == null)
+    //    {
+    //        _entity = await _productDbRepo.AddAsync(entity);
+    //        if (_entity != null)
+    //            return _entity;
+    //    }
 
-        return null!;
-    }
+    //    return null!;
+    //}
 
     public async Task<ProductModel> GetAsync(Guid Id)
     {

@@ -12,12 +12,14 @@ public class ProductsController : Controller
     private readonly ProductService _productService;
     private readonly DataContext _context;
     private readonly UpdateProductService _updateProductService;
+    private readonly AddProductService _addProductService;
 
-    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService)
+    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService, AddProductService addProductService)
     {
         _productService = productService;
         _context = context;
         _updateProductService = updateProductService;
+        _addProductService = addProductService;
     }
 
     public IActionResult Index()
@@ -27,7 +29,7 @@ public class ProductsController : Controller
 
 
     [HttpGet]
-    public async Task<IActionResult> Edit(Guid Id)
+    public async Task<IActionResult> AddOrEdit(Guid Id)
     {
         ProductModel product = await _productService.GetAsync(Id);      
 
@@ -40,9 +42,17 @@ public class ProductsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(ProductModel updatedProduct)
+    public async Task<IActionResult> AddOrEdit(ProductModel updatedProduct)
     {
-        var result = await _updateProductService.UpdateAsync(updatedProduct);
+        ProductModel result = null!;
+        if (updatedProduct.ArticleNumber == Guid.Empty)
+        {
+            result = await _addProductService.AddAsync(updatedProduct);
+        } else
+        {
+            result = await _updateProductService.UpdateAsync(updatedProduct);
+        }
+
        
         if (result != null)
         {
