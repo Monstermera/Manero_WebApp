@@ -26,6 +26,7 @@ builder.Services.AddScoped<ProductDbRepo>();
 
 
 //Services
+builder.Services.AddScoped<UpdateProductService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();

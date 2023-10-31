@@ -1,8 +1,14 @@
 ﻿<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
 @model ProductModel
+
+
+
 <section class="d-flex justify-content-center my-5">
-    <form class="validate-form" method="post" novalidate>
-        <h2 class="fw-bold text-center">Edit Product</h2>
+    <form class="validate-form" asp-action="Edit" method="post" novalidate>
+        <h2 class="fw-bold text-center">Edit Product with articlenumber @Model.ArticleNumber</h2>
+        
+        <input asp-for="ArticleNumber" hidden />
+
         <div class="form-input mb-3">
             <fieldset>
                 <legend>Name</legend>
