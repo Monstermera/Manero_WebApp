@@ -18,12 +18,15 @@ builder.Services.AddDbContext<DataContext>(x =>
 );
 
 
-
-
 //Repos
 builder.Services.AddScoped<UserDbRepo>();
 builder.Services.AddScoped<ProductDbRepo>();
 
+//Products
+builder.Services.AddScoped<AddProductService>();
+builder.Services.AddScoped<GetOneProductService>();
+builder.Services.AddScoped<GetAllProductsService>();
+builder.Services.AddScoped<DeleteOneProductService>();
 
 //Services
 builder.Services.AddScoped<LoginService>();
