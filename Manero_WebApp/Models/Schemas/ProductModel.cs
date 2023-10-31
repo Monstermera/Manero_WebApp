@@ -15,21 +15,4 @@ public class ProductModel
     public List<string> Sizes { get; set; } = new List<string>();
     public List<string> Colors { get; set; } = new List<string>();
     public int AmountInStock { get; set; }
-
-	public static implicit operator ProductEntity(ProductModel model)
-	{
-        ProductModel product = new()
-        {
-            ArticleNumber = model.ArticleNumber,
-            Name = model.Name,
-            Price = model.Price,
-            Description = model.Description
-        };
-        if (model.ImageUrl != null)
-        {
-
-        }
-
-        return product;
-	}
 }

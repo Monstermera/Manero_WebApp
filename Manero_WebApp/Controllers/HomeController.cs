@@ -8,6 +8,7 @@ namespace Manero_WebApp.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Home";
             if (IsFirstVisit())
             {
                 SetVisitedCookie();
@@ -17,6 +18,12 @@ namespace Manero_WebApp.Controllers
             return View();
         }
 
+
+
+        public IActionResult Categories()
+        {
+            return View();
+        }
 
         private bool IsFirstVisit()
         {
@@ -30,7 +37,7 @@ namespace Manero_WebApp.Controllers
             {
                 var visitedCookie = new CookieOptions
                 {
-                    Expires = DateTime.Now.AddDays(2) 
+                    Expires = DateTime.Now.AddYears(1)
                 };
 
                 Response.Cookies.Append("Visited", "true", visitedCookie);

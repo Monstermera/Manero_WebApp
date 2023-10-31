@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Manero_WebApp.Models.Schemas;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Manero_WebApp.Models.Schemas;
 
@@ -9,7 +10,6 @@ public class ProductEntity
     [Key]
     public Guid ArticleNumber { get; set; } = Guid.NewGuid();
     public string Name { get; set; } = null!;
-
     [Required]
     [Column(TypeName = "money")]
     public decimal Price { get; set; }
@@ -22,6 +22,7 @@ public class ProductEntity
     public List<ColorsEntity> Colors { get; set; } = new();
     [Required]
     public int AmountInStock { get; set; }
+
 
     #region implicit operators 
     public static implicit operator ProductModel(ProductEntity entity)
@@ -104,6 +105,9 @@ public class ProductEntity
 
         return model;
     }
-
     #endregion
+
 }
+
+
+
