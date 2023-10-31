@@ -5,7 +5,7 @@
 
 <section class="d-flex justify-content-center my-5">
     <form class="validate-form" asp-action="Edit" method="post" novalidate>
-        <h2 class="fw-bold text-center">Edit Product with articlenumber @Model.ArticleNumber</h2>
+        <h2 class="fw-bold text-center">Edit Product</h2>
         
         <input asp-for="ArticleNumber" hidden />
 
@@ -47,7 +47,7 @@
         @foreach (SelectListItem item in ViewBag.Tags)
         {
             <div class="mb-2">
-                <input type="checkbox" value="@item.Value" checked="@item.Selected" name="Tags" id="product-tags-@item.Value">
+                <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Tags" id="product-tags-@item.Value">
                 <label for="product-tags-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
             </div>
         }
@@ -55,7 +55,7 @@
         @foreach(SelectListItem item in ViewBag.Sizes)
         {
             <div class="mb-2">
-                <input type="checkbox" value="@item.Value" checked="@item.Selected" name="Sizes" id="product-sizes-@item.Value">
+                <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Sizes" id="product-sizes-@item.Value">
                 <label for="product-sizes-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
             </div>
         }
@@ -63,7 +63,7 @@
         @foreach (SelectListItem item in ViewBag.Colors)
         {
             <div class="mb-2">
-                <input type="checkbox" value="@item.Value" checked="@item.Selected" name="Colors" id="product-colours-@item.Value">
+                <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Colors" id="product-colours-@item.Value">
                 <label for="product-colours-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
             </div>
         }
@@ -71,7 +71,7 @@
         @foreach (SelectListItem item in ViewBag.Categories)
         {
             <div class="mb-2">
-                <input type="checkbox" value="@item.Value" checked="@item.Selected" name="Categories" id="product-categories-@item.Value">
+                <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Categories" id="product-categories-@item.Value">
                 <label for="product-categories-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
             </div>
         }
