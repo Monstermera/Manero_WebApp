@@ -22,35 +22,38 @@ public class UpdateProductService_Tests
         .Options;
 
         DataContext db = new(options);
-        ProductDbRepo repo = new ProductDbRepo(db);
+        ProductDbRepo repo = new(db);
         AddProductService addProduct = new(db, repo);
         UpdateProductService servicetest = new(db);
 
         ProductModel product = new ProductModel()
         {
+            ArticleNumber = Guid.NewGuid(),
             Name = "Product Name",
             Price = 10,
             Description = "Description",
             AmountInStock = 2
         };
+        
+        var result = await addProduct.AddAsync(product);
+        await db.SaveChangesAsync();
         ProductModel updatedProduct = new ProductModel()
         {
-            ArticleNumber = product.ArticleNumber,
+            ArticleNumber = result.ArticleNumber,
             Name = "Product Name Updated",
             Price = 15,
             Description = "Description Updated",
             AmountInStock = 5
         };
-        var result = await addProduct.AddAsync(product);
-        await db.SaveChangesAsync();
 
         //Act
         var updatedResult = await servicetest.UpdateAsync(updatedProduct);
         var updatedProductResult = await db.Products.FirstOrDefaultAsync(x => x.ArticleNumber == result.ArticleNumber);
 
         //Assert
-        Assert.Null(result);
-        Assert.Equal(result, updatedProductResult);
+        Assert.NotNull(result);
+        Assert.Equal(updatedProduct, updatedProductResult);
+        Assert.NotNull(updatedProductResult);
 
     }
 }
