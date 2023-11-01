@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manero_WebApp", "Manero_WebApp\Manero_WebApp.csproj", "{67411D8B-7858-45C3-A922-25D6882F31D0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manero_WebApp.Tests", "Manero_WebApp.tests\Manero_WebApp.Tests.csproj", "{CF8C48C6-ED76-4100-97E3-66BFA34A4767}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manero_WebApp", "Manero_WebApp\Manero_WebApp.csproj", "{67411D8B-7858-45C3-A922-25D6882F31D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{67411D8B-7858-45C3-A922-25D6882F31D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67411D8B-7858-45C3-A922-25D6882F31D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67411D8B-7858-45C3-A922-25D6882F31D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF8C48C6-ED76-4100-97E3-66BFA34A4767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF8C48C6-ED76-4100-97E3-66BFA34A4767}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF8C48C6-ED76-4100-97E3-66BFA34A4767}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF8C48C6-ED76-4100-97E3-66BFA34A4767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
