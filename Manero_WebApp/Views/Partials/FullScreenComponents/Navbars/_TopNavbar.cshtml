@@ -47,6 +47,10 @@
                 {
                     <a asp-controller="Login" asp-action="Index" class="menu-icon"><i class="fa-light fa-circle-user"></i></a>
                 }
+                else if (User.IsInRole("admin"))
+                {
+                    <a asp-controller="Admin" asp-action="Index" class="menu-icon"><i class="fa-light fa-circle-user"></i></a>
+                }
                 else
                 {
                     <a asp-controller="Account" asp-action="Index" class="menu-icon"><i class="fa-light fa-circle-user"></i></a>
