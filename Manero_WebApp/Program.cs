@@ -24,8 +24,8 @@ builder.Services.AddScoped<ProductDbRepo>();
 
 //Products
 builder.Services.AddScoped<AddProductService>();
-builder.Services.AddScoped<GetOneProductService>();
-builder.Services.AddScoped<GetAllProductsService>();
+builder.Services.AddScoped<IGetOneProductService, GetOneProductService>();
+builder.Services.AddScoped<IGetAllProductsService, GetAllProductsService>();
 builder.Services.AddScoped<DeleteOneProductService>();
 
 //Services

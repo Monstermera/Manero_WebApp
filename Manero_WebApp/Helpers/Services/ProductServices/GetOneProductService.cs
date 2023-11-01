@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Helpers.Services.ProductServices;
 
-public class GetOneProductService
+public class GetOneProductService : IGetOneProductService
 {
     #region constructors & private fields
 
@@ -20,16 +20,16 @@ public class GetOneProductService
 
     public async Task<ProductModel> GetOneProductAsync(Guid articleNumber)
     {
-		var productEntity = await _context.Products
-			.Include(x => x.ImageUrl)
-			.Include(x => x.Reviews).ThenInclude(x => x.User)
-			.Include(x => x.Categories)
-			.Include(x => x.Tags)
-			.Include(x => x.Sizes)
-			.Include(x => x.Colors)
-			.FirstOrDefaultAsync(x => x.ArticleNumber == articleNumber);
+        var productEntity = await _context.Products
+            .Include(x => x.ImageUrl)
+            .Include(x => x.Reviews).ThenInclude(x => x.User)
+            .Include(x => x.Categories)
+            .Include(x => x.Tags)
+            .Include(x => x.Sizes)
+            .Include(x => x.Colors)
+            .FirstOrDefaultAsync(x => x.ArticleNumber == articleNumber);
 
-		if (productEntity != null)
+        if (productEntity != null)
         {
             var productModel = new ProductModel
             {
@@ -57,7 +57,7 @@ public class GetOneProductService
             return productModel;
         }
 
-        return null; 
+        return null;
     }
 
 }
