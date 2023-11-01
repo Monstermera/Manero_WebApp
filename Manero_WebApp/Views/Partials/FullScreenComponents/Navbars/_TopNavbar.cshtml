@@ -144,9 +144,7 @@
                 <li><a asp-controller="login" asp-action="index" class="footerIcon"><i class="fa-light fa-circle-user"></i></a></li>
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <li>
-                        <i onclick="openDesicionModal()" class="menu-icon fa-regular fa-right-from-bracket"></i>
-                    </li>
+                    <li><a onclick="openDesicionModal()" class="footerIcon"><i class="menu-icon fa-regular fa-right-from-bracket"></i></a></li>
                 }
                 
             </ul>
