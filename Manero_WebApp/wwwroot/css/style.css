@@ -19,6 +19,7 @@ a:hover {
   color: #F4303C;
 }
 
+
 .shopping-bag {
   display: flex !important;
   justify-content: center;
@@ -797,6 +798,7 @@ a:hover {
   margin: -1px 0 0 -1px;
   width: 103%;
   height: 103%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1657,6 +1659,13 @@ footer .copyright .social-media a {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.bestsellers-mobile .container .products.active {
+  cursor: grabbing;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .bestsellers-mobile .container .products .product-card .product-link {
   display: flex;
   flex-direction: column;
@@ -1729,7 +1738,9 @@ footer .copyright .social-media a {
 }
 .bestsellers-mobile .container .products.active {
   cursor: grabbing;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .bestsellers-mobile .container .products:hover {
   cursor: grab;
@@ -1955,6 +1966,13 @@ footer .copyright .social-media a {
   flex: 0 0 auto;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.featured-mobile .container .products.active {
+  cursor: grabbing;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .featured-mobile .container .products .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -2032,7 +2050,9 @@ footer .copyright .social-media a {
 }
 .featured-mobile .container .products.active {
   cursor: grabbing;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .featured-mobile .container .products:hover {
   cursor: grab;
@@ -2271,7 +2291,8 @@ footer .copyright .social-media a {
 .review-card .profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .review-card .review-header {
   display: flex;
@@ -2298,6 +2319,156 @@ footer .copyright .social-media a {
 .review-card p {
   font-size: 14px;
   color: #626262;
+}
+
+.mobile-shop .top-section {
+  margin-top: 30px;
+}
+.mobile-shop .top-section .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-shop .top-section .container .item-left {
+  color: black;
+  font-size: 18px;
+}
+.mobile-shop .top-section .container .item-middle {
+  font-size: 18px;
+  font-weight: 600;
+}
+.mobile-shop .top-section .container .shopping-cart-menu {
+  border: none;
+  font-size: 25px;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  position: relative;
+}
+.mobile-shop .top-section .container .shopping-cart-menu .badge-pill {
+  position: absolute;
+  padding: 3px 5px;
+  left: -10px;
+  bottom: 0px;
+  font-size: 10px;
+}
+@media (min-width: 1200px) {
+  .mobile-shop .top-section button:hover {
+    scale: 1.2;
+  }
+  .mobile-shop .top-section .item-left:hover {
+    scale: 2;
+  }
+}
+
+.shop-buttons {
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+.shop-buttons .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop-buttons .filters {
+  position: relative;
+  display: flex;
+}
+.shop-buttons .filters button {
+  border: none;
+  background-color: white;
+}
+.shop-buttons .filters p {
+  margin: 0;
+}
+.shop-buttons .filters i {
+  margin-right: 5px;
+}
+.shop-buttons .filters .filters-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 1;
+}
+.shop-buttons .filters .filters-dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+.shop-buttons .filters .filters-dropdown ul li {
+  padding: 5px 0;
+}
+.shop-buttons .sort-by {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.shop-buttons .sort-by button {
+  border: none;
+  background-color: white;
+}
+.shop-buttons .sort-by p {
+  margin: 0;
+}
+.shop-buttons .sort-by .sort-by-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 1;
+  min-width: 100%;
+}
+.shop-buttons .sort-by .sort-by-dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+.shop-buttons .sort-by .sort-by-dropdown ul li {
+  padding: 5px 0;
+}
+
+.sort-by-button {
+  cursor: pointer;
+}
+.sort-by-button:hover + .sort-by-dropdown {
+  display: block;
+}
+
+.sort-option {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.sort-option:hover {
+  background-color: #f0f0f0;
+}
+
+.shop-items .container .shop-cards {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+.shop-items .container .shop-cards .shop-card-1,
+.shop-items .container .shop-cards .shop-card-3,
+.shop-items .container .shop-cards .shop-card-5 {
+  justify-self: start;
+}
+.shop-items .container .shop-cards .shop-card-2,
+.shop-items .container .shop-cards .shop-card-4,
+.shop-items .container .shop-cards .shop-card-6 {
+  justify-self: end;
+}
+@media (min-width: 1200px) {
+  .shop-items .container .shop-cards {
+    grid-template-columns: auto auto auto;
+    gap: 150px;
+  }
 }
 
 .category-tile-container {
@@ -3191,3 +3362,4 @@ footer .copyright .social-media a {
   color: #FFBE00;
   font-size: 12px;
 }
+

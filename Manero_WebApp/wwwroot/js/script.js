@@ -32,3 +32,59 @@ function openDesicionModal() {
         backdrop.classList.remove("opacity-0");       
     }, 50);
 }
+
+// Toggle password asterisks
+function toggleVisibility() {
+    var toggle = document.getElementById("password-input-icon");
+    var passwordInput = document.getElementById("password");
+    var confirmPasswordInput = document.getElementById("confirmPassword");
+    if (toggle.className.includes("fa-eye-slash")) {
+        toggle.classList.remove("fa-eye-slash");
+        toggle.classList.add("fa-eye");
+        passwordInput.type = "text";
+        confirmPasswordInput.type = "text";
+    }
+    else {
+        toggle.classList.remove("fa-eye");
+        toggle.classList.add("fa-eye-slash");
+        passwordInput.type = "password";
+        confirmPasswordInput.type = "password";
+    }
+}
+
+
+
+// Dropdowns
+const filtersButton = document.getElementById("filters-button");
+const filtersDropdown = document.getElementById("filters-dropdown");
+const sortButton = document.getElementById("sort-by-button");
+const sortDropdown = document.getElementById("sort-by-dropdown");
+
+function toggleDropdown(dropdown) {
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+
+filtersButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    toggleDropdown(filtersDropdown);
+
+    sortDropdown.style.display = "none";
+});
+
+
+sortButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    toggleDropdown(sortDropdown);
+
+    filtersDropdown.style.display = "none";
+});
+
+document.addEventListener("click", function(event) {
+    filtersDropdown.style.display = "none";
+    sortDropdown.style.display = "none";
+});
+
