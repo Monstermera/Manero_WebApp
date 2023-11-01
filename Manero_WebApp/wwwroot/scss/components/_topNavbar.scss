@@ -79,6 +79,7 @@ header {
                 .menu-icon {
                     margin: 15px;
                     font-size: 18px;
+                    cursor: pointer;
 
                     &:hover {
                         color: $color-red;
@@ -382,6 +383,7 @@ header {
                         }
 
                         i {
+                            cursor: pointer;
                             font-size: 25px;
                         }
                     }
@@ -401,5 +403,13 @@ header {
 
     @include xl {
         display: flex;
+    }
+}
+
+.page-links .page-link.active {
+    color: $color-red !important;
+
+    &:hover {
+        color: $color-red;
     }
 }
