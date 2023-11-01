@@ -863,53 +863,6 @@ a:hover {
 header {
   /*    background-color: $color-theme;
   */
-  /*    .mobile {
-      display: flex;
-      height: 100%;
-
-      @include xl {
-          display: none;
-      }
-
-      .bottom-nav {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          border-top: 1px solid $color-theme;
-          padding: 30px 0;
-          background-color: white;
-          z-index: 90;
-
-
-          ul {
-              list-style: none;
-              display: flex;
-              justify-content: space-around;
-              align-items: center;
-              padding: 0;
-              margin: 0;
-
-              li {
-                  .footerIcon {
-                      border-radius: 50%;
-                      height: 40px;
-                      width: 40px;
-                      color: $color-grey;
-
-                      &.active {
-                          border-radius: 50%;
-                          padding: 20px;
-                          background-color: $color-theme;
-                      }
-
-                      i {
-                          font-size: 25px;
-                      }
-                  }
-              }
-          }
-      }
-  }*/
 }
 header .container {
   padding: 20px 0 40px 0;
@@ -1185,6 +1138,46 @@ header .container .offcanvas-start .track-order .form-input fieldset .arrow-subm
 }
 header .container .offcanvas-start .track-order .form-input fieldset .arrow-submit-btn:hover {
   scale: 1.1;
+}
+header .mobile {
+  display: flex;
+  height: 100%;
+}
+@media (min-width: 1200px) {
+  header .mobile {
+    display: none;
+  }
+}
+header .mobile .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DBE3F5;
+  padding: 30px 0;
+  background-color: white;
+  z-index: 90;
+}
+header .mobile .bottom-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+header .mobile .bottom-nav ul li .footerIcon {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: #626262;
+}
+header .mobile .bottom-nav ul li .footerIcon.active {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #DBE3F5;
+}
+header .mobile .bottom-nav ul li .footerIcon i {
+  font-size: 25px;
 }
 
 .d-lg-none {
@@ -2520,45 +2513,4 @@ footer .copyright .social-media a {
   color: #626262 !important;
   font-weight: 600;
   font-size: 20px;
-}
-
-.mobile {
-  display: flex;
-  height: 100%;
-}
-@media (min-width: 1200px) {
-  .mobile {
-    display: none;
-  }
-}
-.mobile .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #DBE3F5;
-  padding: 30px 0;
-  background-color: white;
-  z-index: 90;
-}
-.mobile .bottom-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-.mobile .bottom-nav ul li .footerIcon {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  color: #626262;
-}
-.mobile .bottom-nav ul li .footerIcon.active {
-  border-radius: 50%;
-  padding: 20px;
-  background-color: #DBE3F5;
-}
-.mobile .bottom-nav ul li .footerIcon i {
-  font-size: 25px;
 }
