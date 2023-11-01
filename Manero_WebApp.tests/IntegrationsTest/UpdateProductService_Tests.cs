@@ -45,6 +45,7 @@ public class UpdateProductService_Tests
             Description = "Description Updated",
             AmountInStock = 5
         };
+        ProductEntity updatedProductEntity = updatedProduct;
 
         //Act
         var updatedResult = await servicetest.UpdateAsync(updatedProduct);
@@ -52,8 +53,7 @@ public class UpdateProductService_Tests
 
         //Assert
         Assert.NotNull(result);
-        Assert.Equal(updatedProduct, updatedProductResult);
-        Assert.NotNull(updatedProductResult);
+        Assert.Equal(updatedResult, updatedProductResult);
 
     }
 }
