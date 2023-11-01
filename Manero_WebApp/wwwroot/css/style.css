@@ -934,6 +934,7 @@ header .container .top-menu .menu-icons {
 header .container .top-menu .menu-icons .menu-icon {
   margin: 15px;
   font-size: 18px;
+  cursor: pointer;
 }
 header .container .top-menu .menu-icons .menu-icon:hover {
   color: #F4303C;
@@ -1190,6 +1191,7 @@ header .mobile .bottom-nav ul li .footerIcon.active {
   background-color: #DBE3F5;
 }
 header .mobile .bottom-nav ul li .footerIcon i {
+  cursor: pointer;
   font-size: 25px;
 }
 
