@@ -45,6 +45,11 @@ namespace Manero_WebApp.Controllers
             };
         }
 
+
+        public IActionResult Categories()
+        {
+            return View();
+        }
         
         public bool IsFirstVisit()
         {
