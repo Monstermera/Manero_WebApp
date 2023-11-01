@@ -1,34 +1,9 @@
-//Shows and hides the serchbar.
-function expand() {
-    if (document.getElementById("navbar-search").className.includes("search-expanded")) {
-        document.getElementById("navbar-search").classList.remove("search-expanded");
-    }
-    else {
-        document.getElementById("navbar-search").classList.add("search-expanded");
-    }
+function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
 }
 
-//Opens the mobile slideout menu
-function openMobileMenu() {
-    const menu = document.getElementById("navigation-slideout-menu");
-    const menuBackground = document.getElementById("slideout-background");
-
-    if (!menu.classList.contains("mobile-menu-open")) {
-        menu.classList.add("mobile-menu-open");
-        menuBackground.classList.add("slideout-open");
-    } else {
-        menu.classList.remove("mobile-menu-open");
-        menuBackground.classList.remove("slideout-open");
-    }
-}
-
-//Close the mobile slideout menu
-function closeMobileMenu() {
-    const menu = document.getElementById("navigation-slideout-menu");
-    const menuBackground = document.getElementById("slideout-background");
-
-    menu.classList.remove("mobile-menu-open");
-    menuBackground.classList.remove("slideout-open");
+function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
 }
 
 //Close Decision Modal
@@ -42,6 +17,20 @@ function closeDesicionModal() {
         modal.classList.add("d-none");
         backdrop.classList.add("d-none")
     }, 250);
+}
+
+//Open Decision Modal
+function openDesicionModal() {
+    const backdrop = document.getElementById("decision-modal-backdrop");
+    const modal = document.getElementById("decision-pop-up-modal");
+
+    modal.classList.remove("d-none");
+    backdrop.classList.remove("d-none")
+    modal.classList.remove("decision-pop-up-modal-close");
+    
+    setTimeout(function () {
+        backdrop.classList.remove("opacity-0");       
+    }, 50);
 }
 
 // Toggle password asterisks
@@ -98,3 +87,4 @@ document.addEventListener("click", function(event) {
     filtersDropdown.style.display = "none";
     sortDropdown.style.display = "none";
 });
+

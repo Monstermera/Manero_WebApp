@@ -1,0 +1,88 @@
+﻿@import '../core/_colors.scss';
+@import '../core/_mixins.scss';
+@import '../core/_fonts.scss';
+
+
+.profilePage {
+    border-top: 1px solid $color-theme;
+
+    @include md {
+        padding: 0 50px;
+        margin-bottom: 40px;
+    }
+}
+.personalInfo {
+    margin: 35px 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.userName {
+    font-weight: $font-weight-bold;
+    font-size: large;
+    margin: 30px 0 0 0;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+
+    @include md {
+        padding: 0 50px;
+    }
+}
+
+
+
+.navItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $color-theme;
+    padding: 15px 40px;
+    text-decoration: none;
+    width: 100%;
+
+    @include md {
+        padding: 30px 40px;
+        width: calc(100% - 20px);
+        border: 1px solid $color-theme;
+        border-radius: 10px;
+    }
+
+    &:last-child {
+        border-bottom: 1px solid #DBE3F5; /* Ger sista knappen en botten-border */
+    }
+}
+
+
+.navItem i {
+    margin-right: 10px;
+
+    @include md {
+        font-size: 1.5rem; /* Ikonen blir större på större skärm */
+    }
+}
+
+.navItem p {
+    margin: 0;
+    white-space: nowrap;
+    text-align: left;
+    width: 80%;
+
+    @include md {
+        width: 70%;
+        text-align: left;
+    }
+}
+
+
+@include md {
+    .navItemContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}

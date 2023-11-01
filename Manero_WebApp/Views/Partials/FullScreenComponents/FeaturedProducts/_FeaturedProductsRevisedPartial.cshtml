@@ -1,75 +1,36 @@
-﻿@* <section>
-    <div class="container mb-2">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2 class="fw-bold">Featured products</h2>
-            <a class="text-decoration-none text-black" href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
-        </div>
-    </div>
-    <div class="products-container ms-2">
-        <div>
-            <div class="bg-primary p-5">
-                placeholder
-            </div>
-            <p>Summer dress</p>
-            <p>$42.89</p>
-        </div>
-        <div>
-            <div class="bg-primary p-5">
-                placeholder
-            </div>
-            <p>Summer dress</p>
-            <p>$42.89</p>
-        </div>
-        <div>
-            <div class="bg-primary p-5">
-                placeholder
-            </div>
-            <p>Summer dress</p>
-            <p>$42.89</p>
-        </div>
-        <div>
-            <div class="bg-primary p-5">
-                placeholder
-            </div>
-            <p>Summer dress</p>
-            <p>$42.89</p>
-        </div>
-    </div>
-</section>
+﻿@using Manero_WebApp.ViewModels.HomeViewModels;
+@model Manero_WebApp.ViewModels.HomeViewModels.FeaturedProductViewModel;
 
-
-<script src="~/js/FeaturedProductsSlider.js"></script>
- *@
-
-
-<section class="featured-mobile">
+<section class="featured-mobile mb-5 mt-4">
     <div class="container">
         <div class="category">
             <h2>Featured products</h2>
             <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
         </div>
         <div class="products">
-            <img class="product-card" src="https://placehold.co/138x170" alt="Product 1">
-            <img class="product-card" src="https://placehold.co/138x170" alt="Product 2">
-            <img class="product-card" src="https://placehold.co/138x170" alt="Product 3">
-            <img class="product-card" src="https://placehold.co/138x170" alt="Product 3">
-            <img class="product-card" src="https://placehold.co/138x170" alt="Product 3">
+            @foreach (var product in Model.Products)
+            {
+                <div class="product-card">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                </div>
+            }
         </div>
     </div>
 </section>
 
-<section class="featured-desktop">
+<section class="featured-desktop mb-5 mt-4">
     <div class="container">
         <div class="category">
             <h2>Featured products</h2>
             <a href="#">view all<i class="fa-solid fa-chevron-right ms-2"></i></a>
         </div>
         <div class="products">
-            <img class="product-card" src="https://placehold.co/207x255" alt="Product 1">
-            <img class="product-card" src="https://placehold.co/207x255" alt="Product 2">
-            <img class="product-card" src="https://placehold.co/207x255" alt="Product 3">
-            <img class="product-card" src="https://placehold.co/207x255" alt="Product 4">
-            <img class="product-card" src="https://placehold.co/207x255" alt="Product 5">
+            @foreach (var product in Model.Products)
+            {
+                <div class="product-card">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                </div>
+            }
         </div>
     </div>
 </section>
