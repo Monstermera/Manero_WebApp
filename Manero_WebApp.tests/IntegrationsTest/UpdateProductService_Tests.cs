@@ -32,7 +32,7 @@ public class UpdateProductService_Tests
             Name = "Product Name",
             Price = 10,
             Description = "Description",
-            AmountInStock = 2
+            AmountInStock = 2,
         };
         
         var result = await addProduct.AddAsync(product);
@@ -45,7 +45,6 @@ public class UpdateProductService_Tests
             Description = "Description Updated",
             AmountInStock = 5
         };
-        ProductEntity updatedProductEntity = updatedProduct;
 
         //Act
         var updatedResult = await servicetest.UpdateAsync(updatedProduct);
@@ -54,6 +53,33 @@ public class UpdateProductService_Tests
         //Assert
         Assert.NotNull(result);
         Assert.Equal(updatedResult, updatedProductResult);
+        Assert.NotEqual(product.Name, updatedProduct.Name);
+        Assert.NotEqual(product.Price, updatedProduct.Price);
+        Assert.NotEqual(product.Description, updatedProduct.Description);
+        Assert.NotEqual(product.AmountInStock, updatedProduct.AmountInStock);
+
+    }
+
+    [Fact]
+    public async Task Returns_Null_If_Product_Not_Found()
+    {
+        //Arrange
+        var serviceProvider = new ServiceCollection()
+        .AddEntityFrameworkInMemoryDatabase()
+        .BuildServiceProvider();
+
+        var options = new DbContextOptionsBuilder<DataContext>()
+        .UseInMemoryDatabase(databaseName: "in_memory_db")
+        .Options;
+
+        DataContext db = new(options);
+        UpdateProductService servicetest = new(db);
+
+        //Act
+        var result = await servicetest.UpdateAsync(new ProductModel());
+
+        //Assert
+        Assert.Null(result);
 
     }
 }
