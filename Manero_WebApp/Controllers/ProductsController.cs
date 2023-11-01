@@ -28,7 +28,6 @@ public class ProductsController : Controller
     }
 
 
-    //Add or Edit Page
     [HttpGet]
     public async Task<IActionResult> AddOrEdit(Guid Id)
     {
@@ -67,12 +66,6 @@ public class ProductsController : Controller
             return View(model);
         }
 
-        return View();
-    }
-
-    //Categories Page
-    public IActionResult Categories()
-    {
         return View();
     }
 }

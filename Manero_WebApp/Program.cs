@@ -4,14 +4,12 @@ using Manero_WebApp.Helpers.Services.AuthenticationServices;
 using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
-using Manero_WebApp.Models.Schemas;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(x =>
 {
