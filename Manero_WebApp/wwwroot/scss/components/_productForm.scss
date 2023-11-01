@@ -7,11 +7,11 @@
     }
 
     .container {
-        border: 0px solid $color-dark;
+        border: 0px solid $color-theme;
         padding: 30px;
 
         @include md {
-            border: 1px solid $color-dark;
+            border: 1px solid $color-theme;
         }
 
         .title {
