@@ -1,0 +1,121 @@
+﻿.testing2 {
+    .container {
+        .card {
+            display: flex;
+            border: none;
+
+            a {
+            text-decoration: none;
+    
+            .box {
+                background-color: aqua;
+                height: 250px;
+                width: 200px;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+    
+                .salebox {
+                width: 33px;
+                height: 16px;
+                background-color: #69864D;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                    .text {
+                        font-size: 8px;
+                        color: white;
+                        padding-top: 8px;
+                    }
+                }
+  
+                .icons {
+                    display: none;
+    
+                    i {
+                        display: block;
+                        font-size: 15px;
+                        color: gray;
+                        margin-right: 10px;
+                        margin-top: 10px;
+                        transition: ease-in-out 0.3s;
+        
+                        &:hover {
+                        color: black;
+                        }
+                    }
+                }
+    
+                .salebox {
+                left: 0;
+                right: auto;
+                }
+            }
+        }
+  
+        .rating {
+          display: flex;
+          margin-top: 15px;
+          text-align: center;
+  
+            i {
+                font-size: 12px;
+                color: yellow;
+            }
+    
+            .number-of-reviews {
+                font-size: 12px;
+                margin-left: 5px;
+            }
+        }
+  
+        .product-name {
+          font-size: 14px;
+        }
+  
+        .product-prices {
+          display: flex;
+          gap: 10px;
+  
+          .product-price {
+            font-size: 14px;
+            text-decoration: line-through;
+          }
+  
+          .product-discount-price {
+            font-size: 14px;
+            color: red;
+          }
+        }
+      }
+    }
+                // Visar iconerna på mobilen
+            @media (max-width: 768px) {
+            .container {
+                .card {
+                a {
+                    .box {
+                    .icons {
+                        display: block; 
+                    }
+                    }
+                }
+                }
+            }
+            }
+  
+            // Hover effekt på storskärm
+            @media (min-width: 769px) {
+            .container {
+                .card {
+                a {
+                    .box:hover .icons {
+                    display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+  

@@ -1,0 +1,60 @@
+@import '../core/colors.scss';
+@import '../core/fonts.scss';
+@import '../core/mixins.scss';
+
+html,
+body {
+    font-size: 16px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    color: $color-dark;
+
+    &:hover {
+        color: $color-red;
+    }
+}
+
+
+.shopping-bag {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    margin: 0 10px;
+
+    .badge {
+        background-color: red;
+        position: absolute;
+        font-size: 11px;
+        padding: 4px 3px;
+        font-weight: $font-weight-bold;
+        top: 6px;
+        right: 12px;
+    }
+
+    i {
+        font-size: 20px;
+        color: $color-dark;
+
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
+
+
+.text-grey { color: $color-grey }
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background-color: $color-dark;
+    margin: 1rem auto;
+}
+
