@@ -33,8 +33,4 @@
     <ProjectReference Include="..\Manero_WebApp\Manero_WebApp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="IntegrationsTest\" />
-  </ItemGroup>
-
 </Project>

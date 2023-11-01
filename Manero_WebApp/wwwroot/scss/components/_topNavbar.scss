@@ -395,3 +395,11 @@ header {
         display: flex;
     }
 }
+
+.page-links .page-link.active {
+    color: $color-red !important;
+
+    &:hover {
+        color: $color-red;
+    }
+}
