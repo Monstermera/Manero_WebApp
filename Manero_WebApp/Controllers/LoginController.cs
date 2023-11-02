@@ -14,12 +14,14 @@ namespace Manero_WebApp.Controllers
         private readonly LoginService _loginService;
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly UserManager<UserEntity> _userManager;
+        private readonly RolesService _rolesService;
 
-        public LoginController(LoginService loginService, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager)
+        public LoginController(LoginService loginService, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager, RolesService rolesService)
         {
             _loginService = loginService;
             _signInManager = signInManager;
             _userManager = userManager;
+            _rolesService = rolesService;
         }
 
         //Login
@@ -61,7 +63,6 @@ namespace Manero_WebApp.Controllers
                 return RedirectToAction("Index", "Home");
 
             var result = await _signInManager.ExternalLoginSignInAsync(loginInfo.LoginProvider, loginInfo.ProviderKey, false);
-            string[] userInfo = { loginInfo.Principal.FindFirst(ClaimTypes.Name).Value, loginInfo.Principal.FindFirst(ClaimTypes.Email).Value };
             if (result.Succeeded)
                 return RedirectToAction("Index", "Home");
             else
@@ -70,19 +71,28 @@ namespace Manero_WebApp.Controllers
                 {
                     Email = loginInfo.Principal.FindFirst(ClaimTypes.Email).Value,
                     UserName = loginInfo.Principal.FindFirst(ClaimTypes.Email).Value,
-                    FullName = loginInfo.Principal.FindFirst(ClaimTypes.Email).Value
-                };
+                    FullName = loginInfo.Principal.FindFirst(ClaimTypes.Email).Value,
+                    ImageUrl = loginInfo.Principal.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uri")
+            };
 
                 IdentityResult identResult = await _userManager.CreateAsync(user);
 
                 if (identResult.Succeeded)
                 {
-                    identResult = await _userManager.AddLoginAsync(user, loginInfo);
-                    if (identResult.Succeeded)
+                    var userEntity = await _userManager.FindByIdAsync(user.Id);
+                    if (userEntity != null)
                     {
-                        await _signInManager.SignInAsync(user, false);
-                        return RedirectToAction("Index", "Home");
-                    }
+                        var roleResult = await _rolesService.AddRoleAsync(userEntity);
+                        if (roleResult.Succeeded)
+                        {
+                            identResult = await _userManager.AddLoginAsync(user, loginInfo);
+                            if (identResult.Succeeded)
+                            {
+                                await _signInManager.SignInAsync(user, false);
+                                return RedirectToAction("Index", "Home");
+                            }
+                        }                        
+                    }                    
                 }
                 return RedirectToAction("Index", "Home");
             }
