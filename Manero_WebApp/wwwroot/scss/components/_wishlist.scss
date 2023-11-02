@@ -1,0 +1,54 @@
+﻿.wishlist h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.p-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    width: 19rem;
+    margin-bottom: 2rem;
+}
+
+.card-start {
+    display: flex;
+}
+
+.card-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-middle {
+    display: grid;
+}
+
+.border {
+    display: none;
+}
+
+.image {
+    max-width: 30%;
+    height: auto;
+    margin-right: 2rem;
+}
+
+@media (max-width: 1000px) {
+    .border {
+        display: block;
+        border-bottom: 1px solid black;
+    }
+
+    .p-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
