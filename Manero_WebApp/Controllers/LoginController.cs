@@ -81,7 +81,7 @@ namespace Manero_WebApp.Controllers
                     if (identResult.Succeeded)
                     {
                         await _signInManager.SignInAsync(user, false);
-                        return View(userInfo);
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 return RedirectToAction("Index", "Home");

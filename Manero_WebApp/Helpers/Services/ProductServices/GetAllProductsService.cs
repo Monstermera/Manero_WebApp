@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Helpers.Services.ProductServices
 {
-	public class GetAllProductsService
-	{
+    public class GetAllProductsService : IGetAllProductsService
+    {
         #region constructors & private fields
 
         private readonly DataContext _context;
 
-		public GetAllProductsService(DataContext context)
+        public GetAllProductsService(DataContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace Manero_WebApp.Helpers.Services.ProductServices
                 .Include(p => p.Reviews).ThenInclude(x => x.User)
                 .ToListAsync();
 
-            if(productEntity != null)
+            if (productEntity != null)
             {
                 List<ProductModel> products = new();
 
@@ -38,8 +38,8 @@ namespace Manero_WebApp.Helpers.Services.ProductServices
                     ProductModel productModel1 = product;
                     products.Add(productModel1);
                 }
-				return products;
-			};
+                return products;
+            };
             return null!;
         }
     }

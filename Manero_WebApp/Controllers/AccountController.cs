@@ -3,32 +3,47 @@ using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace Manero_WebApp.Controllers;
-
-public class AccountController : Controller
+namespace Manero_WebApp.Controllers
 {
-
-    private readonly SignInManager<UserEntity> _signInManager;
-
-
-    public AccountController(SignInManager<UserEntity> signInManager)
+    public class AccountController : Controller
     {
-        _signInManager = signInManager;
-    }
-    public IActionResult Index()
-	{
-		return View();
-	}
+        private readonly SignInManager<UserEntity> _signInManager;
+        private readonly UserManager<UserEntity> _userManager; // Add UserManager to retrieve user information
 
-    //Logout
-    public async Task<IActionResult> Logout()
-    {
-        if (_signInManager.IsSignedIn(User))
+        public AccountController(SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager)
         {
-            await _signInManager.SignOutAsync();
+            _signInManager = signInManager;
+            _userManager = userManager; // Inject UserManager
         }
 
-        return LocalRedirect("/");
+        public async Task<IActionResult> Index()
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                var user = await _userManager.GetUserAsync(User);
+                var fullName = user?.FullName;
+                var email = user?.Email;
+
+                ViewData["FullName"] = fullName;
+                ViewData["Email"] = email;
+
+            }
+
+            return View();
+        }
+
+        // Logout
+        public async Task<IActionResult> Logout()
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("Index", "Home");
+            }
+
+            return LocalRedirect("/");
+        }
     }
 }
