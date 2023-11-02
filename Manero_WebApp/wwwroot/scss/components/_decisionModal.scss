@@ -3,10 +3,12 @@
 @keyframes popup {
     from {
         scale: 0;
+        opacity: 0
     }
 
     to {
         scale: 1;
+        opacity: 1;
     }
 }
 
@@ -78,7 +80,10 @@
                 height: 30px;
             }
 
-            .button-theme {
+            .button-theme, a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 140px;
                 height: 50px;
                 border-radius: 50px;

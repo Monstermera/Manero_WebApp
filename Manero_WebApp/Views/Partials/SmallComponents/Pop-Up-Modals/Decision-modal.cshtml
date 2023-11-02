@@ -1,27 +1,31 @@
-﻿@*
-    This modal takes a string as a model. To call for it just create a partial with the string you want to enter:
+﻿@using Manero_WebApp.ViewModels;
+@*
+    This modal takes a DecisionModalViewModel as a model. To call for it just create a partial with the DecisionModalViewModel you want to enter:
     
     EXAMPLE:
 
-    @{
-        string modalmessage = "Hello!";
-    }
+    DecisionModalViewModel modal = new()
+    {
+        Message = "Are you sure you want to sign out?",
+        Controller = "Account",
+        Action = "Logout"
+    };
 
-    <partial name="/Views/Partials/SmallComponents/Pop-Up-Modals/Decision-modal.cshtml" model="modalmessage" />
+    <partial name="/Views/Partials/SmallComponents/Pop-Up-Modals/Decision-modal.cshtml" model="modal" />
 *@
 @{
      
 }
-@model string
+@model DecisionModalViewModel
 
 <!-- Pop-up Decision Modal -->
-<div class="decision-modal-backdrop" id="decision-modal-backdrop"></div>
-<div class="decision-pop-up-modal" id="decision-pop-up-modal">
+<div class="decision-modal-backdrop d-none" id="decision-modal-backdrop"></div>
+<div class="decision-pop-up-modal d-none" id="decision-pop-up-modal">
     <div class="border">
         <div class="content">
             <div class="horizontal-line"></div>
-            <h1>@Model</h1>
-            <button class="button-theme">Sure</button>
+            <h1>@Model.Message</h1>
+            <a asp-controller="@Model.Controller" asp-action="@Model.Action" class="button-theme">Sure</a>
             <button onclick="closeDesicionModal()" class="button-theme">Cancel</button>
         </div>
     </div>

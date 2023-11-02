@@ -1,0 +1,98 @@
+
+.productForm {
+    padding: 100px 0 100px 0;
+
+    @include lg {
+        padding: 7%;
+    }
+
+    .container {
+        border: 0px solid $color-theme;
+        padding: 30px;
+
+        @include md {
+            border: 1px solid $color-theme;
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        form {
+            display: grid;
+            row-gap: 30px;
+            grid-template-columns: 1fr;
+            grid-template-areas: "name" "price" "description" "inStock" "colors" "sizes" "categories" "tags" "imageUrl" "button";
+
+            @include lg {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "name name" "price price" "description inStock" "colors sizes" "categories tags" "imageUrl imageUrl" "button button";
+            }
+
+            .name {
+                grid-area: name;
+            }
+
+            .price {
+                grid-area: price;
+            }
+
+            .description {
+                grid-area: description;
+            }
+
+            .inStock {
+                grid-area: inStock;
+            }
+
+            .colors {
+                grid-area: colors;
+            }
+
+            .sizes {
+                grid-area: sizes;
+            }
+
+            .categories {
+                grid-area: categories;
+            }
+
+            .tags {
+                grid-area: tags;
+            }
+
+            .imageUrl {
+                grid-area: imageUrl;
+            }
+
+            .btn-theme {
+                grid-area: button;
+                margin-bottom: 20px;
+                justify-self: center;
+            }
+        }
+
+        .form-input {
+            justify-content: space-between;
+
+            fieldset {
+                padding: 4px 30px;
+                width: 70%;
+            }
+        }
+    }
+}
+
+
+.select-box {
+    padding: 0 100px;
+
+    p {
+        color: $color-grey !important;
+        font-weight: $font-weight-semibold;
+        font-size: 20px;
+    }
+}
