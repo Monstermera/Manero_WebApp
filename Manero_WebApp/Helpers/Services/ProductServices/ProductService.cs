@@ -2,6 +2,9 @@
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Models.Entities;
 using Manero_WebApp.Models.Schemas;
+using Manero_WebApp.ViewModels.HomeViewModels;
+using Manero_WebApp.ViewModels.ProductsViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -16,12 +19,14 @@ public class ProductService
 
     private readonly DataContext _context;
     private readonly ProductDbRepo _productDbRepo;
+    private readonly IGetAllProductsService _getAllProductsService;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(DataContext context, ProductDbRepo productDbRepo, IWebHostEnvironment webHostEnvironment)
+    public ProductService(DataContext context, ProductDbRepo productDbRepo, IGetAllProductsService getAllProductsService, IWebHostEnvironment webHostEnvironment)
     {
         _context = context;
         _productDbRepo = productDbRepo;
+        _getAllProductsService = getAllProductsService;
         _webHostEnvironment = webHostEnvironment;
     }
 
@@ -76,6 +81,36 @@ public class ProductService
         {
             return null!;
         }
+    }
+
+    public async Task<CategoriesViewModel> PopulateCategoryViewModel(string category)
+    {
+        List<CategoryTileViewModel> categories = new();
+
+        var products = await _getAllProductsService.GetAllAsync();
+        var categoryEntities = await _context.Categories.ToListAsync();
+
+        foreach (var item in categoryEntities)
+        {
+            var productsWithCategory = products.Where(p => p.Categories.Contains(item.CategoryName));
+            var productWithCategory = productsWithCategory.FirstOrDefault();
+
+            var categoryTile = new CategoryTileViewModel
+            {
+                Title = item.CategoryName,
+                ImageUrl = productWithCategory?.ImageUrl?.FirstOrDefault() ?? "https://placehold.co/200x250?text=No%20image"
+            };
+
+            categories.Add(categoryTile);
+        }
+
+        var model = new CategoriesViewModel
+        {
+            Products = products.Where(p => p.Categories.Contains(category)).ToList(),
+            Categories = categories
+        };
+
+        return model;
     }
 
     //public async Task<IEnumerable<SelectListItem>> GetSelectedPropertiesForProduct(
