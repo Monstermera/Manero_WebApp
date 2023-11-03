@@ -14,14 +14,16 @@ public class ProductsController : Controller
     private readonly UpdateProductService _updateProductService;
     private readonly AddProductService _addProductService;
     private readonly GetAllProductsService _getAllProductsService;
+    private readonly DeleteOneProductService _deleteOneProductService;
 
-    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService, AddProductService addProductService, GetAllProductsService getAllProductsService)
+    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService, AddProductService addProductService, GetAllProductsService getAllProductsService, DeleteOneProductService deleteOneProductService)
     {
         _productService = productService;
         _context = context;
         _updateProductService = updateProductService;
         _addProductService = addProductService;
         _getAllProductsService = getAllProductsService;
+        _deleteOneProductService = deleteOneProductService;
     }
 
     public async Task <IActionResult> Index()
@@ -80,4 +82,15 @@ public class ProductsController : Controller
     {
         return View();
     }
+    //Delete Product
+    public async Task<IActionResult> DeleteProduct(Guid data)
+    {
+        var result = await _deleteOneProductService.DeleteAsync(data);
+        if (result == true)
+        {
+            return RedirectToAction("Index");
+        }
+        return RedirectToAction("AddOrEdit", new { Id = data });
+    }
+
 }

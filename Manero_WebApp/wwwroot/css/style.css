@@ -104,6 +104,59 @@ a:hover {
   vertical-align: middle;
 }
 
+.delete-button {
+  height: 50px;
+  width: 150px;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+}
+.delete-button .overlay-button {
+  position: absolute;
+  background-color: #ff4542;
+  width: 100%;
+  height: 100%;
+  border: none;
+  top: 0;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+.delete-button .remove-button {
+  top: -50px;
+}
+.delete-button .option-buttons {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+}
+.delete-button .option-buttons .cancel-button {
+  width: 50%;
+  height: 100%;
+  border: none;
+  background-color: #A5A5A5;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.delete-button .option-buttons .cancel-button:hover {
+  background-color: #4b4a4a;
+}
+.delete-button .option-buttons .confirm-button {
+  width: 50%;
+  height: 100%;
+  background-color: #888888;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-button .option-buttons .confirm-button:hover {
+  background-color: #4b4a4a;
+}
+
 .testing {
   display: flex;
 }
