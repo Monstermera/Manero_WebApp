@@ -7,6 +7,10 @@
         margin-bottom: 25px;
         position: relative;
 
+        @include lg {
+            display: none;
+        }
+
         .item {
             padding: 10px 0;
         }
