@@ -45,6 +45,7 @@
             .product-card {
                 flex: 0 0 auto;
                 transition: transform 0.2s, box-shadow 0.2s;
+                z-index: -5;
 
                 &:hover {
                     transform: translateY(-5px);
@@ -200,6 +201,7 @@
                     width: 200px;
                     margin: 0;
                     transition: transform 0.2s, box-shadow 0.2s;
+                    z-index: -5;
 
                     &:hover {
                         transform: translateY(-5px);
