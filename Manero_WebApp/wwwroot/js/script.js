@@ -6,6 +6,16 @@ function closeSearch() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
+//Opens or closes the delete overlay
+function openDeleteButton() {
+    const button = document.getElementById("delete-overlay-button")
+    if (button.className.includes("remove-button")) {
+        button.classList.remove("remove-button")
+    } else {
+        button.classList.add("remove-button")
+    }
+}
+
 //Close Decision Modal
 function closeDesicionModal() {
     const backdrop = document.getElementById("decision-modal-backdrop");
