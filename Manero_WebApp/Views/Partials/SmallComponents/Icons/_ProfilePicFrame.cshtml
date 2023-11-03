@@ -1,11 +1,23 @@
 ﻿<!-- 23 Profile Picture Frame -->
+@{
+    string userImageUrl;
+    try
+    {
+        userImageUrl = userManager.GetUserId(User) != null ? userManager.GetUserAsync(User).Result.ImageUrl : "https://placehold.co/600x400?text=User+Image+\nNot+Found";
+    }
+    catch (Exception)
+    {
+        throw;
+    }
+}
 <div class="customIcon">
     <div class="profilePictureBorder">
         <a href="" class="customIconEdit">
             <i class="fa-light fa-pen"></i>
         </a>
         <div class="customIconProfile">
-            <img src="" alt="">
+
+            <img src="@userImageUrl" alt="">
         </div>
     </div>
 </div>
