@@ -2160,10 +2160,11 @@ footer .copyright .social-media a {
   align-items: center;
   margin-bottom: 25px;
   position: relative;
+  margin-top: 30px;
 }
 @media (min-width: 992px) {
   .login-section .top-section {
-    display: none;
+    margin-top: 50px;
   }
 }
 .login-section .top-section .item {

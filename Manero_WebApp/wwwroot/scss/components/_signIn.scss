@@ -6,9 +6,9 @@
         align-items: center;
         margin-bottom: 25px;
         position: relative;
-
+        margin-top: 30px;
         @include lg {
-            display: none;
+            margin-top: 50px;
         }
 
         .item {
