@@ -9,6 +9,13 @@ body {
   font-family: "Mulish", sans-serif;
   font-weight: 400;
   color: #111111;
+  padding-bottom: 40px;
+}
+@media (min-width: 1200px) {
+  html,
+  body {
+    padding-bottom: 0px;
+  }
 }
 
 a {
