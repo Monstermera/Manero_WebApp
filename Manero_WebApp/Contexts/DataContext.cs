@@ -1,4 +1,5 @@
-﻿using Manero_WebApp.Models.Entities;
+﻿using Manero_WebApp.Models;
+using Manero_WebApp.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,5 +21,7 @@ public class DataContext : IdentityDbContext<UserEntity>
     public DbSet<ReviewsEntity> Reviews { get; set; }
     public DbSet<SizesEntity> Sizes { get; set; }
     public DbSet<TagsEntity> Tags { get; set; }
+    public DbSet<CartItemEntity> CartItems { get; set; }
+    public DbSet<ShoppingCartEntity> ShoppingCarts { get; set; }
 
 }
