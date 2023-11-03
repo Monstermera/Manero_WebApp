@@ -13,19 +13,23 @@ public class ProductsController : Controller
     private readonly DataContext _context;
     private readonly UpdateProductService _updateProductService;
     private readonly AddProductService _addProductService;
+    private readonly GetAllProductsService _getAllProductsService;
 
-    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService, AddProductService addProductService)
+    public ProductsController(ProductService productService, DataContext context, UpdateProductService updateProductService, AddProductService addProductService, GetAllProductsService getAllProductsService)
     {
         _productService = productService;
         _context = context;
         _updateProductService = updateProductService;
         _addProductService = addProductService;
+        _getAllProductsService = getAllProductsService;
     }
 
-    public IActionResult Index()
+    public async Task <IActionResult> Index()
     {
-        ViewData["Title"] = "Products";
-        return View();
+		ViewData["Title"] = "Products";
+
+		var productList = await _getAllProductsService.GetAllAsync();
+        return View(productList);
     }
 
 
