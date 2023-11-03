@@ -13,8 +13,18 @@ header {
 
         .top-menu {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 8px;
+
+
+            @include sm {
+                margin: 0 -35px;
+            }
+
+            @include md {
+                margin: 0;
+            }
 
             .pageTitle {
                 white-space: nowrap;
@@ -24,11 +34,6 @@ header {
             .logo {
                 height: 30px;
                 width: 90px;
-
-                @include md {
-                    height: auto;
-                    width: auto;
-                }
 
                 img {
                     padding: 0;
@@ -174,33 +179,10 @@ header {
         }
 
         .shopping-bag {
-            display: flex !important;
-            justify-content: center;
-            align-items: flex-end;
-            position: relative;
             margin: 0 10px;
-            left: 110px;
 
             @include lg {
-                left: 0;
-            }
-
-            .badge {
-                background-color: red;
-                position: absolute;
-                font-size: 11px;
-                padding: 4px 3px;
-                font-weight: $font-weight-bold;
-                top: 6px;
-                right: 12px;
-            }
-
-            i {
-                font-size: 20px;
-
-                &:hover {
-                    color: $color-red;
-                }
+                margin: 0 20px;
             }
         }
 
@@ -345,9 +327,9 @@ header {
             }
         }
     }
-
-    .mobile {
+        .mobile {
         display: flex;
+        height: 100%;
 
         @include xl {
             display: none;
@@ -360,6 +342,8 @@ header {
             border-top: 1px solid $color-theme;
             padding: 30px 0;
             background-color: white;
+            z-index: 90;
+
 
             ul {
                 list-style: none;
