@@ -33,8 +33,20 @@
 @import './components/_FeaturedProducts.scss';
 @import './components/signIn';
 @import "./components/_reviewCard.scss";
+@import "./components/shop";
 @import "./components/_categoryTile.scss";
 @import "./components/_shoppingBag.scss";
 @import "./components/_onboarding.scss";
 @import "./components/_userProfile.scss";
 @import "./components/_ProductDetails.scss";
+
+@import "./components/_productForm.scss";
+
+@import "./components/_changePasswordPopup.scss";
+@import "./components/_accountCreatedPopup.scss";
+@import "./components/_orderFailedPopup.scss";
+@import "./components/_orderSuccessPopup.scss";
+@import "./components/_promocodePopup.scss";
+@import "./components/_reviewPopup.scss";
+@import "./components/_shoppingCartPopup.scss";
+@import "./components/_trackOrderPopup.scss";

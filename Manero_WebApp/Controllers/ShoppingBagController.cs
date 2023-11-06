@@ -5,7 +5,8 @@ namespace Manero_WebApp.Controllers
     public class ShoppingBagController : Controller
     {
         public IActionResult Index()
-        { 
+        {
+            ViewData["Title"] = "Shopping Cart";
             return View();
         }
     }

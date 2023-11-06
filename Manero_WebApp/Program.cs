@@ -5,8 +5,10 @@ using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
 using Manero_WebApp.Models.Schemas;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,8 @@ builder.Services.AddScoped<AddProductService>();
 builder.Services.AddScoped<IGetOneProductService, GetOneProductService>();
 builder.Services.AddScoped<IGetAllProductsService, GetAllProductsService>();
 builder.Services.AddScoped<DeleteOneProductService>();
+builder.Services.AddScoped<GetAllProductsService>();
+
 
 //Services
 builder.Services.AddScoped<UpdateProductService>();
@@ -57,6 +61,7 @@ builder.Services.AddAuthentication().AddGoogle(x =>
     x.ClientId = "812808685205-is14h61h37h0s63l7nm6a08446n932hf.apps.googleusercontent.com";
     x.ClientSecret = "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";
     x.CallbackPath = "/signin-google";
+    x.ClaimActions.MapJsonKey("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uri", "picture");
 });
 
 
