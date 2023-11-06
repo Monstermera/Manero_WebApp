@@ -30,7 +30,7 @@ builder.Services.AddScoped<ProductDbRepo>();
 builder.Services.AddScoped<AddProductService>();
 builder.Services.AddScoped<IGetOneProductService, GetOneProductService>();
 builder.Services.AddScoped<IGetAllProductsService, GetAllProductsService>();
-builder.Services.AddScoped<DeleteOneProductService>();
+builder.Services.AddScoped<IDeleteOneProductService, DeleteOneProductService>();
 builder.Services.AddScoped<GetAllProductsService>();
 
 

@@ -3,7 +3,7 @@
 
 namespace Manero_WebApp.Helpers.Services.ProductServices;
 
-public class DeleteOneProductService
+public class DeleteOneProductService : IDeleteOneProductService
 {
     #region constructors & private fields
 
@@ -17,22 +17,22 @@ public class DeleteOneProductService
 
     #endregion
 
-	public async Task<bool> DeleteAsync(Guid articleNumber)
-	{
-		try
-		{
-			var productEntity = await _context.Products.FindAsync(articleNumber);
-			if (productEntity != null)
-			{
-				_context.Products.Remove(productEntity);
-				await _context.SaveChangesAsync();
-				return true;
-			}
-			return false;
-		}
-		catch
-		{
-			return false;
-		}
-	}
+    public async Task<bool> DeleteAsync(Guid articleNumber)
+    {
+        try
+        {
+            var productEntity = await _context.Products.FindAsync(articleNumber);
+            if (productEntity != null)
+            {
+                _context.Products.Remove(productEntity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 }
