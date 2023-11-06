@@ -1,44 +1,45 @@
 ﻿@using System.Globalization;
 @model Manero_WebApp.Models.Schemas.ProductModel
 
-<a asp-controller="Home" asp-action="ProductDetails" asp-route-articleNumber="@Model.ArticleNumber" class="product-link">
-    
+<div class="product-card-wrapper">
     @if (Model.Tags.Contains("sale"))
     {
         <div class="sale-label">SALE</div>
     }
-    <div class="product-icons">
-        <i class="fa-light fa-heart"></i>
-        <div><i class="fa-light fa-bag-shopping"></i></div>
-    </div>
-    <img src="@(!string.IsNullOrEmpty(Model.ImageUrl.FirstOrDefault()) ? Model.ImageUrl.FirstOrDefault() : "https://placehold.co/200x250?text=No\\nimage")" alt="@Model.Name" class="product-image">
+    <a asp-controller="Home" asp-action="ProductDetails" asp-route-articleNumber="@Model.ArticleNumber" class="product-link">
+        <img src="@(!string.IsNullOrEmpty(Model.ImageUrl.FirstOrDefault()) ? Model.ImageUrl.FirstOrDefault() : "https://placehold.co/200x250?text=No\\nimage")" alt="@Model.Name" class="product-image">
+        <div class="product-rating">
+            @{
+                var averageRating = Model.Reviews.Any() ? Model.Reviews.Average(r => r.Rating) : 0;
+                var numberOfReviews = Model.Reviews.Count;
+            }
+            @for (var i = 0; i < (int)Math.Round(averageRating); i++)
+            {
+                <i class="fa-solid fa-star"></i>
+            }
 
-    <div class="product-rating">
-        @{
-            var averageRating = Model.Reviews.Any() ? Model.Reviews.Average(r => r.Rating) : 0;
-            var numberOfReviews = Model.Reviews.Count;
-        }
-        @for (var i = 0; i < (int)Math.Round(averageRating); i++)
-        {
-            <i class="fa-solid fa-star"></i>
-        }
-
-        @for (var i = 0; i < 5 - (int)Math.Round(averageRating); i++)
-        {
-            <i class="fa-regular fa-star"></i>
-        }
-        <div class="nr">
-            (@numberOfReviews)
+            @for (var i = 0; i < 5 - (int)Math.Round(averageRating); i++)
+            {
+                <i class="fa-regular fa-star"></i>
+            }
+            <div class="nr">
+                (@numberOfReviews)
+            </div>
         </div>
-        
+        <div class="product-name">@Model.Name</div>
+        <div class="product-price">
+            $@Model.Price.ToString("N2", CultureInfo.CreateSpecificCulture("en-US"))
+            @if (Model.Tags.Contains("sale"))
+            {
+                <span class="product-discount">$@((Model.Price * 0.5m).ToString("N2", CultureInfo.CreateSpecificCulture("en-US")))</span>
+            }
+        </div>
+    </a>
+
+    <!-- THE BUTTONS -->
+    <div class="product-icons">
+        <button class="icon-button"><i class="fa-light fa-heart"></i></button>
+        <button class="icon-button"><i class="fa-light fa-bag-shopping"></i></button>
     </div>
-    <div class="product-name">@Model.Name</div>
-    <div class="product-price">$@Model.Price.ToString("N2", CultureInfo.CreateSpecificCulture("en-US"))
-        @if (Model.Tags.Contains("sale"))
-        {
-            <span class="product-discount">$@((Model.Price * 0.5m).ToString("N2", CultureInfo.CreateSpecificCulture("en-US")))</span>
-        }
-    </div>
-    
-</a>
+</div>
 
