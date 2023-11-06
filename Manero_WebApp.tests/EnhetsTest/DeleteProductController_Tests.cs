@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Manero_WebApp.Tests.EnhetsTest;
 
-public class ProductsController_Tests
+public class DeleteProductController_Tests
 {
     private readonly Mock<IDeleteOneProductService> _deleteOneProductService = new();
     private readonly DeleteProductController _deleteProductsController;
 
-    public ProductsController_Tests()
+    public DeleteProductController_Tests()
     {
         
         _deleteProductsController = new DeleteProductController(_deleteOneProductService.Object);
