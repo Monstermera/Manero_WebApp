@@ -21,7 +21,7 @@ namespace Manero_WebApp.Controllers
             {
                 return RedirectToAction("Index", "Products");
             }
-            return RedirectToAction("AddOrEdit", new { Id = data });
+            return RedirectToAction("AddOrEdit" , "Products", new { Id = data });
         }
     }
 }

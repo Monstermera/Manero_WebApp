@@ -17,7 +17,7 @@ public class ProductsController_Tests
     }
 
     [Fact]
-    public async void Check_If_Returns_Redirect_To_AddOrEdit_When_No_Guid()
+    public async void Check_If_Returns_Redirect_To_ProductsPage_When_Deleted()
     {
         //Arrange
         var guid = Guid.NewGuid();
@@ -30,5 +30,21 @@ public class ProductsController_Tests
         var viewResult = Assert.IsType<RedirectToActionResult>(result);
         Assert.Equal("Products", viewResult.ControllerName);
         Assert.Equal("Index", viewResult.ActionName);
+    }
+
+    [Fact]
+    public async void Check_If_Returns_Redirect_To_AddOrEdit_When_Not_Deleted()
+    {
+        //Arrange
+        var guid = Guid.NewGuid();
+        _deleteOneProductService.Setup(x => x.DeleteAsync(guid)).ReturnsAsync(false);
+
+        //Act
+        var result = await _deleteProductsController.DeleteProduct(guid);
+
+        //Assert
+        var viewResult = Assert.IsType<RedirectToActionResult>(result);
+        Assert.Equal("Products", viewResult.ControllerName);
+        Assert.Equal("AddOrEdit", viewResult.ActionName);
     }
 }
