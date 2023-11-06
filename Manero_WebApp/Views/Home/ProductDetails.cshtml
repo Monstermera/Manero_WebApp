@@ -3,6 +3,7 @@
 
 <partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
 
+
 <div class="container">
     <div class="product-details-mobile">
         <div class="product-card">
@@ -11,7 +12,11 @@
             </div>
             <div class="titleAndFav">
                 <h2 class="product-title">@Model.Name</h2>
-                <i class="fa-light fa-heart"></i>
+                <span>
+                    <i class="fa-light fa-heart"></i>
+                    <a asp-controller="Products" asp-action="AddOrEdit" asp-route-Id="@Model.ArticleNumber"><i class="fa-light fa-pen-to-square"></i></a>                    
+                </span>
+                
             </div>
             <div class="product-rating">
                 @{
