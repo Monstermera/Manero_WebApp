@@ -10,8 +10,8 @@
         <div class="products">
             @foreach (var product in Model.Products)
             {
-                <div class="product-card">
-                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                <div class="product-card-small">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardFeatured.cshtml" model="product" />
                 </div>
             }
         </div>
@@ -27,8 +27,8 @@
         <div class="products">
             @foreach (var product in Model.Products)
             {
-                <div class="product-card">
-                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardBestSeller.cshtml" model="product" />
+                <div class="product-card-small">
+                    <partial name="~/Views/Partials/SmallComponents/ProductCards/_ProductCardFeatured.cshtml" model="product" />
                 </div>
             }
         </div>
