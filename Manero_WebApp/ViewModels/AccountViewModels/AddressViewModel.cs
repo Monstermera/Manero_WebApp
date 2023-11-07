@@ -19,6 +19,8 @@ public class AddressViewModel
     [Required(ErrorMessage = "Please fill in a city.")]
     public string City { get; set; } = null!;
 
+    public UserEntity UserEntity { get; set; } = null!;
+
     public static implicit operator AdressEntity(AddressViewModel model)
     {
         return new AdressEntity
