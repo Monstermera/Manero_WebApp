@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\AccountViewModels\" />
     <Folder Include="ViewModels\ContactViewModels\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Partials\FullScreenComponents\BestSellers\" />
