@@ -2,6 +2,7 @@
 using Manero_WebApp.Models.Entities;
 using Manero_WebApp.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Helpers.Services.UserServices;
 
@@ -16,29 +17,33 @@ public class AddressService
         _addressDbRepo = addressDbRepo;
     }
 
-    public async Task<(IdentityResult result, string message)> AddAddressAsync(AddressViewModel model)
+    public async Task<(IdentityResult result, string message)> AddAddressAsync(AddressViewModel model, UserEntity user)
     {
-        var userResult = await _userManager.FindByIdAsync(model.UserEntity.Id);
+        var userResult = await _userManager.Users.Include(u => u.Addresses).SingleOrDefaultAsync(u => u.Id == user.Id);
+        
         if (userResult != null)
         {
-            AdressEntity adressEntity = model;
-            var addressResult = await _addressDbRepo.GetAsync(x => x.City == adressEntity.City && x.PostalCode == adressEntity.PostalCode && x.StreetName == adressEntity.StreetName);
+            var addressResult = await _addressDbRepo.GetAsync(x => x.City == model.City && x.PostalCode == model.PostalCode && x.StreetName == model.StreetName);
             
             if(addressResult != null)
             {
+                if (userResult.Addresses.Contains(addressResult))
+                {
+                    return (IdentityResult.Success, "This address allready exists on your account.");
+                }
                 userResult.Addresses.Add(addressResult);
                 return (await _userManager.UpdateAsync(userResult), "Address Created!");
             }
             else
             {
+                AdressEntity adressEntity = model;
                 var addressAdded = await _addressDbRepo.AddAsync(adressEntity);
                 if (addressAdded != null)
                 {
-                    userResult.Addresses.Add(addressResult);
+                    userResult.Addresses.Add(adressEntity);
                     return (await _userManager.UpdateAsync(userResult), "Address Created!");
                 }
             }
-            
         }
         return (null!, "The User was not found! Please contact IT service or try again.");
     }

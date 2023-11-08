@@ -25,6 +25,7 @@ builder.Services.AddDbContext<DataContext>(x =>
 //Repos
 builder.Services.AddScoped<UserDbRepo>();
 builder.Services.AddScoped<ProductDbRepo>();
+builder.Services.AddScoped<AdressDbRepo>();
 
 //Products
 builder.Services.AddScoped<AddProductService>();
@@ -41,6 +42,7 @@ builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<AddressService>();
 
 //Identity
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>
