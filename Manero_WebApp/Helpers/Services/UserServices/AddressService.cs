@@ -19,7 +19,7 @@ public class AddressService
 
     public async Task<(IdentityResult result, string message)> AddAddressAsync(AddressViewModel model, UserEntity user)
     {
-        var userResult = await _userManager.Users.Include(u => u.Addresses).SingleOrDefaultAsync(u => u.Id == user.Id);
+        var userResult = await _userManager.Users.Include(x => x.Addresses).SingleOrDefaultAsync(u => u.Id == user.Id);
         
         if (userResult != null)
         {

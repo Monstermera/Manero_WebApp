@@ -4257,3 +4257,55 @@ footer .copyright .social-media a {
     font-size: 16px;
   }
 }
+.add-address-section {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.add-address-section iframe {
+  width: 100%;
+}
+.add-address-section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-address-section form button {
+  margin-top: 15px;
+}
+
+.my-addresses-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-addresses-section .address-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.my-addresses-section .address-card .address {
+  width: 100%;
+  text-align: start;
+  padding: 7px 25px;
+}
+.my-addresses-section .address-card .address h6 {
+  margin: 0;
+}
+.my-addresses-section .address-card .address padding {
+  margin: 0;
+}
+.my-addresses-section .address-card i {
+  font-size: 24px;
+}
+.my-addresses-section .add-button {
+  transition: 0.2s ease-in-out;
+  border: 1px solid transparent;
+  width: 70%;
+  text-align: center;
+}
+.my-addresses-section .add-button:hover {
+  border: 1px solid black;
+}
