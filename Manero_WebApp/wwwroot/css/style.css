@@ -4263,6 +4263,7 @@ footer .copyright .social-media a {
 }
 .add-address-section iframe {
   width: 100%;
+  height: 390px;
 }
 .add-address-section form {
   display: flex;
@@ -4294,15 +4295,22 @@ footer .copyright .social-media a {
 .my-addresses-section .address-card .address h6 {
   margin: 0;
 }
-.my-addresses-section .address-card .address padding {
+.my-addresses-section .address-card .address p {
   margin: 0;
 }
 .my-addresses-section .address-card i {
-  font-size: 24px;
+  font-size: 22px;
+}
+.my-addresses-section .address-card a i {
+  font-size: 16px !important;
+}
+.my-addresses-section hr {
+  margin: 5px 0;
 }
 .my-addresses-section .add-button {
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   border: 1px solid transparent;
+  border-radius: 15px;
   width: 70%;
   text-align: center;
 }
