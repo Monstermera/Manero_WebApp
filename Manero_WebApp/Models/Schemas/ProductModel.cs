@@ -1,8 +1,6 @@
-﻿using Manero_WebApp.Models.Entities;
+﻿namespace Manero_WebApp.Models.Schemas;
 
-namespace Manero_WebApp.Models.Schemas;
-
-public class ProductModel
+public class ProductModel : IEquatable<ProductModel>
 {
     public Guid ArticleNumber { get; set; }
     public string Name { get; set; } = null!;
@@ -11,8 +9,23 @@ public class ProductModel
     public List<string>? ImageUrl { get; set; } = new List<string>();
     public List<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
     public List<string> Categories { get; set; } = new List<string>();
-    public List<string> Tags { get; set; } = new List<string>();    
+    public List<string> Tags { get; set; } = new List<string>();
     public List<string> Sizes { get; set; } = new List<string>();
     public List<string> Colors { get; set; } = new List<string>();
     public int AmountInStock { get; set; }
+
+    public bool Equals(ProductModel? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+
+        return ArticleNumber == other.ArticleNumber;
+    }
+
+    public override int GetHashCode()
+    {
+        return ArticleNumber.GetHashCode();
+    }
 }
