@@ -53,5 +53,25 @@ namespace Manero_WebApp.Tests.EnhetsTest
 
             Assert.Equal(fakeProduct.ArticleNumber, okResponse.Value);
         }
+
+        /// <summary>
+        /// Tests that removing a product actually removes it from the wishlist.
+        /// </summary>
+        [Fact]
+        public async Task Remove_Product_RemovesItFromWishlist()
+        {
+            var fakeProduct = new ProductModel
+            {
+                ArticleNumber = Guid.NewGuid()
+            };
+
+            _mockGetOneProductService.Setup(i => i.GetOneProductAsync(It.IsAny<Guid>())).ReturnsAsync(fakeProduct);
+
+            var response = await _controller.Remove(fakeProduct.ArticleNumber);
+
+            var okResponse = Assert.IsType<OkObjectResult>(response);
+
+            Assert.Equal(fakeProduct.ArticleNumber, okResponse.Value);
+        }
     }
 }

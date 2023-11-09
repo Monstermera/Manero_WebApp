@@ -15,11 +15,12 @@
         <div class="p-cards">
             <div class="products">
                 @foreach (var product in Model.Products)
-        {
-            <h2>
-                @product.Name
-            </h2>
-        }
+                {
+                    <div class="product-card">
+                        <partial name="~/Views/Partials/SmallComponents/ProductCards/_WishlistProductCard.cshtml" model="product" />
+                        <div class="border"></div>
+                    </div>
+                }
             </div>
         </div>
     </div>
