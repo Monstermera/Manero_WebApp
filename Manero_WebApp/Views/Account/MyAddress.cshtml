@@ -1,0 +1,23 @@
+﻿@{
+}
+@model List<AdressEntity>
+
+<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
+
+<section class="my-addresses-section container">
+    <h1>My addresses</h1>
+    @foreach(var address in Model)
+    {
+        <div class="address-card">
+            <i class="fa-sharp fa-light fa-location-dot"></i>
+            <div class="address">
+                <h6>Home</h6>
+                <p>@address.PostalCode @address.StreetName @address.City</p>
+            </div>
+            <a asp-controller="Account" asp-action="AddAddress" asp-route-data="@address"><i class="fa-light fa-pen-line"></i></a>
+        </div>
+        <hr style="width: 100vw;" />
+    }
+
+    <a class="add-button" asp-controller="Account" asp-action="AddAddress"><i class="fa-regular fa-plus"></i><p>add a new address</p></a>
+</section>

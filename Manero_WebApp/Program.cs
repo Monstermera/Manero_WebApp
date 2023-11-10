@@ -25,7 +25,9 @@ builder.Services.AddDbContext<DataContext>(x =>
 //Repos
 builder.Services.AddScoped<UserDbRepo>();
 builder.Services.AddScoped<ProductDbRepo>();
+builder.Services.AddScoped<AdressDbRepo>();
 builder.Services.AddSingleton<WishlistRepo>();
+
 
 //Products
 builder.Services.AddScoped<AddProductService>();
@@ -42,7 +44,9 @@ builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<WishlistProductService>();
+
 
 //Identity
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>

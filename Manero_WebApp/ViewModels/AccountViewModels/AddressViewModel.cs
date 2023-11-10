@@ -1,0 +1,35 @@
+﻿using Manero_WebApp.Models.Entities;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using System.ComponentModel.DataAnnotations;
+
+namespace Manero_WebApp.ViewModels.AccountViewModels;
+
+public class AddressViewModel
+{
+    [Display(Name = "Title*")]
+    [Required(ErrorMessage = "Please fill in a title for your address.")]
+    public string AddressTitle { get; set; } = null!;
+
+    [Display(Name = "Streetname*")]
+    [Required(ErrorMessage = "Please fill in a streetname.")]
+    public string StreetName { get; set; } = null!;
+
+    [Display(Name = "Postalcode*")]
+    [Required(ErrorMessage = "Please fill in a postalcode.")]
+    [RegularExpression(@"^\d{1,6}|\d{0,5}\s\d{1,6}$", ErrorMessage = "The postalcode should only contain max 6 digits")]
+    public string PostalCode { get; set; } = null!;
+
+    [Display(Name = "City*")]
+    [Required(ErrorMessage = "Please fill in a city.")]
+    public string City { get; set; } = null!;
+
+    public static implicit operator AdressEntity(AddressViewModel model)
+    {
+        return new AdressEntity
+        {
+            StreetName = model.StreetName,
+            PostalCode = model.PostalCode,
+            City = model.City,
+        };
+    }
+}
