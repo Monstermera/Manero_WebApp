@@ -1,0 +1,117 @@
+.wishlist h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.p-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-bottom: 30px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    width: 19rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.card-start {
+    display: flex;
+
+    .wishlist-image {
+        object-fit: cover;
+    }
+
+    .sale-label {
+        position: absolute;
+        background-color: green;
+        color: white;
+        padding: 2px 5px;
+        font-size: 8px;
+        font-weight: $font-weight-bold;
+        z-index: 1;
+    }
+}
+
+.card-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    height: 140px;
+    margin-left: 1250px;
+
+    .card-end-button {
+        background-color: transparent;
+        border: none;
+    }
+
+    .card-end-heart {
+        color: red;
+        font-size: 20px;
+    }
+
+    .card-end-bag {
+        background-color: black;
+        border-radius: 25px;
+        font-size: 15px;
+
+        i {
+            color: white;
+            padding: 8px;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .card-end {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        height: 140px;
+        margin-left: 650px;
+    }
+}
+
+.card-middle {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.product-discount {
+    font-size: 16px;
+    color: $color-red; // A reddish color for discounts; adjust as needed
+    margin-top: 5px;
+    margin-left: 5px;
+    font-weight: $font-weight-semibold;
+}
+
+.border {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.wishlist-image {
+    max-width: 30%;
+    height: auto;
+    margin-right: 2rem;
+}
+
+@media (max-width: 1000px) {
+    .border {
+        display: block;
+        border-bottom: 1px solid black;
+    }
+
+    .p-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

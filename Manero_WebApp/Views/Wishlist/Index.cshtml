@@ -1,0 +1,27 @@
+﻿@using Manero_WebApp.ViewModels.WishlistViewModels;
+@model Manero_WebApp.ViewModels.WishlistViewModels.WishlistViewModel
+@{
+    ViewData["Title"] = "Wishlist";
+}
+
+<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
+
+
+
+<div class="wishlist">
+    <div class="container">
+        <h1>Wishlist</h1>
+
+        <div class="p-cards">
+            <div class="products">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="product-card">
+                        <partial name="~/Views/Partials/SmallComponents/ProductCards/_WishlistProductCard.cshtml" model="product" />
+                        <div class="border"></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
