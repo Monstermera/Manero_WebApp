@@ -18,7 +18,7 @@
                 <button onclick="openDeleteButton()" id="delete-overlay-button" class="overlay-button">Delete</button>
                 <span class="option-buttons">
                     <Button onclick="openDeleteButton()" class="cancel-button">Cancel</Button>
-                    <a class="confirm-button" asp-controller="Products" asp-action="DeleteProduct" asp-route-data="@Model.ArticleNumber">Confirm</a>
+                    <a class="confirm-button" asp-controller="DeleteProduct" asp-action="DeleteProduct" asp-route-data="@Model.ArticleNumber">Confirm</a>
                 </span>
             </div>
         </div>
