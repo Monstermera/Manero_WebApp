@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Forgot Password";
+
+}
+<div class="login-section">
+    <!-- Top section -->
+    <div class="top-section">
+        <a class="item left" asp-controller="Home" asp-action="Index">
+            <i class="fa-solid fa-less-than"></i>
+        </a>
+        
+    </div>
+
+   
+
+    <!-- Big text -->
+    <div class="big-text">
+        <h3>Forgot your password?</h3>
+        <p>Please enter your email</p>
+    </div>
+
+    <form method="post" action="">
+        <div asp-validation-summary="ModelOnly" class="text-danger error-message"></div>
+        <partial name="~/Views/Partials/Forms/_EmailFormInput.cshtml" />
+
+
+
+
+        <button class="btn-large btn-sign-in" type="submit">Send reset link</button>
+    </form>
+
+ 
+
+    <!-- External links -->
+    <div class="social-links">
+        <a href="" class="customSocialIcon">
+            <i class="fa-brands fa-facebook-f" style="color: #3B5999;"></i>
+        </a>
+        <a href="#" class="customSocialIcon">
+            <i class="fa-brands fa-twitter" style="color: #55ACEE;"></i>
+        </a>
+        <a href="#" class="customSocialIcon">
+            <i class="fa-brands fa-google-plus-g" style="color: #DD4B39;"></i>
+        </a>
+    </div>
+</div>
+
