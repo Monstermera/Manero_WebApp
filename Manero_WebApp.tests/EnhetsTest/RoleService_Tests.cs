@@ -29,10 +29,10 @@ public class RolesServiceTests
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(
                 roleStore,
-                null,  
-                null,  
-                null,   
-                null 
+                null,
+                null,
+                null,
+                null
             );
             var userManager = new UserManager<UserEntity>(new UserStore<UserEntity>(context), null, null, null, null, null, null, null, null);
 
