@@ -7,5 +7,5 @@ public class SizesEntity
     [Key]
     public int Id { get; set; }
     public string SizeName { get; set; } = null!;
-    public ICollection<ProductSizesEntity> ProductSizes { get; set; } = new List<ProductSizesEntity>();
+    public List<ProductEntity> Products { get; set; } = new();
 }

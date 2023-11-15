@@ -8,6 +8,10 @@ body {
     font-family: "Mulish", sans-serif;
     font-weight: 400;
     color: #111111;
+    padding-bottom: 40px;
+    @include  xl {
+        padding-bottom: 0px;
+        }
 }
 
 a {
@@ -19,6 +23,12 @@ a {
     }
 }
 
+
+.btn-add {
+    background-color: $color-dark;
+    color: $color-white !important;
+    padding: 10px;
+}
 
 .shopping-bag {
     display: flex !important;

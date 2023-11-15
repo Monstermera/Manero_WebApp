@@ -7,6 +7,8 @@ public class AdressEntity
 {
     [Key]
     public int Id { get; set; }
+    //[Required]
+    //public string AddressTitle { get; set; } = string.Empty;
 
     [Required]
     [StringLength(100)]
@@ -20,5 +22,5 @@ public class AdressEntity
     [StringLength(100)]
     public string City { get; set; } = string.Empty;
 
-    public ICollection<UserAdressEntity> Users { get; set; } = new List<UserAdressEntity>();
+    public List<UserEntity> Users { get; set; } = new();
 }

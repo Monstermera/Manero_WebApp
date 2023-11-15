@@ -1,0 +1,177 @@
+.mobile-shop {
+    .top-section {
+        margin-top: 30px;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .item-left {
+                color: black;
+                font-size: 18px;
+            }
+    
+            .item-middle {
+                font-size: 18px;
+                font-weight: 600;
+            }
+    
+            .shopping-cart-menu {
+                border: none;
+                font-size: 25px;
+                background-color: transparent;
+                transition: 0.2s ease-in-out;
+                position: relative;
+    
+                .badge-pill {
+                    position: absolute;
+                    padding: 3px 5px;
+                    left: -10px;
+                    bottom: 0px;
+                    font-size: 10px;
+                }
+            } 
+        }
+
+        @media (min-width: 1200px) {
+            button:hover {
+                scale: 1.2;
+            }
+
+            .item-left:hover {
+                scale: 2;
+            }
+        }
+    }
+}
+
+.shop-buttons {
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .filters {
+        position: relative;
+        display: flex;
+
+        button {
+            border: none;
+            background-color: white;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        i {
+            margin-right: 5px;
+        }
+
+        .filters-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                li {
+                    padding: 5px 0;
+                }
+            }
+        }
+    }
+
+    .sort-by {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        button {
+            border: none;
+            background-color: white;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .sort-by-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1;
+            min-width: 100%;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                
+                li {
+                    padding: 5px 0;
+                }
+            }
+        }
+    }
+}
+
+.sort-by-button {
+    cursor: pointer;
+
+    &:hover + .sort-by-dropdown {
+        display: block;
+    }
+}
+
+.sort-option {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+.shop-items {
+    .container {
+      .shop-cards {
+        display: grid;
+        gap: 10px;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+  
+        .shop-card-1,
+        .shop-card-3,
+        .shop-card-5 {
+          justify-self: start;
+        }
+  
+        .shop-card-2,
+        .shop-card-4,
+        .shop-card-6 {
+          justify-self: end;
+        }
+  
+        @media (min-width: 1200px) {
+          grid-template-columns: auto auto auto;
+          gap: 150px;
+        }
+      }
+    }
+  }

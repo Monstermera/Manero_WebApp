@@ -156,6 +156,30 @@ namespace Manero_WebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AdressEntityUserEntity",
+                columns: table => new
+                {
+                    AddressesId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdressEntityUserEntity", x => new { x.AddressesId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_AdressEntityUserEntity_Adresses_AddressesId",
+                        column: x => x.AddressesId,
+                        principalTable: "Adresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AdressEntityUserEntity_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -241,77 +265,48 @@ namespace Manero_WebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserAdresses",
+                name: "CategoriesEntityProductEntity",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: false)
+                    CategoriesId = table.Column<int>(type: "int", nullable: false),
+                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserAdresses", x => x.Id);
+                    table.PrimaryKey("PK_CategoriesEntityProductEntity", x => new { x.CategoriesId, x.ProductsArticleNumber });
                     table.ForeignKey(
-                        name: "FK_UserAdresses_Adresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Adresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserAdresses_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductCategories",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    CategoriesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductCategories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductCategories_Categories_CategoriesId",
+                        name: "FK_CategoriesEntityProductEntity_Categories_CategoriesId",
                         column: x => x.CategoriesId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductCategories_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_CategoriesEntityProductEntity_Products_ProductsArticleNumber",
+                        column: x => x.ProductsArticleNumber,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductColors",
+                name: "ColorsEntityProductEntity",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ColorId = table.Column<int>(type: "int", nullable: false)
+                    ColorsId = table.Column<int>(type: "int", nullable: false),
+                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductColors", x => x.Id);
+                    table.PrimaryKey("PK_ColorsEntityProductEntity", x => new { x.ColorsId, x.ProductsArticleNumber });
                     table.ForeignKey(
-                        name: "FK_ProductColors_Colors_ColorId",
-                        column: x => x.ColorId,
+                        name: "FK_ColorsEntityProductEntity_Colors_ColorsId",
+                        column: x => x.ColorsId,
                         principalTable: "Colors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductColors_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ColorsEntityProductEntity_Products_ProductsArticleNumber",
+                        column: x => x.ProductsArticleNumber,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
@@ -343,6 +338,7 @@ namespace Manero_WebApp.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Review = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -364,55 +360,57 @@ namespace Manero_WebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductSizes",
+                name: "ProductEntitySizesEntity",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SizeId = table.Column<int>(type: "int", nullable: false),
-                    ProductSizeId = table.Column<int>(type: "int", nullable: false)
+                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SizesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductSizes", x => x.Id);
+                    table.PrimaryKey("PK_ProductEntitySizesEntity", x => new { x.ProductsArticleNumber, x.SizesId });
                     table.ForeignKey(
-                        name: "FK_ProductSizes_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ProductEntitySizesEntity_Products_ProductsArticleNumber",
+                        column: x => x.ProductsArticleNumber,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductSizes_Sizes_ProductSizeId",
-                        column: x => x.ProductSizeId,
+                        name: "FK_ProductEntitySizesEntity_Sizes_SizesId",
+                        column: x => x.SizesId,
                         principalTable: "Sizes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductTags",
+                name: "ProductEntityTagsEntity",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TagId = table.Column<int>(type: "int", nullable: false)
+                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TagsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductTags", x => x.Id);
+                    table.PrimaryKey("PK_ProductEntityTagsEntity", x => new { x.ProductsArticleNumber, x.TagsId });
                     table.ForeignKey(
-                        name: "FK_ProductTags_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ProductEntityTagsEntity_Products_ProductsArticleNumber",
+                        column: x => x.ProductsArticleNumber,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductTags_Tags_TagId",
-                        column: x => x.TagId,
+                        name: "FK_ProductEntityTagsEntity_Tags_TagsId",
+                        column: x => x.TagsId,
                         principalTable: "Tags",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AdressEntityUserEntity_UsersId",
+                table: "AdressEntityUserEntity",
+                column: "UsersId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -454,49 +452,29 @@ namespace Manero_WebApp.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_CategoriesId",
-                table: "ProductCategories",
-                column: "CategoriesId");
+                name: "IX_CategoriesEntityProductEntity_ProductsArticleNumber",
+                table: "CategoriesEntityProductEntity",
+                column: "ProductsArticleNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_ProductId",
-                table: "ProductCategories",
-                column: "ProductId");
+                name: "IX_ColorsEntityProductEntity_ProductsArticleNumber",
+                table: "ColorsEntityProductEntity",
+                column: "ProductsArticleNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductColors_ColorId",
-                table: "ProductColors",
-                column: "ColorId");
+                name: "IX_ProductEntitySizesEntity_SizesId",
+                table: "ProductEntitySizesEntity",
+                column: "SizesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductColors_ProductId",
-                table: "ProductColors",
-                column: "ProductId");
+                name: "IX_ProductEntityTagsEntity_TagsId",
+                table: "ProductEntityTagsEntity",
+                column: "TagsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductImages_ProductId",
                 table: "ProductImages",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductSizes_ProductId",
-                table: "ProductSizes",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductSizes_ProductSizeId",
-                table: "ProductSizes",
-                column: "ProductSizeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductTags_ProductId",
-                table: "ProductTags",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductTags_TagId",
-                table: "ProductTags",
-                column: "TagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ProductId",
@@ -507,21 +485,14 @@ namespace Manero_WebApp.Migrations
                 name: "IX_Reviews_UserId",
                 table: "Reviews",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserAdresses_AddressId",
-                table: "UserAdresses",
-                column: "AddressId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserAdresses_UserId",
-                table: "UserAdresses",
-                column: "UserId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AdressEntityUserEntity");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -538,25 +509,25 @@ namespace Manero_WebApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ProductCategories");
+                name: "CategoriesEntityProductEntity");
 
             migrationBuilder.DropTable(
-                name: "ProductColors");
+                name: "ColorsEntityProductEntity");
+
+            migrationBuilder.DropTable(
+                name: "ProductEntitySizesEntity");
+
+            migrationBuilder.DropTable(
+                name: "ProductEntityTagsEntity");
 
             migrationBuilder.DropTable(
                 name: "ProductImages");
 
             migrationBuilder.DropTable(
-                name: "ProductSizes");
-
-            migrationBuilder.DropTable(
-                name: "ProductTags");
-
-            migrationBuilder.DropTable(
                 name: "Reviews");
 
             migrationBuilder.DropTable(
-                name: "UserAdresses");
+                name: "Adresses");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -574,13 +545,10 @@ namespace Manero_WebApp.Migrations
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "Adresses");
-
-            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

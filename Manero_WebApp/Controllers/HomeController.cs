@@ -1,29 +1,53 @@
 ﻿using Azure.Core;
 using Azure;
 using Microsoft.AspNetCore.Mvc;
+using Manero_WebApp.ViewModels.HomeViewModels;
+using Manero_WebApp.Models.Schemas;
+using Manero_WebApp.Helpers.Services.ProductServices;
 
 namespace Manero_WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IGetAllProductsService _getAllProductsService;
+        private readonly IGetOneProductService _getOneProductService;
+
+        public HomeController(IGetAllProductsService getAllProductsService, IGetOneProductService getOneProductService)
         {
+            _getAllProductsService = getAllProductsService;
+            _getOneProductService = getOneProductService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            ViewData["Title"] = "Home";
             if (IsFirstVisit())
             {
                 SetVisitedCookie();
                 return View("WelcomeOnboarding");
-
             }
-            return View();
+
+            var products = await _getAllProductsService.GetAllAsync();
+            var viewModel = CreateHomePageViewModel(products);
+            return View(viewModel);
         }
 
-        public IActionResult Categories()
+        private HomePageViewModel CreateHomePageViewModel(IEnumerable<ProductModel> products)
         {
-            return View();
+            // JUSTERA || med vilka tags som ska visas
+            var bestSellers = products.Where(p => p.Tags.Contains("top") || p.Tags.Contains("new") || p.Tags.Contains("sale"));
+            var featuredProducts = products.Where(p => p.Tags.Contains("new"));
+
+            return new HomePageViewModel
+            {
+                BestSellers = bestSellers,
+                FeaturedProducts = featuredProducts
+            };
         }
 
 
-        private bool IsFirstVisit()
+        
+        public bool IsFirstVisit()
         {
             var visitedCookie = Request.Cookies["Visited"];
             return string.IsNullOrEmpty(visitedCookie);
@@ -35,16 +59,23 @@ namespace Manero_WebApp.Controllers
             {
                 var visitedCookie = new CookieOptions
                 {
-                    Expires = DateTime.Now.AddDays(2) 
+                    Expires = DateTime.Now.AddYears(1)
                 };
 
                 Response.Cookies.Append("Visited", "true", visitedCookie);
             }
         }
 
-    }  
+        [HttpGet("product/{articleNumber}")]
+        public async Task<IActionResult> ProductDetails(Guid articleNumber)
+        {
+            var product = await _getOneProductService.GetOneProductAsync(articleNumber);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
+    }
 }
-
-
-
-

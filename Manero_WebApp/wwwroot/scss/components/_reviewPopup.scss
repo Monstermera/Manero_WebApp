@@ -1,0 +1,144 @@
+.review-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    .container {
+      margin-top: 10px;
+      .topmenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        h1 {
+            flex: 1;
+            font-size: 18px;
+            font-family: $font-mulish;
+        }
+        a {
+            display: flex;
+            font-size: 20px;
+        }
+      }
+  
+      .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+  
+        img {
+          margin-top: 50px;
+        }
+  
+        .upwardsline {
+            margin-top: 40px;
+            background-color: black;
+            height: 40px;
+            width: 3px;
+        }
+  
+        .infotext {
+          margin-top: 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+
+          h1 {
+            font-size: 22px;
+            font-weight: $font-weight-bold;
+            font-family: $font-mulish;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            width: 250px;
+          }
+          .stars {
+            margin-top: 20px;
+            
+            .review-star {
+                color: gray;
+                font-size: 33px;
+            }
+          }  
+  
+          h2 {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: $font-weight-regular;
+            font-family: $font-mulish;
+            width: 300px;
+          }
+        }
+        .form-input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          
+            fieldset {
+                margin-top: 30px;
+                border: 1px solid #DBE3F5;
+                border-radius: 30px;
+                padding: 10px;
+                width: 335px;
+                height: 100px;
+                position: relative;
+                }
+            
+          
+                legend {
+                position: absolute;
+                top: -18px;
+                left: 30px;
+                background-color: #FFFFFF;
+                width: auto;
+                z-index: 1;
+                padding: 0 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: $color-grey;
+                }
+                textarea {
+                    width: 300px;
+                    height: 80px;
+                    resize: none;
+                    border: none;
+                    background-color: transparent;
+                    outline: none;
+                    padding-top: 5px;
+                    padding-left: 20px;
+                    textarea:focus {
+                        border: none;
+                        outline: 0;
+                    }
+                }
+            
+            
+                input {
+                    border: none;
+                    background-color: $button-bg-color;
+                    color: $button-text-color;
+                    border-radius: $button-border-radius;
+                    height: $button-height;
+                    font-size: $button-font-size;
+                    display: inline-block;
+                    width: 335px;
+                    text-align: center;
+                    line-height: 2.5rem;
+                    vertical-align: middle;
+                    transition: ease-in-out 0.3s;
+                    margin-top: 50px;
+                }
+          
+                input:focus {
+                    background-color: gray;
+            }
+          }
+      }
+    }
+  }

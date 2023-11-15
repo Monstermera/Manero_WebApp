@@ -1,17 +1,19 @@
-
-
-
 using Manero_WebApp.Contexts;
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Helpers.Services.AuthenticationServices;
+using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
+using Manero_WebApp.Models.Schemas;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(x =>
 {
@@ -20,17 +22,31 @@ builder.Services.AddDbContext<DataContext>(x =>
 );
 
 
-
-
 //Repos
 builder.Services.AddScoped<UserDbRepo>();
+builder.Services.AddScoped<ProductDbRepo>();
+builder.Services.AddScoped<AdressDbRepo>();
+builder.Services.AddSingleton<WishlistRepo>();
+
+
+//Products
+builder.Services.AddScoped<AddProductService>();
+builder.Services.AddScoped<IGetOneProductService, GetOneProductService>();
+builder.Services.AddScoped<IGetAllProductsService, GetAllProductsService>();
+builder.Services.AddScoped<IDeleteOneProductService, DeleteOneProductService>();
+builder.Services.AddScoped<GetAllProductsService>();
 
 
 //Services
+builder.Services.AddScoped<UpdateProductService>();
 builder.Services.AddScoped<LoginService>();
-builder.Services.AddScoped<RegisterService>();
-builder.Services.AddScoped<CheckIfUserExistsService>();
+builder.Services.AddScoped<IRegisterService, RegisterService>();
+builder.Services.AddScoped<ICheckIfUserExistsService, CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<AddressService>();
+builder.Services.AddScoped<WishlistProductService>();
+
 
 //Identity
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>
@@ -45,6 +61,16 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.LogoutPath = "/";
     x.AccessDeniedPath = "/denied";
 });
+
+builder.Services.AddAuthentication().AddGoogle(x =>
+{
+    x.ClientId = "812808685205-is14h61h37h0s63l7nm6a08446n932hf.apps.googleusercontent.com";
+    x.ClientSecret = "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";
+    x.CallbackPath = "/signin-google";
+    x.ClaimActions.MapJsonKey("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uri", "picture");
+});
+
+
 
 
 

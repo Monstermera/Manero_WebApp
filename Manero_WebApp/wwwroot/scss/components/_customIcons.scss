@@ -133,11 +133,15 @@
     background-color: $color-white; /* Background color for the circular space */
     border-radius: 50%;
     overflow: hidden; /* Clip profile picture within the circle */
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
     .customIconProfile img {
-        width: 100%;
-        height: 100%;
+        margin: -1px 0 0 -1px;
+        width: 103%;
+        height: 103%;
         object-fit: cover;
     }
 

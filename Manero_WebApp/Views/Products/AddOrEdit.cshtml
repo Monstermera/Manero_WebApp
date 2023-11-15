@@ -1,0 +1,132 @@
+﻿<partial name="/Views/Partials/FullScreenComponents/Navbars/_TopNavbar.cshtml" />
+@model ProductModel
+
+
+
+
+<section class="productForm">
+   <div class="container">
+
+    @if(Model != null)
+    {
+        <h2 class="title">Edit Product</h2>
+        <p class="text-center">Articlenumber: @Model.ArticleNumber</p>
+
+        <!-- Delete button -->
+        <div class="d-flex justify-content-center">
+            <div class="delete-button">
+                <button onclick="openDeleteButton()" id="delete-overlay-button" class="overlay-button">Delete</button>
+                <span class="option-buttons">
+                    <Button onclick="openDeleteButton()" class="cancel-button">Cancel</Button>
+                    <a class="confirm-button" asp-controller="DeleteProduct" asp-action="DeleteProduct" asp-route-data="@Model.ArticleNumber">Confirm</a>
+                </span>
+            </div>
+        </div>
+
+    } 
+    else 
+    {
+        <h2 class="title">Add new Product</h2>
+    }
+    <form class="validate-form" asp-action="AddOrEdit" method="post" novalidate>
+            @if(Model != null)
+            {
+                @if (Model.ArticleNumber != Guid.Empty)
+                {
+                    <input asp-for="ArticleNumber" value="@Model.ArticleNumber" hidden />
+                }
+            }
+            <div class="form-input">
+            <fieldset>
+                <legend>Name</legend>
+                <label class="d-none">Name</label>
+                <input asp-for="Name" type="text" required minlength="2">
+                <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
+            </fieldset>
+        </div>
+
+        <div class="form-input">
+            <fieldset>
+                <legend>Price</legend>
+                <label class="d-none">Price</label>
+                <input asp-for="Price" type="text" pattern="^\d{1,3}(?:,\d{1,4})*(\,\d{1,2})?$" required>
+                <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
+            </fieldset>
+        </div>
+
+        <div class="form-textarea">
+            <fieldset>
+                <label class="d-none">Description</label>
+                <legend>Description</legend>
+                <textarea asp-for="Description" rows="3" required></textarea>
+            </fieldset>
+            <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
+        </div>
+
+        <div class="form-input">
+            <fieldset>
+                <legend>In Stock</legend>
+                <label class="d-none">Stock</label>
+                <input asp-for="AmountInStock" type="number" required />
+                <partial name="../Partials/SmallComponents/InputValidation.cshtml" />
+            </fieldset>
+        </div>
+
+        <div class="select-box">
+            <p>Sizes</p>
+            @foreach (SelectListItem item in ViewBag.Sizes)
+            {
+                <div class="mb-2">
+                    <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Sizes" id="product-sizes-@item.Value">
+                    <label for="product-sizes-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
+                </div>
+            }
+        </div>
+
+
+        <div class="select-box">
+            <p>Colors</p>
+            @foreach (SelectListItem item in ViewBag.Colors)
+            {
+                <div class="mb-2">
+                    <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Colors" id="product-colours-@item.Value">
+                    <label for="product-colours-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
+                </div>
+            }
+        </div>
+
+
+
+
+        <div class="select-box">
+            <p>Categories</p>
+            @foreach (SelectListItem item in ViewBag.Categories)
+            {
+                <div class="mb-2">
+                    <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Categories" id="product-categories-@item.Value">
+                    <label for="product-categories-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
+                </div>
+            }
+        </div>
+
+        <div class="select-box">
+            <p>Tags</p>
+            @foreach (SelectListItem item in ViewBag.Tags)
+            {
+                <div class="mb-2">
+                    <input type="checkbox" value="@item.Text" checked="@item.Selected" name="Tags" id="product-tags-@item.Value">
+                    <label for="product-tags-@item.Value" class="text-capitalize user-select-none">@item.Text</label>
+                </div>
+            }
+        </div>
+
+        <!--@*        <div class="form-group mb-4">
+                    <label asp-for="ImageUrl"></label>
+                    <input asp-for="ImageUrl">
+                    <span asp-validation-for="ImageUrl"></span>
+                </div>*@-->
+        <button class="btn-theme">Save</button>
+            
+        </form>
+   </div>
+</section>
