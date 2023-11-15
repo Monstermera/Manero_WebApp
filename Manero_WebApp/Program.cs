@@ -39,7 +39,7 @@ builder.Services.AddScoped<GetAllProductsService>();
 
 //Services
 builder.Services.AddScoped<UpdateProductService>();
-builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ICheckIfUserExistsService, CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();

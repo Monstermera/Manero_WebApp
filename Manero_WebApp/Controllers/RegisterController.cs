@@ -12,9 +12,9 @@ public class RegisterController : Controller
 {
     private readonly IRegisterService _registerService;
     private readonly ICheckIfUserExistsService _checkIfUserExistsService;
-    private readonly LoginService _loginService;
+    private readonly ILoginService _loginService;
 
-    public RegisterController(IRegisterService registerService, ICheckIfUserExistsService checkIfUserExistsService, LoginService loginService)
+    public RegisterController(IRegisterService registerService, ICheckIfUserExistsService checkIfUserExistsService, ILoginService loginService)
     {
         _registerService = registerService;
         _checkIfUserExistsService = checkIfUserExistsService;
@@ -27,6 +27,7 @@ public class RegisterController : Controller
     {
         return View();
     }
+
     [HttpPost]
     public async Task<IActionResult> Index(RegistrationViewModel model)
     {
