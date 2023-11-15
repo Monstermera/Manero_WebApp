@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Bunit;
 using System.ComponentModel;
 using Manero_WebApp.ViewModels.AccountViewModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace Manero_WebApp.Tests.EnhetsTest
 {
-    public class ForgotPasswordTests : TestContext
+    public class ForgotPasswordTests
     {
         private ForgotPasswordViewModel _viewModel;
         [Fact]
