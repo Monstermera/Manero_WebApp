@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Manero_WebApp.Helpers.Services.UserServices;
 
-public class CheckIfUserExistsService
+public class CheckIfUserExistsService : ICheckIfUserExistsService
 {
     private readonly UserManager<UserEntity> _userManager;
 

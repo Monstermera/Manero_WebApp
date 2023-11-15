@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Manero_WebApp.Helpers.Services.AuthenticationServices
 {
-    public class RegisterService
+    public class RegisterService : IRegisterService
     {
         private readonly UserManager<UserEntity> _userManager;
         private readonly RolesService _rolesService;

@@ -24,6 +24,12 @@ a {
 }
 
 
+.btn-add {
+    background-color: $color-dark;
+    color: $color-white !important;
+    padding: 10px;
+}
+
 .shopping-bag {
     display: flex !important;
     justify-content: center;

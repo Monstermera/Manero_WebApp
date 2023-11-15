@@ -7,6 +7,8 @@ public class AdressEntity
 {
     [Key]
     public int Id { get; set; }
+    //[Required]
+    //public string AddressTitle { get; set; } = string.Empty;
 
     [Required]
     [StringLength(100)]

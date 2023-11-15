@@ -10,11 +10,11 @@ namespace Manero_WebApp.Controllers;
 
 public class RegisterController : Controller
 {
-    private readonly RegisterService _registerService;
-    private readonly CheckIfUserExistsService _checkIfUserExistsService;
+    private readonly IRegisterService _registerService;
+    private readonly ICheckIfUserExistsService _checkIfUserExistsService;
     private readonly LoginService _loginService;
 
-    public RegisterController(RegisterService registerService, CheckIfUserExistsService checkIfUserExistsService, LoginService loginService)
+    public RegisterController(IRegisterService registerService, ICheckIfUserExistsService checkIfUserExistsService, LoginService loginService)
     {
         _registerService = registerService;
         _checkIfUserExistsService = checkIfUserExistsService;
