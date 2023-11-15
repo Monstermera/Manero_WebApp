@@ -1,7 +1,9 @@
 ﻿using Manero_WebApp.Helpers.Services.AuthenticationServices;
 using Manero_WebApp.Helpers.Services.UserServices;
+using Manero_WebApp.Models.Entities;
 using Manero_WebApp.Models.Schemas;
 using Manero_WebApp.ViewModels.AccountViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Manero_WebApp.Controllers;
@@ -10,11 +12,13 @@ public class RegisterController : Controller
 {
     private readonly IRegisterService _registerService;
     private readonly ICheckIfUserExistsService _checkIfUserExistsService;
+    private readonly LoginService _loginService;
 
-    public RegisterController(IRegisterService registerService, ICheckIfUserExistsService checkIfUserExistsService)
+    public RegisterController(IRegisterService registerService, ICheckIfUserExistsService checkIfUserExistsService, LoginService loginService)
     {
         _registerService = registerService;
         _checkIfUserExistsService = checkIfUserExistsService;
+        _loginService = loginService;
     }
 
 
@@ -36,7 +40,10 @@ public class RegisterController : Controller
 
             if (await _registerService.RegisterAsync(model))
             {
-                return RedirectToAction("Success");
+                if (await _loginService.LoginAsync(new SignInViewModel { Email = model.Email, Password = model.Password, KeepMeSignedIn = true }))
+                {
+                    return RedirectToAction("Success");
+                }
             }
         }
         return View(model);
