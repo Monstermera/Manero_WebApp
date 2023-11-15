@@ -2773,6 +2773,51 @@ footer .copyright .social-media a {
   border-radius: 40px;
 }
 
+.category-tile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1px;
+  padding: 2rem 0;
+}
+@media (min-width: 768px) {
+  .category-tile-container {
+    margin: auto;
+    max-width: 1100px;
+  }
+}
+.category-tile-container .category-tile {
+  position: relative;
+  max-height: 190px;
+  overflow: hidden;
+}
+.category-tile-container .category-tile .category-tile-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(75%);
+  transition: all 0.2s;
+}
+.category-tile-container .category-tile .category-tile-image:hover {
+  filter: none;
+}
+.category-tile-container .category-tile:nth-child(3), .category-tile-container .category-tile:nth-child(6) {
+  grid-column: span 2;
+}
+
+.category-filter-button {
+  padding: 0.4rem 1.5rem;
+  text-transform: uppercase;
+  margin: 0 1rem 0 0;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+.category-filter-button:hover {
+  background-color: #DBE3F5;
+}
+
+.category-filter-button-active {
+  background-color: #DBE3F5;
+}
 .profilePage {
   border-top: 1px solid #DBE3F5;
 }
