@@ -40,8 +40,8 @@ builder.Services.AddScoped<GetAllProductsService>();
 //Services
 builder.Services.AddScoped<UpdateProductService>();
 builder.Services.AddScoped<LoginService>();
-builder.Services.AddScoped<RegisterService>();
-builder.Services.AddScoped<CheckIfUserExistsService>();
+builder.Services.AddScoped<IRegisterService, RegisterService>();
+builder.Services.AddScoped<ICheckIfUserExistsService, CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<AddressService>();
