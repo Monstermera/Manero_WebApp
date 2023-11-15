@@ -20,14 +20,12 @@ public class ProductService
     private readonly DataContext _context;
     private readonly ProductDbRepo _productDbRepo;
     private readonly IGetAllProductsService _getAllProductsService;
-    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(DataContext context, ProductDbRepo productDbRepo, IGetAllProductsService getAllProductsService, IWebHostEnvironment webHostEnvironment)
+    public ProductService(DataContext context, ProductDbRepo productDbRepo, IGetAllProductsService getAllProductsService)
     {
         _context = context;
         _productDbRepo = productDbRepo;
         _getAllProductsService = getAllProductsService;
-        _webHostEnvironment = webHostEnvironment;
     }
 
     #endregion
