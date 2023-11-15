@@ -56,30 +56,29 @@ public class RegisterControllerTests
         Assert.Equal(model, result.Model);
     }
 
-    //[Fact]
-    //public async Task Index_Post_ShouldReturnWithSuccessViewIfRegisterAsyncSucceeds()
-    //{
-    //    // Arrange
-    //    var model = new RegistrationViewModel { FullName = "name", Email = "test@test.se", Password = "asdf", ConfirmPassword = "asdf"};
+    [Fact]
+    public async Task Index_Post_ShouldReturnWithSuccessViewIfRegisterAsyncSucceeds()
+    {
+        // Arrange
+        var model = new RegistrationViewModel { FullName = "name", Email = "test@test.se", Password = "asdf", ConfirmPassword = "asdf" };
 
-    //    _mockCheckIfUserExistsService
-    //        .Setup(x => x.UserExistsAsync(It.IsAny<Expression<Func<UserEntity, bool>>>()))
-    //        .ReturnsAsync(false);
+        _mockCheckIfUserExistsService
+            .Setup(x => x.UserExistsAsync(It.IsAny<Expression<Func<UserEntity, bool>>>()))
+            .ReturnsAsync(false);
 
-    //    _mockRegisterService
-    //        .Setup(x => x.RegisterAsync(model))
-    //        .ReturnsAsync(true);
+        _mockRegisterService
+            .Setup(x => x.RegisterAsync(model))
+            .ReturnsAsync(true);
 
-    //    SignInViewModel signInViewModel = new() { Email = model.Email, Password = model.Password, KeepMeSignedIn = true };
-    //    _mockLoginService
-    //        .Setup(x => x.LoginAsync(signInViewModel))
-    //        .ReturnsAsync(true);
+        _mockLoginService
+            .Setup(x => x.LoginAsync(It.IsAny<SignInViewModel>()))
+            .ReturnsAsync(true);
 
-    //    // Act
-    //    var result = await _controller.Index(model) as RedirectToActionResult;
+        // Act
+        var result = await _controller.Index(model) as RedirectToActionResult;
 
-
-    //    // Assert
-    //    Assert.Equal("Success", result.ActionName);
-    //}
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("Success", result.ActionName);
+    }
 }
