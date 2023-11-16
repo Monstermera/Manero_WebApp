@@ -93,7 +93,7 @@
     font-weight: $font-weight-semibold;
 }
 
-.border {
+.wishlist-border {
     display: none;
     margin-bottom: 20px;
 }
@@ -105,7 +105,7 @@
 }
 
 @media (max-width: 1000px) {
-    .border {
+    .wishlist-border {
         display: block;
         border-bottom: 1px solid black;
     }
