@@ -14,7 +14,10 @@
                 <h2 class="product-title">@Model.Name</h2>
                 <span>
                     <i class="fa-light fa-heart"></i>
-                    <a asp-controller="Products" asp-action="AddOrEdit" asp-route-Id="@Model.ArticleNumber"><i class="fa-light fa-pen-to-square"></i></a>                    
+                    @if(User.IsInRole("admin"))
+                    {
+                        <a asp-controller="Products" asp-action="AddOrEdit" asp-route-Id="@Model.ArticleNumber"><i class="fa-light fa-pen-to-square"></i></a>
+                    }                                        
                 </span>
                 
             </div>
@@ -116,7 +119,13 @@
             </div>
         </div>
         <div class="product-details">
-            <h2 class="product-title">@Model.Name</h2>
+            <h2 class="product-title">
+                @if (User.IsInRole("admin"))
+                {
+                    <a asp-controller="Products" asp-action="AddOrEdit" asp-route-Id="@Model.ArticleNumber"><i class="fa-light fa-pen-to-square"></i></a>
+                }
+                @Model.Name
+            </h2>
             <div class="product-rating">
                 @{
                     var averageRatingDesktop = Model.Reviews.Any() ? Model.Reviews.Average(r => r.Rating) : 0;
