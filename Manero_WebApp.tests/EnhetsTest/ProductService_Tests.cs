@@ -2,78 +2,96 @@
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Helpers.Services.ProductServices;
 using Manero_WebApp.Models.Schemas;
-using Manero_WebApp.ViewModels.ProductsViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq.Expressions;
 
 namespace Manero_WebApp.Tests.EnhetsTest;
 
 public class ProductService_Tests
 {
-    private readonly Mock<IGetAllProductsService> _getAllProductsService;
-
-    public ProductService_Tests()
-    {
-        _getAllProductsService = new Mock<IGetAllProductsService>();
-    }
-
     [Fact]
-    public async Task PopulateCategoryViewModel_ShouldReturnValidModel()
+    public async Task GetProductPropertiesAsync_ReturnsCorrectSelectList()
     {
         // Arrange
         var serviceProvider = new ServiceCollection()
             .AddEntityFrameworkInMemoryDatabase()
             .BuildServiceProvider();
 
-        var options = new DbContextOptionsBuilder<DataContext>() 
-            .UseInMemoryDatabase(databaseName: "in_memory_db")
+        var options = new DbContextOptionsBuilder<DataContext>()
+            .UseInMemoryDatabase(databaseName: "tempDb")
             .UseInternalServiceProvider(serviceProvider)
             .Options;
 
         using (var context = new DataContext(options))
         {
             var repo = new ProductDbRepo(context);
-            var service = new ProductService(context, repo, _getAllProductsService.Object);
+            var getAllProdcutsService = new GetAllProductsService(context);
+            var productService = new ProductService(context, repo, getAllProdcutsService);
 
-            var fakeProducts = new List<ProductModel>
+            var entities = new List<TagsEntity>
             {
-                new ProductModel()
-                {
-                    ArticleNumber = Guid.NewGuid(),
-                    Name = "Product A",
-                    Categories = new List<string> { "woman", "dress" },
-                },
-                new ProductModel()
-                {
-                    ArticleNumber = Guid.NewGuid(),
-                    Name = "Product B",
-                    Categories = new List<string> { "man", "shoes" },
-                },
-
+                new TagsEntity { Id = 1, TagName = "sale" },
+                new TagsEntity { Id = 2, TagName = "new" },
+                new TagsEntity { Id = 4, TagName = "featured" },
+                new TagsEntity { Id = 5, TagName = "old" },
             };
 
-            var fakeCategories = new List<CategoriesEntity> 
-            {
-                new CategoriesEntity() { Id = 1, CategoryName = "man" },
-                new CategoriesEntity() { Id = 2, CategoryName = "woman" },
-                new CategoriesEntity() { Id = 3, CategoryName = "dress" }
-            };
-
-            // Act
-            _getAllProductsService.Setup(s => s.GetAllAsync()).ReturnsAsync(fakeProducts);
-            context.Categories.AddRange(fakeCategories);
+            context.Tags.AddRange(entities);
             await context.SaveChangesAsync();
 
-            var categoryToTest = "something";
-            var result = await service.PopulateCategoryViewModel(categoryToTest);
+            // Act
+            var result = await productService.GetProductPropertiesAsync(context.Tags, tag => tag.TagName, tag => tag.Id.ToString());
 
             // Assert
-            Assert.NotNull(result.Categories);
-            Assert.NotNull(result.Products);
-
-            Assert.IsType<CategoriesViewModel>(result);
-            Assert.True(result.Products.All(p => p.Categories.Contains(categoryToTest)));
-            Assert.True(result.Products.All(p => p is ProductModel));
+            Assert.NotNull(result);
+            Assert.Equal(entities.Count, result.Count());
+            Assert.IsAssignableFrom<IEnumerable<SelectListItem>>(result);
         }
     }
+
+    [Fact]
+    public void ImplicitOperator_ConvertsToProductModel()
+    {
+        //arrange
+        var category1 = new CategoriesEntity { Id = 1, CategoryName = "men" };
+        var category2 = new CategoriesEntity { Id = 2, CategoryName = "woman" };
+
+        var productEntity = new ProductEntity
+        {
+            Name = "Test Product",
+            Price = 55,
+            Description = "description",
+            AmountInStock = 10,
+            Categories = new List<CategoriesEntity> { category1, category2 }
+        };
+
+        //act
+        ProductModel productModel = productEntity;
+
+        //assert
+        Assert.NotNull(productModel);
+        Assert.Equal(productEntity.ArticleNumber, productModel.ArticleNumber);
+        Assert.Equal(productEntity.Name, productModel.Name);
+        Assert.Equal(productEntity.Price, productModel.Price);
+        Assert.Equal(productEntity.Description, productModel.Description);
+        Assert.Equal(productEntity.AmountInStock, productModel.AmountInStock);
+
+        //testing categories as an exapmle
+        Assert.Equal(productEntity.Categories.Select(c => c.CategoryName), productModel.Categories);
+        Assert.Equal(
+            productEntity.Reviews.Select(r => new ReviewModel
+            {
+                Id = r.Id,
+                User = r.User,
+                ProductId = r.ProductId,
+                DateCreated = r.DateCreated,
+                Rating = r.Rating,
+                ReviewDescription = r.Review
+            }),
+            productModel.Reviews
+        );
+    }
 }
+ 
