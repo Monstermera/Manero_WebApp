@@ -11,12 +11,12 @@ namespace Manero_WebApp.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly LoginService _loginService;
+        private readonly ILoginService _loginService;
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly UserManager<UserEntity> _userManager;
         private readonly RolesService _rolesService;
 
-        public LoginController(LoginService loginService, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager, RolesService rolesService)
+        public LoginController(ILoginService loginService, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager, RolesService rolesService)
         {
             _loginService = loginService;
             _signInManager = signInManager;
