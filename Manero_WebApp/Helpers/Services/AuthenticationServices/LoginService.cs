@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Manero_WebApp.Helpers.Services.AuthenticationServices;
 
-public class LoginService
+public class LoginService : ILoginService
 {
     private readonly UserManager<UserEntity> _userManager;
     private readonly SignInManager<UserEntity> _signInService;

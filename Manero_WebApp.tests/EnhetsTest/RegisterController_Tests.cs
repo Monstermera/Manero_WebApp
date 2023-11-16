@@ -13,6 +13,7 @@ public class RegisterControllerTests
 {
     private readonly Mock<IRegisterService> _mockRegisterService;
     private readonly Mock<ICheckIfUserExistsService> _mockCheckIfUserExistsService;
+    private readonly Mock<ILoginService> _mockLoginService;
     private readonly Mock<HttpContext> _mockHttpContext;
     private readonly RegisterController _controller;
 
@@ -21,8 +22,9 @@ public class RegisterControllerTests
         _mockHttpContext = new Mock<HttpContext>();
         _mockRegisterService = new Mock<IRegisterService>();
         _mockCheckIfUserExistsService = new Mock<ICheckIfUserExistsService>();
+        _mockLoginService = new Mock<ILoginService>();
 
-        _controller = new RegisterController(_mockRegisterService.Object, _mockCheckIfUserExistsService.Object)
+        _controller = new RegisterController(_mockRegisterService.Object, _mockCheckIfUserExistsService.Object, _mockLoginService.Object)
         {
             ControllerContext = new ControllerContext
             {
@@ -58,7 +60,7 @@ public class RegisterControllerTests
     public async Task Index_Post_ShouldReturnWithSuccessViewIfRegisterAsyncSucceeds()
     {
         // Arrange
-        var model = new RegistrationViewModel { FullName = "name", Email = "test@test.se", Password = "asdf", ConfirmPassword = "asdf"};
+        var model = new RegistrationViewModel { FullName = "name", Email = "test@test.se", Password = "asdf", ConfirmPassword = "asdf" };
 
         _mockCheckIfUserExistsService
             .Setup(x => x.UserExistsAsync(It.IsAny<Expression<Func<UserEntity, bool>>>()))
@@ -66,6 +68,10 @@ public class RegisterControllerTests
 
         _mockRegisterService
             .Setup(x => x.RegisterAsync(model))
+            .ReturnsAsync(true);
+
+        _mockLoginService
+            .Setup(x => x.LoginAsync(It.IsAny<SignInViewModel>()))
             .ReturnsAsync(true);
 
         // Act
