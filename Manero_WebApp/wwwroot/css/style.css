@@ -4649,7 +4649,7 @@ footer .copyright .social-media a {
   font-weight: 600;
 }
 
-.border {
+.wishlist-border {
   display: none;
   margin-bottom: 20px;
 }
@@ -4661,7 +4661,7 @@ footer .copyright .social-media a {
 }
 
 @media (max-width: 1000px) {
-  .border {
+  .wishlist-border {
     display: block;
     border-bottom: 1px solid black;
   }
