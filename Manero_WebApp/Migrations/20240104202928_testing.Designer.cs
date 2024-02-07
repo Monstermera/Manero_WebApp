@@ -4,6 +4,7 @@ using Manero_WebApp.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manero_WebApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240104202928_testing")]
+    partial class testing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,24 +156,6 @@ namespace Manero_WebApp.Migrations
                     b.HasKey("ArticleNumber");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ArticleNumber = 1,
-                            AmountInStock = 0,
-                            Description = "Hej",
-                            Name = "Socka",
-                            Price = 15m
-                        },
-                        new
-                        {
-                            ArticleNumber = 2,
-                            AmountInStock = 0,
-                            Description = "Hej",
-                            Name = "Tröja",
-                            Price = 150m
-                        });
                 });
 
             modelBuilder.Entity("Manero_WebApp.Models.Entities.ProductImageUrlEntity", b =>

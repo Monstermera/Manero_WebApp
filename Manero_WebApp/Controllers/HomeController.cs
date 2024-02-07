@@ -29,6 +29,11 @@ namespace Manero_WebApp.Controllers
 
             var products = await _getAllProductsService.GetAllAsync();
             var viewModel = CreateHomePageViewModel(products);
+
+            ViewBag.LocalProductViewModel = new LocalProductViewModel
+            {
+                Products = products
+            };
             return View(viewModel);
         }
 
@@ -66,7 +71,7 @@ namespace Manero_WebApp.Controllers
         }
 
         [HttpGet("product/{articleNumber}")]
-        public async Task<IActionResult> ProductDetails(Guid articleNumber)
+        public async Task<IActionResult> ProductDetails(int articleNumber)
         {
             var product = await _getOneProductService.GetOneProductAsync(articleNumber);
             if (product == null)

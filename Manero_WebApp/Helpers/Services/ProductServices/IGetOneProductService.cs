@@ -4,6 +4,6 @@ namespace Manero_WebApp.Helpers.Services.ProductServices
 {
     public interface IGetOneProductService
     {
-        Task<ProductModel> GetOneProductAsync(Guid articleNumber);
+        Task<ProductModel> GetOneProductAsync(int articleNumber);
     }
 }

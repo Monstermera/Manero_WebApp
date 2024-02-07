@@ -2,6 +2,7 @@ using Manero_WebApp.Contexts;
 using Manero_WebApp.Helpers.Repositories;
 using Manero_WebApp.Helpers.Services.AuthenticationServices;
 using Manero_WebApp.Helpers.Services.ProductServices;
+using Manero_WebApp.Helpers.Services.ShoppingCartServices;
 using Manero_WebApp.Helpers.Services.UserServices;
 using Manero_WebApp.Models.Entities;
 using Manero_WebApp.Models.Schemas;
@@ -39,6 +40,7 @@ builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<CheckIfUserExistsService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ShoppingCartService>();
 
 //Identity
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>

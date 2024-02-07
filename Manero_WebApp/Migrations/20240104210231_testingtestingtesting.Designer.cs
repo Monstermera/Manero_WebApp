@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manero_WebApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231027083507_Init")]
-    partial class Init
+    [Migration("20240104210231_testingtestingtesting")]
+    partial class testingtestingtesting
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,8 +45,8 @@ namespace Manero_WebApp.Migrations
                     b.Property<int>("CategoriesId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ProductsArticleNumber")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ProductsArticleNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("CategoriesId", "ProductsArticleNumber");
 
@@ -60,8 +60,8 @@ namespace Manero_WebApp.Migrations
                     b.Property<int>("ColorsId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ProductsArticleNumber")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ProductsArticleNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("ColorsId", "ProductsArticleNumber");
 
@@ -133,9 +133,11 @@ namespace Manero_WebApp.Migrations
 
             modelBuilder.Entity("Manero_WebApp.Models.Entities.ProductEntity", b =>
                 {
-                    b.Property<Guid>("ArticleNumber")
+                    b.Property<int>("ArticleNumber")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArticleNumber"));
 
                     b.Property<int>("AmountInStock")
                         .HasColumnType("int");
@@ -154,6 +156,24 @@ namespace Manero_WebApp.Migrations
                     b.HasKey("ArticleNumber");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ArticleNumber = 1,
+                            AmountInStock = 0,
+                            Description = "Hej",
+                            Name = "Socka",
+                            Price = 15m
+                        },
+                        new
+                        {
+                            ArticleNumber = 2,
+                            AmountInStock = 0,
+                            Description = "Hej",
+                            Name = "Tröja",
+                            Price = 150m
+                        });
                 });
 
             modelBuilder.Entity("Manero_WebApp.Models.Entities.ProductImageUrlEntity", b =>
@@ -166,12 +186,15 @@ namespace Manero_WebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProductArticleNumber")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductArticleNumber");
 
                     b.ToTable("ProductImages");
                 });
@@ -184,6 +207,9 @@ namespace Manero_WebApp.Migrations
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductArticleNumber")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
@@ -201,11 +227,29 @@ namespace Manero_WebApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductArticleNumber");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("Manero_WebApp.Models.Entities.ShoppingCartEntity", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("Manero_WebApp.Models.Entities.SizesEntity", b =>
@@ -450,8 +494,8 @@ namespace Manero_WebApp.Migrations
 
             modelBuilder.Entity("ProductEntitySizesEntity", b =>
                 {
-                    b.Property<Guid>("ProductsArticleNumber")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ProductsArticleNumber")
+                        .HasColumnType("int");
 
                     b.Property<int>("SizesId")
                         .HasColumnType("int");
@@ -465,8 +509,8 @@ namespace Manero_WebApp.Migrations
 
             modelBuilder.Entity("ProductEntityTagsEntity", b =>
                 {
-                    b.Property<Guid>("ProductsArticleNumber")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ProductsArticleNumber")
+                        .HasColumnType("int");
 
                     b.Property<int>("TagsId")
                         .HasColumnType("int");
@@ -527,7 +571,7 @@ namespace Manero_WebApp.Migrations
                 {
                     b.HasOne("Manero_WebApp.Models.Entities.ProductEntity", "Product")
                         .WithMany("ImageUrl")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductArticleNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -538,7 +582,7 @@ namespace Manero_WebApp.Migrations
                 {
                     b.HasOne("Manero_WebApp.Models.Entities.ProductEntity", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductArticleNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -551,6 +595,25 @@ namespace Manero_WebApp.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Manero_WebApp.Models.Entities.ShoppingCartEntity", b =>
+                {
+                    b.HasOne("Manero_WebApp.Models.Entities.ProductEntity", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Manero_WebApp.Models.Entities.UserEntity", "ShoppingCartUser")
+                        .WithOne("ShoppingCart")
+                        .HasForeignKey("Manero_WebApp.Models.Entities.ShoppingCartEntity", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ShoppingCartUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -644,6 +707,8 @@ namespace Manero_WebApp.Migrations
             modelBuilder.Entity("Manero_WebApp.Models.Entities.UserEntity", b =>
                 {
                     b.Navigation("Reviews");
+
+                    b.Navigation("ShoppingCart");
                 });
 #pragma warning restore 612, 618
         }

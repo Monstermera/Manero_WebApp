@@ -28,10 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="ViewModels\AccountViewModels\" />
     <Folder Include="ViewModels\ContactViewModels\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Partials\FullScreenComponents\BestSellers\" />
+    <Folder Include="Views\Partials\FullScreenComponents\NewFolder\" />
     <Folder Include="Views\Partials\FullScreenComponents\NewsLetter\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>

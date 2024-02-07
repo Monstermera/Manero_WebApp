@@ -6,6 +6,7 @@ namespace Manero_WebApp.ViewModels.HomeViewModels
     {
         public IEnumerable<ProductModel> BestSellers { get; set; }
         public IEnumerable<ProductModel> FeaturedProducts { get; set; }
+        public List<ProductModel> Products { get; set; }
 
     }
 

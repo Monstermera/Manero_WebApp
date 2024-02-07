@@ -1,19 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Manero_WebApp.Models
+namespace Manero_WebApp.Models.Entities;
+
+[PrimaryKey(nameof(UserId), nameof(ProductId))]
+public class ShoppingCartEntity
 {
-    public class ShoppingCartEntity
-    {
-        [Key]
-        public int ShoppingCartId { get; set; }
-        public string UserId { get; set; }
+    [Required]
+    [ForeignKey("ShoppingCartUser")]
+    public string UserId { get; set; } = null!;
 
-        public virtual ICollection<CartItemEntity> CartItems { get; set; }
+    [Required]
+    [ForeignKey("Product")]
+    public int ProductId { get; set; }
 
-        public ShoppingCartEntity()
-        {
-            CartItems = new HashSet<CartItemEntity>();
-        }
-    }
+    public UserEntity ShoppingCartUser { get; set; } = null!;
+
+    public ProductEntity Product { get; set; } = null!;
 }

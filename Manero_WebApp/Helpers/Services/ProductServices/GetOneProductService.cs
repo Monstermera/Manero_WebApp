@@ -18,7 +18,7 @@ public class GetOneProductService : IGetOneProductService
 
     #endregion
 
-    public async Task<ProductModel> GetOneProductAsync(Guid articleNumber)
+    public async Task<ProductModel> GetOneProductAsync(int articleNumber)
     {
         var productEntity = await _context.Products
             .Include(x => x.ImageUrl)
@@ -60,4 +60,8 @@ public class GetOneProductService : IGetOneProductService
         return null;
     }
 
+    public Task<ProductModel> GetOneProductAsync(Guid articleNumber)
+    {
+        throw new NotImplementedException();
+    }
 }

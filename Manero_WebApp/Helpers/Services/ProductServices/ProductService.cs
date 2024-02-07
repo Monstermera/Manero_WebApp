@@ -40,7 +40,7 @@ public class ProductService
     //    return null!;
     //}
 
-    public async Task<ProductModel> GetAsync(Guid Id)
+    public async Task<ProductModel> GetAsync(int Id)
     {
         var _entity = await _productDbRepo.GetAsync(x => x.ArticleNumber == Id);
         if (_entity != null)

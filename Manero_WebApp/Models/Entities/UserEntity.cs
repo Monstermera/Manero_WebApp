@@ -11,6 +11,7 @@ public class UserEntity : IdentityUser
     public string? ImageUrl { get; set; }
     public List<AdressEntity> Addresses { get; set; } = new();
     public List<ReviewsEntity> Reviews { get; set; } = new();
+    public ShoppingCartEntity? ShoppingCart { get; set; }
 
     public static implicit operator UserModel(UserEntity model)
     {

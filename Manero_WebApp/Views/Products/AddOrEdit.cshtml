@@ -10,7 +10,7 @@
     @if(Model != null)
         {
         <h2 class="title">Edit Product</h2>
-        if(Model.ArticleNumber != Guid.Empty)
+        if(Model.ArticleNumber != 0)
         {
             <input asp-for="ArticleNumber" value="@Model.ArticleNumber" hidden/>
         }

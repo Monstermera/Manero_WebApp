@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Manero_WebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class testing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -97,7 +97,8 @@ namespace Manero_WebApp.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    ArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ArticleNumber = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "money", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -269,7 +270,7 @@ namespace Manero_WebApp.Migrations
                 columns: table => new
                 {
                     CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ProductsArticleNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -293,7 +294,7 @@ namespace Manero_WebApp.Migrations
                 columns: table => new
                 {
                     ColorsId = table.Column<int>(type: "int", nullable: false),
-                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ProductsArticleNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -318,14 +319,15 @@ namespace Manero_WebApp.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductArticleNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductImages_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ProductImages_Products_ProductArticleNumber",
+                        column: x => x.ProductArticleNumber,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
@@ -340,6 +342,7 @@ namespace Manero_WebApp.Migrations
                     Rating = table.Column<int>(type: "int", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductArticleNumber = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -352,7 +355,31 @@ namespace Manero_WebApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reviews_Products_ProductId",
+                        name: "FK_Reviews_Products_ProductArticleNumber",
+                        column: x => x.ProductArticleNumber,
+                        principalTable: "Products",
+                        principalColumn: "ArticleNumber",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingCarts",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCarts", x => new { x.UserId, x.ProductId });
+                    table.ForeignKey(
+                        name: "FK_ShoppingCarts_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCarts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ArticleNumber",
@@ -363,7 +390,7 @@ namespace Manero_WebApp.Migrations
                 name: "ProductEntitySizesEntity",
                 columns: table => new
                 {
-                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductsArticleNumber = table.Column<int>(type: "int", nullable: false),
                     SizesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -387,7 +414,7 @@ namespace Manero_WebApp.Migrations
                 name: "ProductEntityTagsEntity",
                 columns: table => new
                 {
-                    ProductsArticleNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductsArticleNumber = table.Column<int>(type: "int", nullable: false),
                     TagsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -472,19 +499,30 @@ namespace Manero_WebApp.Migrations
                 column: "TagsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductImages_ProductId",
+                name: "IX_ProductImages_ProductArticleNumber",
                 table: "ProductImages",
-                column: "ProductId");
+                column: "ProductArticleNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_ProductId",
+                name: "IX_Reviews_ProductArticleNumber",
                 table: "Reviews",
-                column: "ProductId");
+                column: "ProductArticleNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_UserId",
                 table: "Reviews",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCarts_ProductId",
+                table: "ShoppingCarts",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCarts_UserId",
+                table: "ShoppingCarts",
+                column: "UserId",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -525,6 +563,9 @@ namespace Manero_WebApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCarts");
 
             migrationBuilder.DropTable(
                 name: "Adresses");
